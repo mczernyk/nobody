@@ -12,14 +12,24 @@ export const StateContext = ({ children }) => {
 
   let foundProduct;
   let index;
+  let tempProd={}
+  let tempQuant=1
+  let tempSize=''
 
   const onAdd = (product, quantity, sizeChoice) => {
+
+    if (!quantity) {
+      quantity=tempQuant
+    }
+
+    if (!sizeChoice) {
+      sizeChoice=tempSize
+    }
 
     const prodBuy = {
       name: product.name,
       image: product.image,
       price: product.price,
-      quantity: product.quantity,
       sizeChoice: sizeChoice,
       custom: product.custom,
       slug: product.slug,
@@ -27,6 +37,16 @@ export const StateContext = ({ children }) => {
       _type: product._type,
       key: `${product._id}sz${sizeChoice}`
     }
+
+
+
+    if (prodBuy.name === undefined){
+      prodBuy=tempProd
+    } else {
+      tempProd = prodBuy
+    }
+
+
 
     console.log('PROD', product)
 
@@ -39,17 +59,32 @@ export const StateContext = ({ children }) => {
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
 
     if(checkProductInCart) {
+      // problem is in here
       const updatedCartItems = cartItems.map((cartProduct) => {
-        if(cartProduct.key === prodBuy.key) return {
+        if(cartProduct.key === prodBuy.key){
+          return {
           ...cartProduct,
           quantity: cartProduct.quantity + quantity
+          }
+
+        } else {
+          return cartProduct
         }
       })
+
+      console.log('updatedCart', updatedCartItems)
+
+      console.log('CART1', cartItems)
+
+
 
       setCartItems(updatedCartItems);
     } else {
       prodBuy.quantity = quantity;
 
+
+      console.log('cartPB', prodBuy)
+      console.log('CAR2', cartItems)
       setCartItems([...cartItems, { ...prodBuy }]);
     }
 
@@ -57,28 +92,31 @@ export const StateContext = ({ children }) => {
   }
 
   const onRemove = (product) => {
-    foundProduct = cartItems.find((item) => item.key === prodBuy.key);
-    const newCartItems = cartItems.filter((item) => itemkey !== prodBuy.key);
+    foundProduct = cartItems.find((item) => item.key === product.key);
+    const newCartItems = cartItems.filter((item) => item.key !== product.key);
 
-    setTotalPrice((prevTotalPrice) => prevTotalPrice -foundProduct.price * foundProduct.quantity);
+    setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price * foundProduct.quantity);
     setTotalQuantities(prevTotalQuantities => prevTotalQuantities - foundProduct.quantity);
+    console.log('CAR3',newCartItems)
     setCartItems(newCartItems);
+
   }
 
-  const toggleCartItemQuanitity = (id, value) => {
-    foundProduct = cartItems.find((item) => item._id === id)
-    index = cartItems.findIndex((product) => product._id === id);
-    const newCartItems = cartItems.filter((item) => item._id !== id)
+  const toggleCartItemQuanitity = (key, value) => {
+    foundProduct = cartItems.find((item) => item.key === key)
+    index = cartItems.findIndex((product) => product.key === key);
+    const newCartItems = cartItems.filter((item) => item.key !== key)
 
     if(value === 'inc') {
+
       setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1 } ]);
       setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
-      setTotalQuantities(prevTotalQuantities => prevTotalQuantities + 1)
+      setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + 1)
     } else if(value === 'dec') {
       if (foundProduct.quantity > 1) {
         setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity - 1 } ]);
         setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price)
-        setTotalQuantities(prevTotalQuantities => prevTotalQuantities - 1)
+        setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - 1)
       }
     }
   }
