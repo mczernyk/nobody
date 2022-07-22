@@ -102,6 +102,8 @@ export const StateContext = ({ children }) => {
 
   }
 
+  // TOGGLE BUG TO FIX
+
   const toggleCartItemQuanitity = (key, value) => {
     foundProduct = cartItems.find((item) => item.key === key)
     index = cartItems.findIndex((product) => product.key === key);
