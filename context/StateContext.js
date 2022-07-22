@@ -91,6 +91,7 @@ export const StateContext = ({ children }) => {
     toast.success(`you stuffed ${qty} size ${sizeChoice} ${product.name} into a tattered burlap sack.`);
   }
 
+  // REMOVE BUG TO FIX
   const onRemove = (product) => {
     foundProduct = cartItems.find((item) => item.key === product.key);
     const newCartItems = cartItems.filter((item) => item.key !== product.key);
@@ -106,12 +107,15 @@ export const StateContext = ({ children }) => {
 
   const toggleCartItemQuanitity = (key, value) => {
     foundProduct = cartItems.find((item) => item.key === key)
+
     index = cartItems.findIndex((product) => product.key === key);
+
     const newCartItems = cartItems.filter((item) => item.key !== key)
 
     if(value === 'inc') {
 
       setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1 } ]);
+
       setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
       setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + 1)
     } else if(value === 'dec') {
