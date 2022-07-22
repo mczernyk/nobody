@@ -59,7 +59,6 @@ export const StateContext = ({ children }) => {
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
 
     if(checkProductInCart) {
-      // problem is in here
       const updatedCartItems = cartItems.map((cartProduct) => {
         if(cartProduct.key === prodBuy.key){
           return {
@@ -91,10 +90,12 @@ export const StateContext = ({ children }) => {
     toast.success(`you stuffed ${qty} size ${sizeChoice} ${product.name} into a tattered burlap sack.`);
   }
 
-  // REMOVE BUG TO FIX
-  const onRemove = (product) => {
-    foundProduct = cartItems.find((item) => item.key === product.key);
-    const newCartItems = cartItems.filter((item) => item.key !== product.key);
+  const onRemove = (key) => {
+
+   console.log('REMOVE PROD', key)
+
+    foundProduct = cartItems.find((item) => item.key === key);
+    const newCartItems = cartItems.filter((item) => item.key !== key);
 
     setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price * foundProduct.quantity);
     setTotalQuantities(prevTotalQuantities => prevTotalQuantities - foundProduct.quantity);
@@ -103,9 +104,11 @@ export const StateContext = ({ children }) => {
 
   }
 
-  // TOGGLE BUG TO FIX
+  // TOGGLE BUG TO FIX - works, but items switch order while toggling
 
   const toggleCartItemQuanitity = (key, value) => {
+    console.log('key', key)
+
     foundProduct = cartItems.find((item) => item.key === key)
 
     index = cartItems.findIndex((product) => product.key === key);
