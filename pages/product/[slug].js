@@ -56,11 +56,11 @@ const ProductDetails = ({ product, products }) => {
           </div>
           <h4>Details: </h4>
           <p>{details}</p>
-          <div className="quantity">
-          <h4>Size: </h4>
-          <select id="size" value={sizeChoice} onChange={handleChange}>
-            {product.size.map((item, i) => <option key={i} value={item}>{item}</option>)}
-          </select>
+          <div className="size-box">
+            <h4>Size: </h4>
+            <select id="size" value={sizeChoice} onChange={handleChange}>
+              {product.size.map((item, i) => <option key={i} value={item}>{item}</option>)}
+            </select>
           </div>
           <p className="price">${price}</p>
 
