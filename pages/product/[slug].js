@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar, AiFillEye, AiFillFrown, AiFillHeart, AiFillMeh, AiFillSmile, AiFillThunderbolt, AiOutlineAim, AiOutlineFrown, AiOutlineGlobal, AiOutlineMeh, AiOutlineSmile, AiOutlineWarning, AiOutlineThunderbolt, AiFillWarning, AiOutlineColumnHeight, AiOutlineDollarCircle } from 'react-icons/ai';
+import { AiOutlineMinus, AiOutlinePlus, AiFillFrown, AiFillMeh, AiFillSmile,AiOutlineGlobal, AiOutlineDollar } from 'react-icons/ai';
 
 import { client, urlFor } from '../../lib/client';
 import { Product } from '../../components';
@@ -45,9 +45,9 @@ const ProductDetails = ({ product, products }) => {
           <div className="reviews">
             <div>
               <AiFillFrown />
-              <AiOutlineGlobal />
+              <AiOutlineDollar/>
               <AiFillMeh />
-              <AiOutlineDollarCircle/>
+              <AiOutlineGlobal />
               <AiFillSmile />
             </div>
             {/*<p>
