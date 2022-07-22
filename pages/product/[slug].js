@@ -9,9 +9,14 @@ const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
   const [index, setIndex] = useState(0);
   const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
+  const [sizeChoice, setSizeChoice] = useState("S")
+
+  const handleChange = (event) => {
+    setSizeChoice(event.target.value);
+  };
 
   const handleBuyNow = () => {
-    onAdd(product, qty);
+    onAdd(product, qty, sizeChoice);
 
     setShowCart(true);
   }
@@ -51,7 +56,16 @@ const ProductDetails = ({ product, products }) => {
           </div>
           <h4>Details: </h4>
           <p>{details}</p>
+          <div className="quantity">
+          <h4>Size: </h4>
+          <select id="size" value={sizeChoice} onChange={handleChange}>
+            {product.size.map((item, i) => <option key={i} value={item}>{item}</option>)}
+          </select>
+          </div>
           <p className="price">${price}</p>
+
+
+
           <div className="quantity">
             <h3>Quantity:</h3>
             <p className="quantity-desc">
@@ -61,7 +75,7 @@ const ProductDetails = ({ product, products }) => {
             </p>
           </div>
           <div className="buttons">
-            <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Add to Cart</button>
+            <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty, sizeChoice)}>Add to Cart</button>
             <button type="button" className="buy-now" onClick={handleBuyNow}>Buy Now</button>
           </div>
         </div>

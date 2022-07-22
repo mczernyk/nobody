@@ -13,15 +13,34 @@ export const StateContext = ({ children }) => {
   let foundProduct;
   let index;
 
-  const onAdd = (product, quantity) => {
-    const checkProductInCart = cartItems.find((item) => item._id === product._id);
+  const onAdd = (product, quantity, sizeChoice) => {
 
-    setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
+    const prodBuy = {
+      name: product.name,
+      image: product.image,
+      price: product.price,
+      quantity: product.quantity,
+      sizeChoice: sizeChoice,
+      custom: product.custom,
+      slug: product.slug,
+      _id: product._id,
+      _type: product._type,
+      key: `${product._id}sz${sizeChoice}`
+    }
+
+    console.log('PROD', product)
+
+
+    console.log("PROD prodBuy", prodBuy)
+
+    const checkProductInCart = cartItems.find((item) => item.key === prodBuy.key);
+
+    setTotalPrice((prevTotalPrice) => prevTotalPrice + prodBuy.price * quantity);
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
 
     if(checkProductInCart) {
       const updatedCartItems = cartItems.map((cartProduct) => {
-        if(cartProduct._id === product._id) return {
+        if(cartProduct.key === prodBuy.key) return {
           ...cartProduct,
           quantity: cartProduct.quantity + quantity
         }
@@ -29,17 +48,17 @@ export const StateContext = ({ children }) => {
 
       setCartItems(updatedCartItems);
     } else {
-      product.quantity = quantity;
+      prodBuy.quantity = quantity;
 
-      setCartItems([...cartItems, { ...product }]);
+      setCartItems([...cartItems, { ...prodBuy }]);
     }
 
-    toast.success(`you stuffed ${qty} ${product.name} into a tattered burlap sack.`);
+    toast.success(`you stuffed ${qty} size ${sizeChoice} ${product.name} into a tattered burlap sack.`);
   }
 
   const onRemove = (product) => {
-    foundProduct = cartItems.find((item) => item._id === product._id);
-    const newCartItems = cartItems.filter((item) => item._id !== product._id);
+    foundProduct = cartItems.find((item) => item.key === prodBuy.key);
+    const newCartItems = cartItems.filter((item) => itemkey !== prodBuy.key);
 
     setTotalPrice((prevTotalPrice) => prevTotalPrice -foundProduct.price * foundProduct.quantity);
     setTotalQuantities(prevTotalQuantities => prevTotalQuantities - foundProduct.quantity);
