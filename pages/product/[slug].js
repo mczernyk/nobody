@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar, AiFillEye, AiFillFrown, AiFillHeart, AiFillMeh, AiFillSmile, AiFillThunderbolt, AiOutlineAim, AiOutlineFrown, AiOutlineGlobal, AiOutlineMeh, AiOutlineSmile, AiOutlineWarning, AiOutlineThunderbolt, AiFillWarning, AiOutlineColumnHeight, AiOutlineDollarCircle } from 'react-icons/ai';
 
 import { client, urlFor } from '../../lib/client';
 import { Product } from '../../components';
@@ -44,15 +44,15 @@ const ProductDetails = ({ product, products }) => {
           <h1>{name}</h1>
           <div className="reviews">
             <div>
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiOutlineStar />
+              <AiFillFrown />
+              <AiOutlineGlobal />
+              <AiFillMeh />
+              <AiOutlineDollarCircle/>
+              <AiFillSmile />
             </div>
-            <p>
+            {/*<p>
               (20)
-            </p>
+            </p>*/}
           </div>
           <h4>Details: </h4>
           <p>{details}</p>
