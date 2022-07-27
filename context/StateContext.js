@@ -222,6 +222,7 @@ let tempColor=''
         setTotalQuantities,
         walletAddress,
         setWalletAddress,
+        connectWallet,
         nfts,
         setNfts
       }}

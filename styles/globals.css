@@ -35,6 +35,28 @@ width: 100%;
   margin: 6px 18px;
   position: relative;
 }
+.navbar-left{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.navbar-right{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.connect-wallet{
+  margin-right: 20px;
+  border: 1px solid #f02d34 ;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: white;
+  color: #f02d34;
+  cursor: pointer;
+  width: 200px;
+  text-transform: uppercase;
+}
 .marquee-text{
   font-size: 29px;
   font-weight: 600;
@@ -73,6 +95,10 @@ width: 100%;
 }
 .logo:hover{
   color: red;
+  font-size: 18px;
+}
+.wallet-info{
+  color: black;
   font-size: 18px;
 }
 .cart-icon{
