@@ -35,7 +35,7 @@ export const StateContext = ({ children }) => {
       return
     }
 
-    const response = await fetch(`https://api.rarible.org/v0.1/items/byOwner/?owner=ETHEREUM:${walletAddress}`)
+    const response = await fetch(`https://api.rarible.org/v0.1/items/byOwner/?owner=ETHEREUM:${walletAddress}&size=${100000}`)
 
       const data = await response.json()
 
@@ -53,6 +53,7 @@ export const StateContext = ({ children }) => {
         "ETHEREUM:0x1352149cd78d686043b504e7e7d96c5946b0c39c")
 
         const cdbsFound = await data.items.filter(each => each.collection === "ETHEREUM:0x42069abfe407c60cf4ae4112bedead391dba1cdb")
+        console.log('cdbs', cdbsFound)
 
         setMiladys(miladysFound)
         setAuras(aurasFound)
