@@ -25,44 +25,45 @@ export const StateContext = ({ children }) => {
       setWalletAddress(accounts[0])
 
       console.log('MetaMask is installed!');
+      toast.success(`wallet connected ;)`);
     }
   }
 
-  // const getNFTData = async () => {
+  const getNFTData = async () => {
 
-  //   if (!walletAddress) {
-  //     return
-  //   }
+    if (!walletAddress) {
+      return
+    }
 
-  //   const response = await fetch(`https://api.rarible.org/v0.1/items/byOwner/?owner=ETHEREUM:${walletAddress}`)
+    const response = await fetch(`https://api.rarible.org/v0.1/items/byOwner/?owner=ETHEREUM:${walletAddress}`)
 
-  //     const data = await response.json()
+      const data = await response.json()
 
-  //     setNfts(data.items)
+      setNfts(data.items)
 
-  //     console.log(data.items)
+      console.log(data.items)
 
-  //     const miladysFound = await data.items.filter(each => each.collection === "ETHEREUM:0x5af0d9827e0c53e4799bb226655a1de152a425a5")
+      // const miladysFound = await data.items.filter(each => each.collection === "ETHEREUM:0x5af0d9827e0c53e4799bb226655a1de152a425a5")
 
-  //     const aurasFound = await data.items.filter(each => each.collection === "ETHEREUM:0x2fc722c1c77170a61f17962cc4d039692f033b43")
+      // const aurasFound = await data.items.filter(each => each.collection === "ETHEREUM:0x2fc722c1c77170a61f17962cc4d039692f033b43")
 
-  //     const bannersFound = await data.items.filter(each => each.collection ===
-  //     "ETHEREUM:0x1352149cd78d686043b504e7e7d96c5946b0c39c")
+      // const bannersFound = await data.items.filter(each => each.collection ===
+      // "ETHEREUM:0x1352149cd78d686043b504e7e7d96c5946b0c39c")
 
-  //     const cdbsFound = await data.items.filter(each => each.collection ===       "ETHEREUM:0x42069abfe407c60cf4ae4112bedead391dba1cdb")
+      // const cdbsFound = await data.items.filter(each => each.collection ===       "ETHEREUM:0x42069abfe407c60cf4ae4112bedead391dba1cdb")
 
-  //     setMiladys(miladysFound)
-  //     setAuras(aurasFound)
-  //     setBanners(bannersFound)
-  //     setCdbs(cdbsFound)
+      // setMiladys(miladysFound)
+      // setAuras(aurasFound)
+      // setBanners(bannersFound)
+      // setCdbs(cdbsFound)
 
-  //     // debugger
+      // debugger
 
-  // }
+  }
 
-  // useEffect(() => {
-  //   getNFTData()
-  // }, [walletAddress])
+  useEffect(() => {
+    getNFTData()
+  }, [walletAddress])
 
 
   let foundProduct;
@@ -109,11 +110,6 @@ let tempColor=''
 
 
 
-    console.log('PROD', product)
-
-
-    console.log("PROD prodBuy", prodBuy)
-
     const checkProductInCart = cartItems.find((item) => item.key === prodBuy.key);
 
     setTotalPrice((prevTotalPrice) => prevTotalPrice + prodBuy.price * quantity);
@@ -132,19 +128,13 @@ let tempColor=''
         }
       })
 
-      console.log('updatedCart', updatedCartItems)
 
-      console.log('CART1', cartItems)
 
 
 
       setCartItems(updatedCartItems);
     } else {
       prodBuy.quantity = quantity;
-
-
-      console.log('cartPB', prodBuy)
-      console.log('CAR2', cartItems)
       setCartItems([...cartItems, { ...prodBuy }]);
     }
 
@@ -153,14 +143,12 @@ let tempColor=''
 
   const onRemove = (key) => {
 
-   console.log('REMOVE PROD', key)
 
     foundProduct = cartItems.find((item) => item.key === key);
     const newCartItems = cartItems.filter((item) => item.key !== key);
 
     setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price * foundProduct.quantity);
     setTotalQuantities(prevTotalQuantities => prevTotalQuantities - foundProduct.quantity);
-    console.log('CAR3',newCartItems)
     setCartItems(newCartItems);
 
   }
@@ -168,7 +156,6 @@ let tempColor=''
   // TOGGLE BUG TO FIX - works, but items switch order while toggling
 
   const toggleCartItemQuanitity = (key, value) => {
-    console.log('key', key)
 
     foundProduct = cartItems.find((item) => item.key === key)
 

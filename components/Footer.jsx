@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { AiFillInstagram, AiOutlineTwitter} from 'react-icons/ai';
 
 
@@ -8,7 +9,17 @@ const Footer = () => {
 
   return (
     <div className="footer-container">
-      <p>nobody || <i>{date}</i></p>
+
+      <div>
+        <p className="footer-home">
+          <Link href="/">
+          nobody. ||
+          </Link>
+          <i> {date}</i>
+        </p>
+
+      </div>
+
       <div>
 
         <p className="icons">

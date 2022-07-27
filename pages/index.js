@@ -41,7 +41,7 @@ const Home = ({ products, bannerData }) => (
       <h2>milAIdy & spring miaura</h2>
 
       <div className="products-container">
-        {products?.map((product) => (product.collection === 'milaidy' || product.collection === 'miaura') && <Product key={product._id} product={product} />)}
+        {products?.map((product) => (product.collection === 'milaidy' || product.collection === 'miaura' || product.collection === 'milady-deriv') && <Product key={product._id} product={product} />)}
       </div>
 
     </div>

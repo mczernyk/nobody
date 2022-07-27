@@ -22,9 +22,9 @@ const Navbar = () => {
 
       <div className='navbar-right'>
 
-       {!walletAddress ?? <button type="button" onClick={() => connectWallet()} className="connect-wallet">
+       <button type="button" onClick={() => connectWallet()} className="connect-wallet">
           Connect Wallet
-        </button>}
+        </button>
 
         <button type="button" className="cart-icon" onClick={() => setShowCart(true)}>
           <AiOutlineShopping />
