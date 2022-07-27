@@ -43,23 +43,50 @@ export const StateContext = ({ children }) => {
 
       console.log(data.items)
 
-      // const miladysFound = await data.items.filter(each => each.collection === "ETHEREUM:0x5af0d9827e0c53e4799bb226655a1de152a425a5")
+      if (data.items) {
 
-      // const aurasFound = await data.items.filter(each => each.collection === "ETHEREUM:0x2fc722c1c77170a61f17962cc4d039692f033b43")
+        const miladysFound = await data.items.filter(each => each.collection === "ETHEREUM:0x5af0d9827e0c53e4799bb226655a1de152a425a5")
 
-      // const bannersFound = await data.items.filter(each => each.collection ===
-      // "ETHEREUM:0x1352149cd78d686043b504e7e7d96c5946b0c39c")
+        const aurasFound = await data.items.filter(each => each.collection === "ETHEREUM:0x2fc722c1c77170a61f17962cc4d039692f033b43")
 
-      // const cdbsFound = await data.items.filter(each => each.collection ===       "ETHEREUM:0x42069abfe407c60cf4ae4112bedead391dba1cdb")
+        const bannersFound = await data.items.filter(each => each.collection ===
+        "ETHEREUM:0x1352149cd78d686043b504e7e7d96c5946b0c39c")
 
-      // setMiladys(miladysFound)
-      // setAuras(aurasFound)
-      // setBanners(bannersFound)
-      // setCdbs(cdbsFound)
+        const cdbsFound = await data.items.filter(each => each.collection ===       "ETHEREUM:0x42069abfe407c60cf4ae4112bedead391dba1cdb")
+
+        setMiladys(miladysFound)
+        setAuras(aurasFound)
+        setBanners(bannersFound)
+        setCdbs(cdbsFound)
+
+      }
+
+
+
 
       // debugger
 
   }
+  const collectionHelper = async (data) => {
+    if (walletAddress) {
+
+      const miladysFound = await data.filter(each => each.collection === "ETHEREUM:0x5af0d9827e0c53e4799bb226655a1de152a425a5")
+
+      const aurasFound = await data.filter(each => each.collection === "ETHEREUM:0x2fc722c1c77170a61f17962cc4d039692f033b43")
+
+      const bannersFound = await data.filter(each => each.collection ===
+      "ETHEREUM:0x1352149cd78d686043b504e7e7d96c5946b0c39c")
+
+      const cdbsFound = await data.filter(each => each.collection ===       "ETHEREUM:0x42069abfe407c60cf4ae4112bedead391dba1cdb")
+
+      setMiladys(miladysFound)
+      setAuras(aurasFound)
+      setBanners(bannersFound)
+      setCdbs(cdbsFound)
+    }
+  }
+
+
 
   useEffect(() => {
     getNFTData()
@@ -211,7 +238,12 @@ let tempColor=''
         setWalletAddress,
         connectWallet,
         nfts,
-        setNfts
+        setNfts,
+        miladys,
+        auras,
+        cdbs,
+        collectionHelper
+
       }}
     >
       {children}

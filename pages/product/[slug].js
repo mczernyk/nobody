@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { AiOutlineMinus, AiOutlinePlus, AiFillFrown, AiFillMeh, AiFillSmile,AiOutlineGlobal, AiOutlineDollar } from 'react-icons/ai';
 
 import { client, urlFor } from '../../lib/client';
-import { Product } from '../../components';
+import { Product, NFTContainer, NFTCard } from '../../components';
 import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({ product, products }) => {
-  const { image, name, details, price } = product;
+  const { image, name, details, price, custom, collection } = product;
   const [index, setIndex] = useState(0);
-  const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, collectionHelper, nfts } = useStateContext();
   const [sizeChoice, setSizeChoice] = useState("S")
   const [colorChoice, setColorChoice] = useState("white")
 
@@ -94,6 +94,69 @@ const ProductDetails = ({ product, products }) => {
 
           <p className="price">${price}</p>
 
+          {custom &&
+            <div>
+            <h3>click to choose an NFT:</h3>
+              {collection === 'milady' &&
+                <div>
+                  {miladys.length ?
+                    (<div>
+                      <p>{miladys.length}</p>
+                      <NFTContainer nfts={miladys}/>
+                    </div>
+                    ):(
+                      <div>
+                      <p>no NFTs detected, try connecting your wallet again please</p>
+                    </div>
+                    )
+                  }
+
+                </div>
+              }
+
+              {collection === 'aura' &&
+                <div>
+                  {auras.length ?
+                    (<div>
+                      <p>{auras.length}</p>
+                      <NFTContainer nfts={auras}/>
+                    </div>
+                    ):(
+                      <div>
+                        <p>no NFTs detected, try connecting your wallet again please</p>
+                      </div>
+                    )
+                  }
+
+                </div>
+              }
+
+              {collection === 'cdb' &&
+                <div>
+                  {cdbs.length ?
+                    (<div>
+                      <p>{cdbs.length}</p>
+                      <NFTContainer nfts={cdbs}/>
+                    </div>
+                    ):(
+                      <div>
+                        <p>no NFTs detected, try connecting your wallet again please</p>
+                      </div>
+                    )
+                  }
+
+                </div>
+              }
+
+
+          </div>}
+
+
+
+
+
+
+
 
 
           <div className="quantity">
@@ -104,6 +167,7 @@ const ProductDetails = ({ product, products }) => {
               <span className="plus" onClick={incQty}><AiOutlinePlus /></span>
             </p>
           </div>
+
           <div className="buttons">
             <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty, sizeChoice, colorChoice)}>Add to Cart</button>
             <button type="button" className="buy-now" onClick={handleBuyNow}>Buy Now</button>

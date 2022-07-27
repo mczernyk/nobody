@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 import { urlFor } from '../lib/client';
+import { useStateContext } from '../context/StateContext';
 
-const Product = ({ product: { image, name, slug, price, details }}) => {
+
+const Product = ({ product: { image, name, slug, price, details, custom }}) => {
   const [index, setIndex] = useState(0);
+  const { collectionHelper } = useStateContext();
 
   return (
     <div>
-      <Link href={`/product/${slug.current}`}>
+      <Link href={`/product/${slug.current}`} >
         <div className="product-card">
           {image && (<img
             src={urlFor(image && image[index])}
