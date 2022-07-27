@@ -16,6 +16,7 @@ const Product = ({ product: { image, name, slug, price, details } }) => {
             height={250}
             className="product-image"
           />)}
+
           <div className="small-images-container">
             {image && (image.slice(0,4)?.map((item, i) => (
               <img
