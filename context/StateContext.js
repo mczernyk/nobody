@@ -10,6 +10,61 @@ export const StateContext = ({ children }) => {
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
 
+  const [walletAddress, setWalletAddress] = useState('no wallet connected :(')
+  const [nfts, setNfts] = useState([])
+  const [miladys, setMiladys] = useState([])
+  const [auras, setAuras] = useState([])
+  const [cdbs, setCdbs] = useState([])
+  const [banners, setBanners] = useState([])
+
+  const connectWallet = async () => {
+    if (typeof window.ethereum !== 'undefined') {
+
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+      setWalletAddress(accounts[0])
+
+      console.log('MetaMask is installed!');
+    }
+  }
+
+  // const getNFTData = async () => {
+
+  //   if (!walletAddress) {
+  //     return
+  //   }
+
+  //   const response = await fetch(`https://api.rarible.org/v0.1/items/byOwner/?owner=ETHEREUM:${walletAddress}`)
+
+  //     const data = await response.json()
+
+  //     setNfts(data.items)
+
+  //     console.log(data.items)
+
+  //     const miladysFound = await data.items.filter(each => each.collection === "ETHEREUM:0x5af0d9827e0c53e4799bb226655a1de152a425a5")
+
+  //     const aurasFound = await data.items.filter(each => each.collection === "ETHEREUM:0x2fc722c1c77170a61f17962cc4d039692f033b43")
+
+  //     const bannersFound = await data.items.filter(each => each.collection ===
+  //     "ETHEREUM:0x1352149cd78d686043b504e7e7d96c5946b0c39c")
+
+  //     const cdbsFound = await data.items.filter(each => each.collection ===       "ETHEREUM:0x42069abfe407c60cf4ae4112bedead391dba1cdb")
+
+  //     setMiladys(miladysFound)
+  //     setAuras(aurasFound)
+  //     setBanners(bannersFound)
+  //     setCdbs(cdbsFound)
+
+  //     // debugger
+
+  // }
+
+  // useEffect(() => {
+  //   getNFTData()
+  // }, [walletAddress])
+
+
   let foundProduct;
   let index;
   let tempProd={}
@@ -164,7 +219,11 @@ let tempColor=''
         onRemove,
         setCartItems,
         setTotalPrice,
-        setTotalQuantities
+        setTotalQuantities,
+        walletAddress,
+        setWalletAddress,
+        nfts,
+        setNfts
       }}
     >
       {children}

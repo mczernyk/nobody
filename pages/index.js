@@ -27,21 +27,34 @@ const Home = ({ products, bannerData }) => (
     </div>
 
     <div className='products-collection-container'>
-      <h2>milady aura</h2>
-      <div className="products-container">
 
+      <h2>milady aura</h2>
+
+      <div className="products-container">
       {products?.map((product) => product.collection === 'aura' && <Product key={product._id} product={product} />)}
+      </div>
+
     </div>
 
     <div className='products-collection-container'>
+
+      <h2>milAIdy & spring miaura</h2>
+
+      <div className="products-container">
+        {products?.map((product) => (product.collection === 'milaidy' || product.collection === 'miaura') && <Product key={product._id} product={product} />)}
+      </div>
+
+    </div>
+
+    <div className='products-collection-container'>
+
       <h2>cryptodickbutts</h2>
 
       <div className="products-container">
-
         {products?.map((product) => product.collection === 'cdb' && <Product key={product._id} product={product} />)}
       </div>
+
     </div>
-  </div>
 
     <FooterBanner footerBanner={bannerData && bannerData[0]} />
   </div>

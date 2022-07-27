@@ -47,12 +47,13 @@ const Cart = () => {
               <img src={urlFor(item?.image[0])} className="cart-product-image" />
               <div className="item-desc">
                 <div className="flex top">
-                  <h5>{item.name}</h5>
-                  <h4>${item.price}</h4>
+                  <h5 className='cart-item-name'>{item.name}</h5>
+                  <h5 className="cart-price">${item.price}</h5>
                 </div>
                 <div className="flex top">
-                  <h5>size {item.sizeChoice}</h5>
-                  <h5>color: {item.colorChoice}</h5>                </div>
+                  <h4>size: {item.sizeChoice}</h4>
+                  <h4>color: <span className='cart-item-name'>{item.colorChoice}</span></h4>
+                </div>
                 <div className="flex bottom">
                   <div>
                   <p className="quantity-desc">
@@ -78,8 +79,8 @@ const Cart = () => {
         {cartItems.length >= 1 && (
           <div className="cart-bottom">
             <div className="total">
-              <h3>Subtotal:</h3>
-              <h3>${totalPrice.toFixed(2)}</h3>
+              <h3>subtotal:</h3>
+              <h3 className='cart-price'>${totalPrice.toFixed(2)}</h3>
             </div>
             <div className="btn-container">
               <button type="button" className="btn" onClick={''}>

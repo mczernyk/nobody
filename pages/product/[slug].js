@@ -71,19 +71,19 @@ const ProductDetails = ({ product, products }) => {
               (20)
             </p>*/}
           </div>
-          <h4>Details: </h4>
+          <h3>details: </h3>
           <p>{details}</p>
 
           <div className='quantity'>
             <div className="size-box">
-              <h4>Size: </h4>
+              <h3>size: </h3>
               <select id="size" value={sizeChoice} onChange={handleChange}>
                 {product.size.map((item, i) => <option key={i} value={item}>{item}</option>)}
               </select>
 
             </div>
             <div className="size-box">
-            <h4>Color: </h4>
+            <h3>color: </h3>
             <select id="size" value={colorChoice} onChange={handleChangeColor}>
               {product.color.map((item, i) => <option key={i} value={item}>{item}</option>)}
             </select>
@@ -97,7 +97,7 @@ const ProductDetails = ({ product, products }) => {
 
 
           <div className="quantity">
-            <h3>Quantity:</h3>
+            <h3>quantity:</h3>
             <p className="quantity-desc">
               <span className="minus" onClick={decQty}><AiOutlineMinus /></span>
               <span className="num">{qty}</span>
