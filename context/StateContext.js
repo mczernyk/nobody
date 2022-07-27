@@ -52,7 +52,7 @@ export const StateContext = ({ children }) => {
         const bannersFound = await data.items.filter(each => each.collection ===
         "ETHEREUM:0x1352149cd78d686043b504e7e7d96c5946b0c39c")
 
-        const cdbsFound = await data.items.filter(each => each.collection ===       "ETHEREUM:0x42069abfe407c60cf4ae4112bedead391dba1cdb")
+        const cdbsFound = await data.items.filter(each => each.collection === "ETHEREUM:0x42069abfe407c60cf4ae4112bedead391dba1cdb")
 
         setMiladys(miladysFound)
         setAuras(aurasFound)
