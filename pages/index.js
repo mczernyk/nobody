@@ -14,13 +14,34 @@ const Home = ({ products, bannerData }) => (
   <div>
     <HeroBanner heroBanner={bannerData.length && bannerData[0]}  />
     <div className="products-heading">
-      <h2>header text</h2>
-      <p>more text</p>
     </div>
 
-    <div className="products-container">
-      {products?.map((product) => <Product key={product._id} product={product} />)}
+    <div className='products-collection-container'>
+
+      <h2>milady</h2>
+
+      <div className="products-container">
+        {products?.map((product) => product.collection === 'milady' && <Product key={product._id} product={product} />)}
+      </div>
+
     </div>
+
+    <div className='products-collection-container'>
+      <h2>milady aura</h2>
+      <div className="products-container">
+
+      {products?.map((product) => product.collection === 'aura' && <Product key={product._id} product={product} />)}
+    </div>
+
+    <div className='products-collection-container'>
+      <h2>cryptodickbutts</h2>
+
+      <div className="products-container">
+
+        {products?.map((product) => product.collection === 'cdb' && <Product key={product._id} product={product} />)}
+      </div>
+    </div>
+  </div>
 
     <FooterBanner footerBanner={bannerData && bannerData[0]} />
   </div>

@@ -17,7 +17,7 @@ const Product = ({ product: { image, name, slug, price, details } }) => {
             className="product-image"
           />)}
           <div className="small-images-container">
-            {image && (image.slice(0,3)?.map((item, i) => (
+            {image && (image.slice(0,4)?.map((item, i) => (
               <img
                 key={i}
                 src={urlFor(item)}
