@@ -10,13 +10,22 @@ const ProductDetails = ({ product, products }) => {
   const [index, setIndex] = useState(0);
   const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
   const [sizeChoice, setSizeChoice] = useState("S")
+  const [colorChoice, setColorChoice] = useState("black")
+
 
   const handleChange = (event) => {
     setSizeChoice(event.target.value);
   };
 
+  const handleChangeColor = (event) => {
+    setColorChoice(event.target.value);
+    console.log('color', colorChoice)
+  };
+
+
+
   const handleBuyNow = () => {
-    onAdd(product, qty, sizeChoice);
+    onAdd(product, qty, sizeChoice, colorChoice);
 
     setShowCart(true);
   }
@@ -56,12 +65,25 @@ const ProductDetails = ({ product, products }) => {
           </div>
           <h4>Details: </h4>
           <p>{details}</p>
-          <div className="size-box">
-            <h4>Size: </h4>
-            <select id="size" value={sizeChoice} onChange={handleChange}>
-              {product.size.map((item, i) => <option key={i} value={item}>{item}</option>)}
+
+          <div className='quantity'>
+            <div className="size-box">
+              <h4>Size: </h4>
+              <select id="size" value={sizeChoice} onChange={handleChange}>
+                {product.size.map((item, i) => <option key={i} value={item}>{item}</option>)}
+              </select>
+
+            </div>
+            <div className="size-box">
+            <h4>Color: </h4>
+            <select id="size" value={colorChoice} onChange={handleChangeColor}>
+              {product.color.map((item, i) => <option key={i} value={item}>{item}</option>)}
             </select>
+
           </div>
+
+          </div>
+
           <p className="price">${price}</p>
 
 
@@ -75,7 +97,7 @@ const ProductDetails = ({ product, products }) => {
             </p>
           </div>
           <div className="buttons">
-            <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty, sizeChoice)}>Add to Cart</button>
+            <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty, sizeChoice, colorChoice)}>Add to Cart</button>
             <button type="button" className="buy-now" onClick={handleBuyNow}>Buy Now</button>
           </div>
         </div>

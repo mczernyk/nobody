@@ -15,8 +15,9 @@ export const StateContext = ({ children }) => {
   let tempProd={}
   let tempQuant=1
   let tempSize=''
+let tempColor=''
 
-  const onAdd = (product, quantity, sizeChoice) => {
+  const onAdd = (product, quantity, sizeChoice, colorChoice) => {
 
     if (!quantity) {
       quantity=tempQuant
@@ -26,16 +27,21 @@ export const StateContext = ({ children }) => {
       sizeChoice=tempSize
     }
 
+    if (!colorChoice) {
+      colorChoice=tempColor
+    }
+
     const prodBuy = {
       name: product.name,
       image: product.image,
       price: product.price,
       sizeChoice: sizeChoice,
+      colorChoice: colorChoice,
       custom: product.custom,
       slug: product.slug,
       _id: product._id,
       _type: product._type,
-      key: `${product._id}sz${sizeChoice}`
+      key: `${product._id}sz${sizeChoice}${colorChoice}`
     }
 
 
@@ -87,7 +93,7 @@ export const StateContext = ({ children }) => {
       setCartItems([...cartItems, { ...prodBuy }]);
     }
 
-    toast.success(`you stuffed ${qty} size ${sizeChoice} ${product.name} into a tattered burlap sack.`);
+    toast.success(`you stuffed ${qty} size ${sizeChoice} ${colorChoice} ${product.name} into a tattered burlap sack.`);
   }
 
   const onRemove = (key) => {
