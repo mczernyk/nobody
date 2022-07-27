@@ -99,9 +99,9 @@ export const StateContext = ({ children }) => {
   let tempProd={}
   let tempQuant=1
   let tempSize=''
-let tempColor=''
+  let tempColor=''
 
-  const onAdd = (product, quantity, sizeChoice, colorChoice) => {
+  const onAdd = (product, quantity, sizeChoice, colorChoice, customChoice) => {
 
     if (!quantity) {
       quantity=tempQuant
@@ -116,7 +116,7 @@ let tempColor=''
     }
 
     const prodBuy = {
-      name: product.name,
+      name: customChoice? customChoice: product.name,
       image: product.image,
       price: product.price,
       sizeChoice: sizeChoice,
@@ -125,7 +125,7 @@ let tempColor=''
       slug: product.slug,
       _id: product._id,
       _type: product._type,
-      key: `${product._id}sz${sizeChoice}${colorChoice}`
+      key: `${product._id}${product.name}sz${sizeChoice}${colorChoice}`
     }
 
 
@@ -244,7 +244,6 @@ let tempColor=''
         auras,
         cdbs,
         collectionHelper
-
       }}
     >
       {children}

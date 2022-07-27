@@ -13,6 +13,7 @@ const ProductDetails = ({ product, products }) => {
   const [colorChoice, setColorChoice] = useState("white")
 
 
+
   const handleChange = (event) => {
     setSizeChoice(event.target.value);
   };
@@ -101,8 +102,8 @@ const ProductDetails = ({ product, products }) => {
                 <div>
                   {miladys.length ?
                     (<div>
-                    <p>{miladys.length} NFTs found :)</p>
-                      <NFTContainer nfts={miladys}/>
+                    <p>{miladys.length} NFTs found</p>
+                      <NFTContainer nfts={miladys} product={product}/>
                     </div>
                     ):(
                       <div>
@@ -118,8 +119,8 @@ const ProductDetails = ({ product, products }) => {
                 <div>
                   {auras.length ?
                     (<div>
-                      <p>{auras.length} NFTs found :)</p>
-                      <NFTContainer nfts={auras}/>
+                      <p>{auras.length} NFTs found</p>
+                      <NFTContainer nfts={auras} product={product}/>
                     </div>
                     ):(
                       <div>
@@ -133,10 +134,11 @@ const ProductDetails = ({ product, products }) => {
 
               {collection === 'cdb' &&
                 <div>
-                  {cdbs.length ?
+                  {
+                    cdbs.length ?
                     (<div>
-                      <p>{cdbs.length} NFTs found :)</p>
-                      <NFTContainer nfts={cdbs}/>
+                      <p>{cdbs.length} NFTs found</p>
+                      <NFTContainer nfts={cdbs} product={product}/>
                     </div>
                     ):(
                       <div>
@@ -149,7 +151,8 @@ const ProductDetails = ({ product, products }) => {
               }
 
 
-          </div>}
+          </div>
+        }
 
 
 
