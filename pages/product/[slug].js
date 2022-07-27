@@ -10,7 +10,7 @@ const ProductDetails = ({ product, products }) => {
   const [index, setIndex] = useState(0);
   const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
   const [sizeChoice, setSizeChoice] = useState("S")
-  const [colorChoice, setColorChoice] = useState("black")
+  const [colorChoice, setColorChoice] = useState("white")
 
 
   const handleChange = (event) => {
@@ -18,6 +18,16 @@ const ProductDetails = ({ product, products }) => {
   };
 
   const handleChangeColor = (event) => {
+    if (event.target.value === 'white') {
+      setIndex(0)
+    }
+    if (event.target.value === 'black') {
+      setIndex(2)
+    }
+    if (event.target.value === 'berry') {
+      setIndex(4)
+    }
+
     setColorChoice(event.target.value);
     console.log('color', colorChoice)
   };
@@ -52,14 +62,12 @@ const ProductDetails = ({ product, products }) => {
         <div className="product-detail-desc">
           <h1>{name}</h1>
           <div className="reviews">
-            <div>
               <AiFillFrown />
               <AiOutlineDollar/>
               <AiFillMeh />
               <AiOutlineGlobal />
               <AiFillSmile />
-            </div>
-            {/*<p>
+              {/*<p>
               (20)
             </p>*/}
           </div>
@@ -104,7 +112,7 @@ const ProductDetails = ({ product, products }) => {
       </div>
 
       <div className="maylike-products-wrapper">
-          <h2>more from this collection:</h2>
+          <h2>more from this collection</h2>
           <div className="marquee">
             <div className="maylike-products-container track">
               {products.map((item) => product.collection === item.collection&& (

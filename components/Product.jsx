@@ -17,6 +17,9 @@ const Product = ({ product: { image, name, slug, price, details }}) => {
             className="product-image"
           />)}
 
+          <p className="product-name"><i>{name}</i></p>
+
+
           <div className="small-images-container">
             {image && (image.slice(0,4)?.map((item, i) => (
               <img
@@ -28,7 +31,6 @@ const Product = ({ product: { image, name, slug, price, details }}) => {
             )))}
           </div>
 
-          <p className="product-name">{name}</p>
           <p className="product-price">${price}</p>
         </div>
       </Link>
