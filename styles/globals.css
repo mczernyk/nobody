@@ -57,6 +57,36 @@ width: 100%;
   width: 200px;
   text-transform: uppercase;
 }
+
+.nft-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  border: black 2px dashed;
+  margin-top: 20px;
+}
+.nft-card {
+  padding-top: 6px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-bottom: 6px;
+  justify-content: center;
+  text-align: center;
+}
+.nft-card:hover{
+  cursor: pointer;
+  transform: scale(1.05, 1.05);
+  transition: transform 0.5s ease;
+}
+.nft-name {
+  background-color: black;
+  color: white;
+  width: 100%;
+  text-transform: uppercase;
+  font-style: italic;
+
+}
+
 .marquee-text{
   font-size: 29px;
   font-weight: 600;

@@ -101,7 +101,7 @@ const ProductDetails = ({ product, products }) => {
                 <div>
                   {miladys.length ?
                     (<div>
-                      <p>{miladys.length}</p>
+                    <p>{miladys.length} NFTs found :)</p>
                       <NFTContainer nfts={miladys}/>
                     </div>
                     ):(
@@ -118,7 +118,7 @@ const ProductDetails = ({ product, products }) => {
                 <div>
                   {auras.length ?
                     (<div>
-                      <p>{auras.length}</p>
+                      <p>{auras.length} NFTs found :)</p>
                       <NFTContainer nfts={auras}/>
                     </div>
                     ):(
@@ -135,7 +135,7 @@ const ProductDetails = ({ product, products }) => {
                 <div>
                   {cdbs.length ?
                     (<div>
-                      <p>{cdbs.length}</p>
+                      <p>{cdbs.length} NFTs found :)</p>
                       <NFTContainer nfts={cdbs}/>
                     </div>
                     ):(
