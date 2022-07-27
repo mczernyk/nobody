@@ -6,6 +6,7 @@ body, * {
   font-family: "Baskerville Normal";
   src: url('../asset/Baskerville\ Normal.ttf');
   box-sizing: border-box;
+  letter-spacing: .25rem;
 
 }
 ::-webkit-scrollbar {
@@ -450,7 +451,7 @@ padding: 30px 65px;
   transition: .3s ease-in-out;
 }
 .product-detail-image:hover{
-  background-color: #f02d34;
+  transform: scale(1.05,1.05);
 
 }
 .small-images-container{
@@ -467,7 +468,7 @@ padding: 30px 65px;
 }
 
 .selected-image{
-  background-color:#f02d34;
+  border: 2px solid #f02d34;
 }
 .reviews{
   color: #f02d34;
@@ -581,9 +582,7 @@ padding: 6px;
 .maylike-products-container{
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
-}
+  gap: 15px;}
 .max-qty{
   font-weight: 500;
   color: #f02d34;

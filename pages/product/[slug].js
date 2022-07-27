@@ -104,10 +104,10 @@ const ProductDetails = ({ product, products }) => {
       </div>
 
       <div className="maylike-products-wrapper">
-          <h2>You may also like</h2>
+          <h2>more from this collection:</h2>
           <div className="marquee">
             <div className="maylike-products-container track">
-              {products.map((item) => (
+              {products.map((item) => product.collection === item.collection&& (
                 <Product key={item._id} product={item} />
               ))}
             </div>
