@@ -8,7 +8,7 @@ import { useStateContext } from '../../context/StateContext';
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price, custom, collection } = product;
   const [index, setIndex] = useState(0);
-  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, collectionHelper, nfts } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, collectionHelper, nfts, customChoice, setCustomChoice } = useStateContext();
   const [sizeChoice, setSizeChoice] = useState("S")
   const [colorChoice, setColorChoice] = useState("white")
 
@@ -36,7 +36,7 @@ const ProductDetails = ({ product, products }) => {
 
 
   const handleBuyNow = () => {
-    onAdd(product, qty, sizeChoice, colorChoice);
+    onAdd(product, qty, sizeChoice, colorChoice, customChoice);
 
     setShowCart(true);
   }
@@ -172,7 +172,7 @@ const ProductDetails = ({ product, products }) => {
           </div>
 
           <div className="buttons">
-            <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty, sizeChoice, colorChoice)}>Add to Cart</button>
+            <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty, sizeChoice, colorChoice, customChoice)}>Add to Cart</button>
             <button type="button" className="buy-now" onClick={handleBuyNow}>Buy Now</button>
           </div>
         </div>

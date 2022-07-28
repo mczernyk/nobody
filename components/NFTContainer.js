@@ -5,8 +5,8 @@ const NFTContainer = ({nfts, product}) => {
 
   return (
     <div className="nft-container">
-      {nfts.map((nft, index) => {
-        return <NFTCard nft={nft} product={product} key={index} />
+      {nfts.map((nft, i) => {
+        return <NFTCard nft={nft} product={product} key={i}/>
       })}
     </div>
   )
