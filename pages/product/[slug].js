@@ -101,8 +101,12 @@ const ProductDetails = ({ product, products }) => {
               {collection === 'milady' &&
                 <div>
                   {miladys.length ?
-                    (<div>
-                    <p>{miladys.length} NFTs found</p>
+                    (
+                    <div>
+                      <div className='quantity'>
+                        <p>{miladys.length} NFTs found.</p>
+                        {customChoice && <p>{customChoice} selected.</p>}
+                      </div>
                       <NFTContainer nfts={miladys} product={product}/>
                     </div>
                     ):(
@@ -118,11 +122,15 @@ const ProductDetails = ({ product, products }) => {
               {collection === 'aura' &&
                 <div>
                   {auras.length ?
-                    (<div>
-                      <p>{auras.length} NFTs found</p>
-                      <NFTContainer nfts={auras} product={product}/>
-                    </div>
-                    ):(
+                    (
+                      <div>
+                        <div className='quantity'>
+                          <p>{auras.length} NFTs found.</p>
+                          {customChoice && <p>{customChoice} selected.</p>}
+                        </div>
+                        <NFTContainer nfts={auras} product={product}/>
+                      </div>
+                      ):(
                       <div>
                         <p>no NFTs detected, try connecting your wallet again please</p>
                       </div>
@@ -136,11 +144,15 @@ const ProductDetails = ({ product, products }) => {
                 <div>
                   {
                     cdbs.length ?
-                    (<div>
-                      <p>{cdbs.length} NFTs found</p>
-                      <NFTContainer nfts={cdbs} product={product}/>
-                    </div>
-                    ):(
+                    (
+                      <div>
+                        <div className='quantity'>
+                          <p>{cdbs.length} NFTs found.</p>
+                          {customChoice && <p>{customChoice} selected.</p>}
+                        </div>
+                        <NFTContainer nfts={cdbs} product={product}/>
+                      </div>
+                      ):(
                       <div>
                         <p>no NFTs detected, try connecting your wallet again please</p>
                       </div>
@@ -153,11 +165,15 @@ const ProductDetails = ({ product, products }) => {
                 <div>
                   {
                     derivs.length ?
-                    (<div>
-                      <p>{derivs.length} NFTs found</p>
-                      <NFTContainer nfts={derivs} product={product}/>
-                    </div>
-                    ):(
+                    (
+                      <div>
+                        <div className='quantity'>
+                          <p>{derivs.length} NFTs found.</p>
+                          {customChoice && <p>{customChoice} selected.</p>}
+                        </div>
+                        <NFTContainer nfts={derivs} product={product}/>
+                      </div>
+                      ):(
                       <div>
                         <p>no NFTs detected, try connecting your wallet again please</p>
                       </div>
