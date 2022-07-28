@@ -8,7 +8,7 @@ import { useStateContext } from '../../context/StateContext';
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price, custom, collection } = product;
   const [index, setIndex] = useState(0);
-  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, collectionHelper, nfts, customChoice, setCustomChoice } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, derivs, collectionHelper, nfts, customChoice, setCustomChoice } = useStateContext();
   const [sizeChoice, setSizeChoice] = useState("S")
   const [colorChoice, setColorChoice] = useState("white")
 
@@ -149,6 +149,24 @@ const ProductDetails = ({ product, products }) => {
 
                 </div>
               }
+              {collection === 'milady-deriv' &&
+                <div>
+                  {
+                    derivs.length ?
+                    (<div>
+                      <p>{derivs.length} NFTs found</p>
+                      <NFTContainer nfts={derivs} product={product}/>
+                    </div>
+                    ):(
+                      <div>
+                        <p>no NFTs detected, try connecting your wallet again please</p>
+                      </div>
+                    )
+                  }
+
+                </div>
+              }
+
 
 
           </div>

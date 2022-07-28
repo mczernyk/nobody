@@ -18,6 +18,8 @@ export const StateContext = ({ children }) => {
   const [auras, setAuras] = useState([])
   const [cdbs, setCdbs] = useState([])
   const [banners, setBanners] = useState([])
+  const [derivs, setDerivs] = useState([])
+
 
   const connectWallet = async () => {
     if (typeof window.ethereum !== 'undefined') {
@@ -52,15 +54,18 @@ export const StateContext = ({ children }) => {
         const aurasFound = await data.items.filter(each => each.collection === "ETHEREUM:0x2fc722c1c77170a61f17962cc4d039692f033b43")
 
         const bannersFound = await data.items.filter(each => each.collection ===
-        "ETHEREUM:0x1352149cd78d686043b504e7e7d96c5946b0c39c")
+          "ETHEREUM:0x1352149cd78d686043b504e7e7d96c5946b0c39c")
+
+        const derivsFound = await data.items.filter(each => (each.collection ===
+          "ETHEREUM:0x3a007afa2dff13c9dc5020acae1bcb502d4312e2" || each.collection === "ETHEREUM:0x0d8a3359182dca59ccaf36f5c6c6008b83ceb4a6"))
 
         const cdbsFound = await data.items.filter(each => each.collection === "ETHEREUM:0x42069abfe407c60cf4ae4112bedead391dba1cdb")
 
         setMiladys(miladysFound)
         setAuras(aurasFound)
-        setBanners(bannersFound)
         setCdbs(cdbsFound)
-
+        setBanners(bannersFound)
+        setDerivs(derivsFound)
       }
 
 
@@ -79,12 +84,18 @@ export const StateContext = ({ children }) => {
       const bannersFound = await data.filter(each => each.collection ===
       "ETHEREUM:0x1352149cd78d686043b504e7e7d96c5946b0c39c")
 
+      const derivsFound = await data.items.filter(each => (each.collection ===
+        "ETHEREUM:0x3a007afa2dff13c9dc5020acae1bcb502d4312e2" || each.collection === "ETHEREUM:0x5af0d9827e0c53e4799bb226655a1de152a425a5"))
+
       const cdbsFound = await data.filter(each => each.collection ===       "ETHEREUM:0x42069abfe407c60cf4ae4112bedead391dba1cdb")
+
+      console.log('derivsFound',derivsFound)
 
       setMiladys(miladysFound)
       setAuras(aurasFound)
       setBanners(bannersFound)
       setCdbs(cdbsFound)
+      setDerivs(derivsFound)
     }
   }
 
@@ -180,6 +191,7 @@ export const StateContext = ({ children }) => {
     }
 
     toast.success(`you stuffed ${qty} size ${sizeChoice} ${colorChoice} ${prodBuy.name} into a tattered burlap sack.`);
+    setCustomChoice('')
   }
 
   const onRemove = (key) => {
@@ -256,6 +268,7 @@ export const StateContext = ({ children }) => {
         miladys,
         auras,
         cdbs,
+        derivs,
         collectionHelper,
         customChoice,
         setCustomChoice

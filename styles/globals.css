@@ -71,7 +71,10 @@ width: 100%;
   padding-left: 6px;
   padding-right: 6px;
   padding-bottom: 6px;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
 }
 .nft-card:hover{

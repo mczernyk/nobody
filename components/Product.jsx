@@ -7,7 +7,6 @@ import { useStateContext } from '../context/StateContext';
 
 const Product = ({ product: { image, name, slug, price, details, custom }}) => {
   const [index, setIndex] = useState(0);
-  const { collectionHelper } = useStateContext();
 
   return (
     <div>
