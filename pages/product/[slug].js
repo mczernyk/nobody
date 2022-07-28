@@ -216,7 +216,17 @@ const ProductDetails = ({ product, products }) => {
           <h2>more from this collection</h2>
           <div className="marquee">
             <div className="maylike-products-container track">
-              {products.map((item) => product.collection === item.collection && (
+              {products.sort(function (a, b) {
+                const nameA = a.name.toUpperCase()
+                const nameB = b.name.toUpperCase()
+                if (nameA < nameB){
+                  return -1
+                }
+                if (nameA > nameB){
+                  return 1
+                }
+                return 0
+              }).map((item) => product.collection === item.collection && (
                 <Product key={item._id} product={item} />
               ))}
             </div>
