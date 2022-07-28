@@ -13,9 +13,7 @@ const Product = ({ product: { image, name, slug, price, details, custom }}) => {
       <Link href={`/product/${slug.current}`} >
         <div className="product-card">
           {image && (<img
-            src={urlFor(image && image[index])}
-            // width={250}
-            height={250}
+            src={urlFor(image && image[index])}            height={250}
             className="product-image"
           />)}
 

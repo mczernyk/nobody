@@ -44,7 +44,7 @@ const ProductDetails = ({ product, products }) => {
   return (
     <div>
       <div className="product-detail-container">
-        <div>
+        {image && (<div>
           <div className="image-container">
             <img src={urlFor(image && image[index])} className="product-detail-image" />
           </div>
@@ -58,7 +58,7 @@ const ProductDetails = ({ product, products }) => {
               />
             ))}
           </div>
-        </div>
+        </div>)}
 
         <div className="product-detail-desc">
           <h1>{name}</h1>
@@ -200,7 +200,7 @@ const ProductDetails = ({ product, products }) => {
           <h2>more from this collection</h2>
           <div className="marquee">
             <div className="maylike-products-container track">
-              {products.map((item) => product.collection === item.collection&& (
+              {products.map((item) => product.collection === item.collection && (
                 <Product key={item._id} product={item} />
               ))}
             </div>
