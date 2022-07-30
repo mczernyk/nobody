@@ -205,10 +205,17 @@ const ProductDetails = ({ product, products }) => {
             </p>
           </div>
 
-          <div className="buttons">
+         {customChoice === '' && custom ?
+
+         <div>select an NFT from your collection first</div> :
+
+         <div className="buttons">
             <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty, sizeChoice, colorChoice, customChoice)}>Add to Cart</button>
             <button type="button" className="buy-now" onClick={handleBuyNow}>Buy Now</button>
           </div>
+
+
+        }
         </div>
       </div>
 
