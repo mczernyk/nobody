@@ -7,10 +7,11 @@ import { useStateContext } from '../context/StateContext';
 
 const Product = ({ product: { image, name, slug, price, details, custom }}) => {
   const [index, setIndex] = useState(0);
+  const { customChoice, setCustomChoice } = useStateContext();
 
   return (
-    <div>
-      <Link href={`/product/${slug.current}`} >
+    <div onClick={(e)=> setCustomChoice('')}>
+      <Link href={`/product/${slug.current}`}>
         <div className="product-card">
           {image && (<img
             src={urlFor(image && image[index])}            height={250}

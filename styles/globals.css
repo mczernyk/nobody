@@ -638,15 +638,18 @@ padding: 30px 65px;
    transform: scale(1, 1);
   transition: transform 0.5s ease;
   text-transform: uppercase;
-
 }
 .buttons .add-to-cart:hover{
   transform:scale(1.1,1.1)
 }
+.buttons .add-to-cart:disabled{
+  color: gray;
+  border: 1px solid gray;
+  cursor: not-allowed
+}
 .buttons .buy-now{
   width: 200px;
   text-transform: uppercase;
-
   padding: 10px 20px;
   background-color: #f02d34;
   color: white;
@@ -660,6 +663,10 @@ padding: 30px 65px;
 }
 .buttons .buy-now:hover{
   transform:scale(1.1,1.1)
+}
+.buttons .buy-now:disabled{
+  background-color: gray;
+  cursor: not-allowed
 }
 .quantity-desc{
   border: 1px solid gray;

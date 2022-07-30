@@ -175,7 +175,7 @@ const ProductDetails = ({ product, products }) => {
                       </div>
                       ):(
                       <div>
-                        <p>no NFTs detected, try connecting your wallet again please</p>
+                        <p>no NFTs detected, try connecting your wallet again</p>
                       </div>
                     )
                   }
