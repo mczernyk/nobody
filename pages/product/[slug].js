@@ -205,17 +205,17 @@ const ProductDetails = ({ product, products }) => {
             </p>
           </div>
 
-         {customChoice === '' && custom ?
 
-         <h4>connect your wallet and select an NFT from your collection first</h4> :
+
+
 
          <div className="buttons">
-            <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty, sizeChoice, colorChoice, customChoice)}>Add to Cart</button>
-            <button type="button" className="buy-now" onClick={handleBuyNow}>Buy Now</button>
+            <button disabled={customChoice === '' && custom } type="button" className="add-to-cart" onClick={() => onAdd(product, qty, sizeChoice, colorChoice, customChoice)}>Add to Cart</button>
+            <button disabled={customChoice === '' && custom } type="button" className="buy-now" onClick={handleBuyNow}>Buy Now</button>
           </div>
 
 
-        }
+
         </div>
       </div>
 
