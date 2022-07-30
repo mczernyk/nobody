@@ -47,15 +47,36 @@ width: 100%;
   justify-content: flex-end;
 }
 .connect-wallet{
-  margin-right: 20px;
+  padding: 10px 20px;
   border: 1px solid #f02d34 ;
+  margin-top: 20px;
+  margin-bottom: 20px;
   font-size: 18px;
   font-weight: 500;
   background-color: white;
   color: #f02d34;
   cursor: pointer;
-  width: 200px;
+   transform: scale(1, 1);
+  transition: transform 0.5s ease;
   text-transform: uppercase;
+}
+.connect-wallet:hover{
+  transform:scale(1.1,1.1)
+}
+.connect-wallet:disabled{
+  padding: 10px 20px;
+  border: 1px solid green ;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: white;
+  color: green;
+  cursor: pointer;
+   transform: scale(1, 1);
+  transition: transform 0.5s ease;
+  text-transform: uppercase;
+  cursor: auto;
 }
 
 .nft-container {

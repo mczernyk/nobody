@@ -8,7 +8,7 @@ import { useStateContext } from '../../context/StateContext';
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price, custom, collection } = product;
   const [index, setIndex] = useState(0);
-  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, derivs, collectionHelper, nfts, customChoice, setCustomChoice } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, derivs, customChoice, setCustomChoice, connectWallet, walletAddress } = useStateContext();
   const [sizeChoice, setSizeChoice] = useState("S")
   const [colorChoice, setColorChoice] = useState("white")
 
@@ -97,7 +97,22 @@ const ProductDetails = ({ product, products }) => {
 
           {custom &&
             <div>
-            <h3>click to choose an NFT:</h3>
+            <h3>connect your wallet and choose an NFT below:</h3>
+
+            {walletAddress==='no wallet connected :('
+            ?
+
+            <button type="button" onClick={() => connectWallet()}
+            className="connect-wallet">
+              Connect Wallet
+            </button>
+            :
+            <button type="button" disabled={true} onClick={() => connectWallet()}
+            className="connect-wallet">
+              Wallet Connected
+            </button>
+            }
+
               {collection === 'milady' &&
                 <div>
                   {miladys.length ?
