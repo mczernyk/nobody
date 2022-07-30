@@ -10,12 +10,13 @@ const Footer = () => {
   return (
     <div className="footer-container">
 
-      <div>
+      <div className='footer-home-container'>
         <p className="footer-home">
           <Link href="/">
-          nobody. ||
+          nobody
           </Link>
-          <i> {date}</i>
+        </p>
+        <p className='footer-space'> ||<i> {date}</i>
         </p>
 
       </div>
@@ -23,7 +24,7 @@ const Footer = () => {
       <div>
 
         <p className="icons">
-        <a href="https://twitter.com/nobody_clothing"><AiOutlineTwitter /></a>
+        <a className='twitter' href="https://twitter.com/nobody_clothing"><AiOutlineTwitter /></a>
         </p>
 
       </div>

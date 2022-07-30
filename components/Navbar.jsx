@@ -14,9 +14,9 @@ const Navbar = () => {
         <h1 className="logo">
           <Link href="/">nobody</Link>
         </h1>
-        <p className="wallet-info">
-        . || account: {walletAddress}
-        </p>
+        {walletAddress !=='no wallet connected :(' &&
+          <p className="wallet-info"> || account: {walletAddress}</p>
+        }
 
       </div>
 
