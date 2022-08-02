@@ -23,22 +23,22 @@ const ProductDetails = ({ product, products }) => {
   const handleSizeSelect = (index) => {
     if (collection === 'originals') {
       if (name === "embroidered dad hat") {
-        if (index === 0) {
+        if (index === 0 || index === 5) {
           setColorChoice('sky')
         }
-        if (index === 1) {
+        if (index === 1 || index === 6) {
           setColorChoice('cotton candy')
 
         }
-        if (index === 2) {
+        if (index === 2|| index === 7) {
           setColorChoice('black denim')
 
         }
-        if (index === 3) {
+        if (index === 3|| index === 8) {
           setColorChoice('blue denim')
 
         }
-        if (index === 4) {
+        if (index === 4|| index === 9) {
           setColorChoice('black')
 
         }
