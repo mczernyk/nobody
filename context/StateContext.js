@@ -17,6 +17,7 @@ export const StateContext = ({ children }) => {
 
 
   const [walletAddress, setWalletAddress] = useState('no wallet connected :(')
+  const [abbvWalletAddress, setAbbvWalletAddress] = useState('')
   const [nfts, setNfts] = useState([])
   const [miladys, setMiladys] = useState([])
   const [auras, setAuras] = useState([])
@@ -31,6 +32,10 @@ export const StateContext = ({ children }) => {
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
 
       setWalletAddress(accounts[0])
+
+      let abbvAddy = accounts[0].slice(0,5) + '...' + accounts[0].slice(-6)
+
+      setAbbvWalletAddress(abbvAddy)
 
       console.log('MetaMask is installed!');
       toast.success(`wallet connected ;)`);
@@ -112,6 +117,8 @@ export const StateContext = ({ children }) => {
     if (!colorChoice) {
       colorChoice=tempColor
     }
+
+    console.log('color', colorChoice)
 
     console.log('custom choice?', customChoice)
 
@@ -244,6 +251,8 @@ export const StateContext = ({ children }) => {
         setTotalQuantities,
         walletAddress,
         setWalletAddress,
+        abbvWalletAddress,
+        setAbbvWalletAddress,
         connectWallet,
         nfts,
         setNfts,

@@ -20,6 +20,62 @@ const ProductDetails = ({ product, products }) => {
     setSizeChoice(event.target.value);
   };
 
+  const handleSizeSelect = (index) => {
+    if (collection === 'originals') {
+      if (name === "embroidered dad hat") {
+        if (index === 0) {
+          setColorChoice('sky')
+        }
+        if (index === 1) {
+          setColorChoice('cotton candy')
+
+        }
+        if (index === 2) {
+          setColorChoice('black denim')
+
+        }
+        if (index === 3) {
+          setColorChoice('blue denim')
+
+        }
+        if (index === 4) {
+          setColorChoice('black')
+
+        }
+      }
+      if (name === "embroidered pattern tee") {
+        if (index === 0 || index === 1) {
+          setColorChoice('marble')
+        }
+        if (index === 2 || index === 3) {
+          setColorChoice('tie dye')
+        }
+
+      }
+      if (name === "love tee") {
+        if (index === 0 || index === 1) {
+          setColorChoice('black')
+        }
+        if (index === 2 || index === 3) {
+          setColorChoice('berry')
+        }
+      }
+
+    } else {
+      if (index === 0 || index === 1) {
+        setColorChoice('white')
+      }
+      if (index === 2 || index === 3) {
+        setColorChoice('black')
+      }
+      if (index === 4 || index === 5) {
+        setColorChoice('berry')
+      }
+    }
+
+
+  }
+
   const handleChangeColor = (event) => {
     if (collection === 'originals') {
       if (name === "embroidered dad hat") {
@@ -118,7 +174,10 @@ const ProductDetails = ({ product, products }) => {
                 key={i}
                 src={urlFor(item)}
                 className={i === index ? 'small-image selected-image' : 'small-image'}
-                onMouseEnter={() => setIndex(i)}
+                onMouseEnter={() => {
+                  setIndex(i)
+                  // handleSizeSelect(index)
+                }}
               />
             ))}
           </div>

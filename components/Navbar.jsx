@@ -6,7 +6,7 @@ import { Cart } from './';
 import { useStateContext } from '../context/StateContext';
 
 const Navbar = () => {
-  const { showCart, setShowCart, totalQuantities, connectWallet, walletAddress, setWalletAddress  } = useStateContext();
+  const { showCart, setShowCart, totalQuantities, connectWallet, walletAddress, setWalletAddress, abbvWalletAddress  } = useStateContext();
 
   return (
     <div className="navbar-container">
@@ -15,7 +15,7 @@ const Navbar = () => {
           <Link href="/">nobody</Link>
         </h1>
         {walletAddress !=='no wallet connected :(' &&
-          <p className="wallet-info"> || account: {walletAddress}</p>
+          <p className="wallet-info"> || account: {abbvWalletAddress}</p>
         }
 
       </div>
