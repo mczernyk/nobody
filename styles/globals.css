@@ -309,7 +309,7 @@ width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   padding-left: 18px;
   padding-right: 18px;
@@ -328,8 +328,19 @@ width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   width: 100%
 }
+
+@media only screen and (max-width: 600px) {
+  .header-collections {
+    flex-direction: column;
+  }
+  .header-menu-items {
+    flex-direction: column;
+  }
+}
+
 .header-about:hover {
   text-decoration: underline wavy red;
   cursor: pointer;
