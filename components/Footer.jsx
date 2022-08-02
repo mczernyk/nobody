@@ -1,10 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
 import { AiFillInstagram, AiOutlineTwitter} from 'react-icons/ai';
+import { useStateContext } from '../context/StateContext';
+
 
 
 
 const Footer = () => {
+  const { handleClickScroll, scrollTo } = useStateContext();
+
   const date = new Date().getFullYear()
 
   return (
@@ -16,7 +20,7 @@ const Footer = () => {
           nobody
           </Link>
         </p>
-        <p className='footer-space'> ||<i> {date}</i>
+        <p className='footer-space'> |<i> {date}</i>
         </p>
 
       </div>

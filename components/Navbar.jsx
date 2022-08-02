@@ -9,13 +9,13 @@ const Navbar = () => {
   const { showCart, setShowCart, totalQuantities, connectWallet, walletAddress, setWalletAddress, abbvWalletAddress  } = useStateContext();
 
   return (
-    <div className="navbar-container">
+    <div className="navbar-container" id="header">
       <div className="navbar-left">
         <h1 className="logo">
           <Link href="/">nobody</Link>
         </h1>
         {walletAddress !=='no wallet connected :(' &&
-          <p className="wallet-info"> || wallet: {abbvWalletAddress}</p>
+          <p className="wallet-info"> | wallet: {abbvWalletAddress}</p>
         }
 
       </div>

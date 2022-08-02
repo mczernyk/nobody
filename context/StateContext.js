@@ -24,6 +24,30 @@ export const StateContext = ({ children }) => {
   const [banners, setBanners] = useState([])
   const [derivs, setDerivs] = useState([])
 
+  const handleClickScroll = (e, name) => {
+    e.preventDefault()
+
+    let scroll = true
+    let elem = document.getElementById(name)
+          scroll = elem ? true : false
+
+    scroll
+      ? scrollTo(elem, 0, null)
+      : console.log(`Element not found: ${elem}`) // eslint-disable-line
+  }
+  const scrollTo = (element, offSet = 0, timeout = null) => {
+    const elemPos = element
+      ? element.getBoundingClientRect().top + window.pageYOffset
+      : 0
+    if (timeout) {
+      setTimeout(() => {
+        window.scroll({ top: elemPos + offSet, left: 0, behavior: "smooth" })
+      }, timeout)
+    } else {
+      window.scroll({ top: elemPos + offSet, left: 0, behavior: "smooth" })
+    }
+  }
+
 
   const connectWallet = async () => {
     if (typeof window.ethereum !== 'undefined') {
@@ -32,7 +56,7 @@ export const StateContext = ({ children }) => {
 
       setWalletAddress(accounts[0])
 
-      let abbvAddy = accounts[0].slice(0,5) + '...' + accounts[0].slice(-6)
+      let abbvAddy = accounts[0].slice(0,5) + '...' + accounts[0].slice(-4)
 
       setAbbvWalletAddress(abbvAddy)
 
@@ -270,7 +294,10 @@ export const StateContext = ({ children }) => {
         preview,
         setPreview,
         menuVisible,
-        setMenuVisible
+        setMenuVisible,
+        handleClickScroll,
+        scrollTo
+
       }}
     >
       {children}
