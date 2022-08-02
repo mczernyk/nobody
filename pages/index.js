@@ -18,6 +18,26 @@ const Home = ({ products, bannerData }) => (
 
     <div className='products-collection-container'>
 
+      <h2>by nobody</h2>
+
+      <div className="products-container">
+        {products?.sort(function (a, b) {
+          const nameA = a.name.toUpperCase()
+          const nameB = b.name.toUpperCase()
+          if (nameA < nameB){
+            return -1
+          }
+          if (nameA > nameB){
+            return 1
+          }
+          return 0
+        }).map((product) => product.collection === 'originals' && <Product key={product._id} product={product} />)}
+      </div>
+
+    </div>
+
+    <div className='products-collection-container'>
+
       <h2>milady</h2>
 
       <div className="products-container">
@@ -31,7 +51,8 @@ const Home = ({ products, bannerData }) => (
             return 1
           }
           return 0
-        }).map((product) => product.collection === 'milady' && <Product key={product._id} product={product} />)}
+        }).map((product) => product.collection === 'milady' &&
+        <Product key={product._id} product={product} />)}
       </div>
 
     </div>

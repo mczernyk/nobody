@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AiOutlineMinus, AiOutlinePlus, AiFillFrown, AiFillMeh, AiFillSmile,AiOutlineGlobal, AiOutlineDollar } from 'react-icons/ai';
 
 import { client, urlFor } from '../../lib/client';
@@ -6,11 +6,16 @@ import { Product, NFTContainer, NFTCard } from '../../components';
 import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({ product, products }) => {
-  const { image, name, details, price, custom, collection } = product;
+  const { image, name, details, price, size, color, custom, collection } = product;
   const [index, setIndex] = useState(0);
-  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, derivs, customChoice, setCustomChoice, connectWallet, walletAddress } = useStateContext();
-  const [sizeChoice, setSizeChoice] = useState("S")
-  const [colorChoice, setColorChoice] = useState("white")
+  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, derivs, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, colorChoice, setColorChoice, resetDefaults } = useStateContext();
+
+  useEffect(() => {
+    resetDefaults(product)
+  }, [])
+
+
+
 
 
 
@@ -19,15 +24,54 @@ const ProductDetails = ({ product, products }) => {
   };
 
   const handleChangeColor = (event) => {
-    if (event.target.value === 'white') {
-      setIndex(0)
+    if (collection === 'originals') {
+      if (name === "embroidered dad hat") {
+        if (event.target.value === 'sky') {
+          setIndex(0)
+        }
+        if (event.target.value === 'cotton candy') {
+          setIndex(1)
+        }
+        if (event.target.value === 'black denim') {
+          setIndex(2)
+        }
+        if (event.target.value === 'blue denim') {
+          setIndex(3)
+        }
+        if (event.target.value === 'black') {
+          setIndex(4)
+        }
+      }
+      if (name === "embroidered pattern tee") {
+        if (event.target.value === 'marble') {
+          setIndex(0)
+        }
+        if (event.target.value === 'tie dye') {
+          setIndex(2)
+        }
+      }
+      if (name === "love tee") {
+        if (event.target.value === 'black') {
+          setIndex(0)
+        }
+        if (event.target.value === 'berry') {
+          setIndex(2)
+        }
+      }
+
+
+    } else {
+      if (event.target.value === 'white') {
+        setIndex(0)
+      }
+      if (event.target.value === 'black') {
+        setIndex(2)
+      }
+      if (event.target.value === 'berry') {
+        setIndex(4)
+      }
     }
-    if (event.target.value === 'black') {
-      setIndex(2)
-    }
-    if (event.target.value === 'berry') {
-      setIndex(4)
-    }
+
 
     setColorChoice(event.target.value);
     console.log('color', colorChoice)
@@ -86,7 +130,7 @@ const ProductDetails = ({ product, products }) => {
             <div className="size-box">
             <h3>color: </h3>
             <select id="size" value={colorChoice} onChange={handleChangeColor}>
-              {product.color.map((item, i) => <option key={i} value={item}>{item}</option>)}
+              {color.map((item, i) => <option key={i} value={item}>{item}</option>)}
             </select>
 
           </div>

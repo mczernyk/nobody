@@ -10,6 +10,8 @@ export const StateContext = ({ children }) => {
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
   const [customChoice, setCustomChoice] = useState('');
+  const [sizeChoice, setSizeChoice] = useState('')
+  const [colorChoice, setColorChoice] = useState('')
 
 
   const [walletAddress, setWalletAddress] = useState('no wallet connected :(')
@@ -74,36 +76,17 @@ export const StateContext = ({ children }) => {
       // debugger
 
   }
-  const collectionHelper = async (data) => {
-    if (walletAddress) {
-
-      const miladysFound = await data.filter(each => each.collection === "ETHEREUM:0x5af0d9827e0c53e4799bb226655a1de152a425a5")
-
-      const aurasFound = await data.filter(each => each.collection === "ETHEREUM:0x2fc722c1c77170a61f17962cc4d039692f033b43")
-
-      const bannersFound = await data.filter(each => each.collection ===
-      "ETHEREUM:0x1352149cd78d686043b504e7e7d96c5946b0c39c")
-
-      const derivsFound = await data.items.filter(each => (each.collection ===
-        "ETHEREUM:0x3a007afa2dff13c9dc5020acae1bcb502d4312e2" || each.collection === "ETHEREUM:0x5af0d9827e0c53e4799bb226655a1de152a425a5"))
-
-      const cdbsFound = await data.filter(each => each.collection ===       "ETHEREUM:0x42069abfe407c60cf4ae4112bedead391dba1cdb")
-
-      console.log('derivsFound',derivsFound)
-
-      setMiladys(miladysFound)
-      setAuras(aurasFound)
-      setBanners(bannersFound)
-      setCdbs(cdbsFound)
-      setDerivs(derivsFound)
-    }
-  }
-
 
 
   useEffect(() => {
     getNFTData()
   }, [walletAddress])
+
+  const resetDefaults = (product) => {
+    console.log('product', product.name)
+    setSizeChoice(`${product.size[0]}`)
+    setColorChoice(`${product.color[0]}`)
+  }
 
 
   let foundProduct;
@@ -143,14 +126,9 @@ export const StateContext = ({ children }) => {
     }
 
     if (customChoice){
-      console.log('hit', customChoice)
       prodBuy.name = customChoice
       prodBuy.key = `${product._id}${customChoice}sz${sizeChoice}${colorChoice}`
     }
-
-
-    console.log('key', prodBuy.key)
-    console.log('custname', prodBuy.name)
 
 
 
@@ -190,7 +168,7 @@ export const StateContext = ({ children }) => {
       setCartItems([...cartItems, { ...prodBuy }]);
     }
 
-    toast.success(`you stuffed ${qty} size ${sizeChoice} ${colorChoice} ${prodBuy.name} into a tattered burlap sack.`);
+    toast.success(`you stuffed ${qty} size ${prodBuy.sizeChoice} ${prodBuy.colorChoice} ${prodBuy.name} into a tattered burlap sack.`);
     setCustomChoice('')
   }
 
@@ -269,9 +247,13 @@ export const StateContext = ({ children }) => {
         auras,
         cdbs,
         derivs,
-        collectionHelper,
         customChoice,
-        setCustomChoice
+        setCustomChoice,
+        sizeChoice,
+        setSizeChoice,
+        colorChoice,
+        setColorChoice,
+        resetDefaults
       }}
     >
       {children}
