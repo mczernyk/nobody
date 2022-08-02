@@ -8,15 +8,12 @@ import { useStateContext } from '../../context/StateContext';
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price, size, color, custom, collection } = product;
   const [index, setIndex] = useState(0);
-  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, derivs, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, colorChoice, setColorChoice, resetDefaults } = useStateContext();
+
+  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, derivs, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, colorChoice, setColorChoice, resetDefaults,preview, setPreview } = useStateContext();
 
   useEffect(() => {
     resetDefaults(product)
   }, [])
-
-
-
-
 
 
   const handleChange = (event) => {
@@ -28,34 +25,51 @@ const ProductDetails = ({ product, products }) => {
       if (name === "embroidered dad hat") {
         if (event.target.value === 'sky') {
           setIndex(0)
+          setPreview(0)
         }
         if (event.target.value === 'cotton candy') {
           setIndex(1)
+          setPreview(1)
+
         }
         if (event.target.value === 'black denim') {
           setIndex(2)
+          setPreview(2)
+
         }
         if (event.target.value === 'blue denim') {
           setIndex(3)
+          setPreview(3)
+
         }
         if (event.target.value === 'black') {
           setIndex(4)
+          setPreview(4)
+
         }
       }
       if (name === "embroidered pattern tee") {
         if (event.target.value === 'marble') {
           setIndex(0)
+          setPreview(0)
+
         }
         if (event.target.value === 'tie dye') {
           setIndex(2)
+          setPreview(2)
+
         }
       }
       if (name === "love tee") {
         if (event.target.value === 'black') {
           setIndex(0)
+          setPreview(0)
+
         }
         if (event.target.value === 'berry') {
           setIndex(2)
+          setPreview(2)
+
         }
       }
 
@@ -63,12 +77,18 @@ const ProductDetails = ({ product, products }) => {
     } else {
       if (event.target.value === 'white') {
         setIndex(0)
+        setPreview(0)
+
       }
       if (event.target.value === 'black') {
         setIndex(2)
+        setPreview(2)
+
       }
       if (event.target.value === 'berry') {
         setIndex(4)
+        setPreview(4)
+
       }
     }
 
@@ -80,7 +100,7 @@ const ProductDetails = ({ product, products }) => {
 
 
   const handleBuyNow = () => {
-    onAdd(product, qty, sizeChoice, colorChoice, customChoice);
+    onAdd(product, qty, sizeChoice, colorChoice, customChoice, preview);
 
     setShowCart(true);
   }
@@ -92,7 +112,7 @@ const ProductDetails = ({ product, products }) => {
           <div className="image-container">
             <img src={urlFor(image && image[index])} className="product-detail-image" />
           </div>
-          <div className="small-images-container">
+          <div className="small-images-container-slug">
             {image?.map((item, i) => (
               <img
                 key={i}
@@ -170,7 +190,7 @@ const ProductDetails = ({ product, products }) => {
                     </div>
                     ):(
                       <div>
-                      <p>no NFTs detected, try connecting your wallet again please</p>
+                      <p>no NFTs detected, try connecting your wallet again please :)</p>
                     </div>
                     )
                   }
@@ -269,7 +289,7 @@ const ProductDetails = ({ product, products }) => {
 
 
          <div className="buttons">
-            <button disabled={customChoice === '' && custom } type="button" className="add-to-cart" onClick={() => onAdd(product, qty, sizeChoice, colorChoice, customChoice)}>Add to Cart</button>
+            <button disabled={customChoice === '' && custom } type="button" className="add-to-cart" onClick={() => onAdd(product, qty, sizeChoice, colorChoice, customChoice, preview)}>Add to Cart</button>
             <button disabled={customChoice === '' && custom } type="button" className="buy-now" onClick={handleBuyNow}>Buy Now</button>
           </div>
 

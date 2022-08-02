@@ -21,8 +21,6 @@ const Product = ({ product }) => {
         <div className="product-card">
           {image && (<img
             src={urlFor(image && image[index])}
-            height={250}
-            width={250}
             className="product-image"
           />)}
 

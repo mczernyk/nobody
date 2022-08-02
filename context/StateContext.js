@@ -12,6 +12,8 @@ export const StateContext = ({ children }) => {
   const [customChoice, setCustomChoice] = useState('');
   const [sizeChoice, setSizeChoice] = useState('')
   const [colorChoice, setColorChoice] = useState('')
+  const [preview, setPreview] = useState(0);
+
 
 
   const [walletAddress, setWalletAddress] = useState('no wallet connected :(')
@@ -86,6 +88,7 @@ export const StateContext = ({ children }) => {
     console.log('product', product.name)
     setSizeChoice(`${product.size[0]}`)
     setColorChoice(`${product.color[0]}`)
+    setPreview(0)
   }
 
 
@@ -96,7 +99,7 @@ export const StateContext = ({ children }) => {
   let tempSize=''
   let tempColor=''
 
-  const onAdd = (product, quantity, sizeChoice, colorChoice, customChoice) => {
+  const onAdd = (product, quantity, sizeChoice, colorChoice, customChoice, preview) => {
 
     if (!quantity) {
       quantity=tempQuant
@@ -119,6 +122,7 @@ export const StateContext = ({ children }) => {
       sizeChoice: sizeChoice,
       colorChoice: colorChoice,
       custom: product.custom,
+      preview: preview,
       slug: product.slug,
       _id: product._id,
       _type: product._type,
@@ -253,7 +257,9 @@ export const StateContext = ({ children }) => {
         setSizeChoice,
         colorChoice,
         setColorChoice,
-        resetDefaults
+        resetDefaults,
+        preview,
+        setPreview
       }}
     >
       {children}
