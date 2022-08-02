@@ -272,8 +272,9 @@ width: 100%;
   background-color: black;
   color: white;
   position: relative;
-  height: 200px;
+  /* height: 200px; */
   width: 100%;
+  border-radius: 10px;
 }
 .header-container-internal {
   width: 100%;
@@ -286,7 +287,8 @@ width: 100%;
   justify-content: center;
   align-items: center;
   width: 100%;
-  /* padding-right: 20px; */
+  padding-top: 18px;
+  padding-bottom: 18px;
 }
 .header-title-box{
   display: flex;
@@ -309,8 +311,28 @@ width: 100%;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 6px 18px;
-
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-bottom: 18px
+}
+.header-collections {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.header-collections p:hover {
+  text-decoration: underline wavy red;
+  cursor: pointer;
+}
+.header-menu-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%
+}
+.header-about:hover {
+  text-decoration: underline wavy red;
+  cursor: pointer;
 }
 
 .hero-banner-container{

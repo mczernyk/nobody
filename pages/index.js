@@ -18,7 +18,7 @@ const Home = ({ products, bannerData }) => (
     <div className="products-heading">
     </div>
 
-    <div className='products-collection-container'>
+    <div className='products-collection-container'  id="nobody">
 
       <h2>by nobody</h2>
 
@@ -38,7 +38,7 @@ const Home = ({ products, bannerData }) => (
 
     </div>
 
-    <div className='products-collection-container'>
+    <div className='products-collection-container' id="cdb">
 
       <h2>cryptodickbutts</h2>
 
@@ -60,7 +60,7 @@ const Home = ({ products, bannerData }) => (
 
 
 
-    <div className='products-collection-container'>
+    <div className='products-collection-container' id="milady">
 
       <h2>milady</h2>
 
@@ -81,7 +81,7 @@ const Home = ({ products, bannerData }) => (
 
     </div>
 
-    <div className='products-collection-container'>
+    <div className='products-collection-container' id="milady aura">
 
       <h2>milady aura</h2>
 
@@ -91,7 +91,7 @@ const Home = ({ products, bannerData }) => (
 
     </div>
 
-    <div className='products-collection-container'>
+    <div className='products-collection-container' id="milady deriv">
 
       <h2>milAIdy & spring miaura</h2>
 
