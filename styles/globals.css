@@ -3,9 +3,9 @@ html,
 body, * {
   padding: 0;
   margin: 0;
-  /* font-family: "Baskerville Normal";
-  src: url('../asset/Baskerville\ Normal.ttf'); */
-  font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
+  /* font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif; */
+  font-family: "ITC Avant Garde Gothic LT";
+  src: url('../asset/ITC Avant Garde Gothic LT Bold.ttf');
   box-sizing: border-box;
   /* letter-spacing: .25rem; */
 
@@ -20,7 +20,7 @@ a {
 }
 
 .main-container{
-max-width: 1400px;
+/* max-width: 1400px; */
 margin: auto;
 width: 100%;
 
@@ -262,6 +262,55 @@ width: 100%;
   color: red;
   width: 100%;
   text-align: center;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  position: relative;
+  height: 200px;
+  width: 100%;
+}
+.header-container-internal {
+  width: 100%;
+  padding: 100px 40px;
+
+}
+.header-section-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* padding-right: 20px; */
+}
+.header-title-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 20px;
+  border: white 10px solid;
+  border-radius: 50%;
+  /* font-family: "ITC Avant Garde Gothic LT";
+  src: url('../asset/ITC Avant Garde Gothic LT Bold.otf'); */
+}
+.title-underline {
+  /* text-decoration: underline wavy red; */
+}
+
+.header-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 6px 18px;
+
 }
 
 .hero-banner-container{

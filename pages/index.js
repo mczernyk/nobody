@@ -7,12 +7,14 @@ import styles from '../styles/Home.module.css'
 
 import { client } from '../lib/client'
 
-import {Product, FooterBanner, HeroBanner} from '../components'
+import {Product, FooterBanner, HeroBanner, Header} from '../components'
 
 
 const Home = ({ products, bannerData }) => (
   <div>
-    <HeroBanner heroBanner={bannerData.length && bannerData[0]}  />
+    {/*<HeroBanner heroBanner={bannerData.length && bannerData[0]}  />*/}
+    <Header />
+
     <div className="products-heading">
     </div>
 
