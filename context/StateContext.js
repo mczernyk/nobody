@@ -13,8 +13,7 @@ export const StateContext = ({ children }) => {
   const [sizeChoice, setSizeChoice] = useState('')
   const [colorChoice, setColorChoice] = useState('')
   const [preview, setPreview] = useState(0);
-
-
+  const [menuVisible, setMenuVisible] = useState(false)
 
   const [walletAddress, setWalletAddress] = useState('no wallet connected :(')
   const [abbvWalletAddress, setAbbvWalletAddress] = useState('')
@@ -94,6 +93,7 @@ export const StateContext = ({ children }) => {
     setSizeChoice(`${product.size[0]}`)
     setColorChoice(`${product.color[0]}`)
     setPreview(0)
+    setMenuVisible(false)
   }
 
 
@@ -268,7 +268,9 @@ export const StateContext = ({ children }) => {
         setColorChoice,
         resetDefaults,
         preview,
-        setPreview
+        setPreview,
+        menuVisible,
+        setMenuVisible
       }}
     >
       {children}

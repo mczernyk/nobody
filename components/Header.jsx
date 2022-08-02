@@ -1,25 +1,18 @@
 import React, {useState} from 'react';
 import Link from 'next/link';
-
-import { urlFor } from '../lib/client';
+import { useStateContext } from '../context/StateContext';
 
 const Header = () => {
-  const [menuVisible, setMenuVisible] = useState('false')
+  const { menuVisible, setMenuVisible } = useStateContext();
 
   const handleVisible = (visible) => {
-
     setMenuVisible(!visible)
   }
 
-  // function handleScroll(ref) {
-  //   ref.current.scrollIntoView({ behavior: "smooth" });
-  // }
-
   const handleClickScroll = (e, name) => {
     e.preventDefault()
-    let scroll = true
-    // const { type, element, offset, timeout } = this.props
 
+    let scroll = true
     let elem = document.getElementById(name)
           scroll = elem ? true : false
 
@@ -39,10 +32,6 @@ const Header = () => {
       window.scroll({ top: elemPos + offSet, left: 0, behavior: "smooth" })
     }
   }
-
-
-
-
 
   return (
     <div className='header-container'>
