@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+
 import { AiOutlineMinus, AiOutlinePlus, AiFillFrown, AiFillMeh, AiFillSmile,AiOutlineGlobal, AiOutlineDollar } from 'react-icons/ai';
 
 import { client, urlFor } from '../../lib/client';
@@ -9,7 +11,7 @@ const ProductDetails = ({ product, products }) => {
   const { image, name, details, price, size, color, custom, collection } = product;
   const [index, setIndex] = useState(0);
 
-  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, derivs, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, colorChoice, setColorChoice, resetDefaults,preview, setPreview } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, derivs, allstarz, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, colorChoice, setColorChoice, resetDefaults,preview, setPreview } = useStateContext();
 
   useEffect(() => {
     resetDefaults(product)
@@ -54,10 +56,19 @@ const ProductDetails = ({ product, products }) => {
       }
       if (name === "love tee") {
         if (index === 0 || index === 1) {
-          setColorChoice('black')
+          setColorChoice('white')
         }
         if (index === 2 || index === 3) {
+          setColorChoice('black')
+        }
+        if (index === 4 || index ===5) {
           setColorChoice('berry')
+        }
+        if (index === 6 || index === 7) {
+          setColorChoice('navy')
+        }
+        if (index === 8 || index === 9) {
+          setColorChoice('purple')
         }
       }
 
@@ -70,6 +81,12 @@ const ProductDetails = ({ product, products }) => {
       }
       if (index === 4 || index === 5) {
         setColorChoice('berry')
+      }
+      if (index === 6 || index === 7) {
+        setColorChoice('navy')
+      }
+      if (index === 8 || index === 9) {
+        setColorChoice('purple')
       }
     }
 
@@ -117,15 +134,25 @@ const ProductDetails = ({ product, products }) => {
         }
       }
       if (name === "love tee") {
-        if (event.target.value === 'black') {
+        if (event.target.value === 'white') {
           setIndex(0)
           setPreview(0)
-
         }
-        if (event.target.value === 'berry') {
+        if (event.target.value === 'black') {
           setIndex(2)
           setPreview(2)
-
+        }
+        if (event.target.value === 'berry') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'navy') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'purple') {
+          setIndex(8)
+          setPreview(8)
         }
       }
 
@@ -134,17 +161,22 @@ const ProductDetails = ({ product, products }) => {
       if (event.target.value === 'white') {
         setIndex(0)
         setPreview(0)
-
       }
       if (event.target.value === 'black') {
         setIndex(2)
         setPreview(2)
-
       }
       if (event.target.value === 'berry') {
         setIndex(4)
         setPreview(4)
-
+      }
+      if (event.target.value === 'navy') {
+        setIndex(6)
+        setPreview(6)
+      }
+      if (event.target.value === 'purple') {
+        setIndex(8)
+        setPreview(8)
       }
     }
 
@@ -251,6 +283,28 @@ const ProductDetails = ({ product, products }) => {
                       <div>
                       <p>no NFTs detected, try connecting your wallet again please :)</p>
                     </div>
+                    )
+                  }
+
+                </div>
+              }
+
+
+              {collection === 'allstarz' &&
+                <div>
+                  {allstarz.length ?
+                    (
+                      <div>
+                        <div className='quantity'>
+                          <p>{allstarz.length} NFTs found.</p>
+                          {customChoice && <p>{customChoice} selected.</p>}
+                        </div>
+                        <NFTContainer nfts={allstarz} product={product}/>
+                      </div>
+                      ):(
+                      <div>
+                        <p>no NFTs detected, try connecting your wallet again please</p>
+                      </div>
                     )
                   }
 
@@ -376,6 +430,15 @@ const ProductDetails = ({ product, products }) => {
               ))}
             </div>
           </div>
+      </div>
+
+      <div className="home-button">
+        <h3>
+          <Link href="/">
+          go home
+          </Link>
+
+        </h3>
       </div>
     </div>
   )

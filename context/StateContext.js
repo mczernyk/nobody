@@ -23,6 +23,8 @@ export const StateContext = ({ children }) => {
   const [cdbs, setCdbs] = useState([])
   const [banners, setBanners] = useState([])
   const [derivs, setDerivs] = useState([])
+  const [allstarz, setAllstarz] = useState([])
+
 
   const handleClickScroll = (e, name) => {
     e.preventDefault()
@@ -93,11 +95,14 @@ export const StateContext = ({ children }) => {
 
         const cdbsFound = await data.items.filter(each => each.collection === "ETHEREUM:0x42069abfe407c60cf4ae4112bedead391dba1cdb")
 
+        const allstarzFound = await data.items.filter(each => each.collection === "ETHEREUM:0xec0a7a26456b8451aefc4b00393ce1beff5eb3e9")
+
         setMiladys(miladysFound)
         setAuras(aurasFound)
         setCdbs(cdbsFound)
         setBanners(bannersFound)
         setDerivs(derivsFound)
+        setAllstarz(allstarzFound)
       }
 
 
@@ -284,6 +289,7 @@ export const StateContext = ({ children }) => {
         auras,
         cdbs,
         derivs,
+        allstarz,
         customChoice,
         setCustomChoice,
         sizeChoice,
