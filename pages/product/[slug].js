@@ -155,6 +155,22 @@ const ProductDetails = ({ product, products }) => {
           setPreview(8)
         }
       }
+      if (name === 'no body slides') {
+        if (event.target.value === 'white') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'black') {
+          setIndex(2)
+          setPreview(2)
+        }
+      }
+      if (name === 'no body canvas shoes') {
+        if (event.target.value === 'apricot white') {
+          setIndex(0)
+          setPreview(0)
+        }
+      }
 
 
     } else {
