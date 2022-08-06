@@ -134,11 +134,11 @@ const ProductDetails = ({ product, products }) => {
         }
       }
       if (name === "love tee") {
-        if (event.target.value === 'white') {
+        if (event.target.value === 'black') {
           setIndex(0)
           setPreview(0)
         }
-        if (event.target.value === 'black') {
+        if (event.target.value === 'white') {
           setIndex(2)
           setPreview(2)
         }
@@ -174,11 +174,11 @@ const ProductDetails = ({ product, products }) => {
 
 
     } else {
-      if (event.target.value === 'white') {
+      if (event.target.value === 'black') {
         setIndex(0)
         setPreview(0)
       }
-      if (event.target.value === 'black') {
+      if (event.target.value === 'white') {
         setIndex(2)
         setPreview(2)
       }
