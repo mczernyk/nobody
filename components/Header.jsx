@@ -28,6 +28,7 @@ const Header = () => {
             <p onClick={(e) => handleClickScroll(e, 'milady')}>milady</p>
             <p onClick={(e) => handleClickScroll(e, 'milady aura')}>milady aura</p>
             <p onClick={(e) => handleClickScroll(e, 'milady deriv')}>milady deriv</p>
+            <p onClick={(e) => handleClickScroll(e, 'misc')}>accessories</p>
           </div>}
         </div>
         <div className='header-about'>

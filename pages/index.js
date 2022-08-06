@@ -116,6 +116,16 @@ const Home = ({ products, bannerData }) => (
 
     </div>
 
+    <div className='products-collection-container' id="misc">
+
+      <h2>accessories</h2>
+
+      <div className="products-container">
+        {products?.map((product) => product.collection === 'misc' && <Product key={product._id} product={product} />)}
+      </div>
+
+    </div>
+
 
 
     {/*<FooterBanner footerBanner={bannerData && bannerData[0]} />*/}

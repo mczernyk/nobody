@@ -26,6 +26,7 @@ export const StateContext = ({ children }) => {
   const [allstarz, setAllstarz] = useState([])
 
 
+
   const handleClickScroll = (e, name) => {
     e.preventDefault()
 
