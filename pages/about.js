@@ -7,9 +7,9 @@ export default function about() {
     <div className="about-container">
       <h1>about</h1>
         <div className='about-content'>
-          <p>nobody offers products from a curated list of NFT collections featuring your CC0 assets. you own your NFTs, now you can do something with them.</p>
+          <p>nobody allows you to create products from a curated group of NFT collections using your CC0 assets. you own your NFTs, now you can do something with them.</p>
 
-          <p>nobody also offers original gear and pieces from these collections featuring CC0 assets from nobody's vault. NFTs can be expensive, nobody gives customers a new way to support these projects. the pieces from each collection will be rotated periodically based on holdings in nobody's vault.</p>
+          <p>nobody also sells original gear and pieces featuring CC0 assets from nobody's vault. NFTs can be expensive, nobody gives customers a different way to support these projects. the offerings from each collection will be rotated periodically based on nobody's holdings.</p>
 
           <p>nobody uses 20% of profits from sales to sweep the floor of each respective collection. nobody does so once this profit allocation reaches the floor price.</p>
 
