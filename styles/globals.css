@@ -4,10 +4,8 @@ body, * {
   margin: 0;
   /* font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif; */
   font-family: "ITC Avant Garde Gothic";
-  /* src: url('../public/ITC Avant Garde Gothic CE Book.otf') format('opentype'); */
-
+  src: url('../public/ITC Avant Garde Gothic CE Book.otf') format('opentype');
   box-sizing: border-box;
-  /* letter-spacing: .25rem; */
 
   @font-face {
     font-family: "ITC Avant Garde Gothic";
@@ -378,8 +376,8 @@ width: 100%
   padding: 20px;
   border: white 10px solid;
   border-radius: 50%;
-  /* font-family: "ITC Avant Garde Gothic LT";
-  src: url('../public/ITC Avant Garde Gothic LT Bold.otf') format('opentype'); */
+  font-family: "ITC Avant Garde Gothic LT";
+  src: url('../public/ITC Avant Garde Gothic LT Bold.otf') format('opentype');
 
   @font-face {
     font-family: "ITC Avant Garde Gothic LT";
