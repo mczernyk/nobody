@@ -41,6 +41,11 @@ export default{
       type: "string"
     },
     {
+      name: "details2",
+      title: "Details2",
+      type: "string"
+    },
+    {
       name: "collection",
       title: "Collection",
       type: "string"

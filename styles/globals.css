@@ -796,6 +796,7 @@ padding: 30px 65px;
 }
 .product-detail-desc p{
   margin-top: 10px;
+  white-space: pre-wrap
 }
 .reviews p{
   color: black;

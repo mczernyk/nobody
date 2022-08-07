@@ -8,7 +8,7 @@ import { Product, NFTContainer, NFTCard } from '../../components';
 import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({ product, products }) => {
-  const { image, name, details, price, size, color, custom, collection } = product;
+  const { image, name, details, details2, price, size, color, custom, collection } = product;
   const [index, setIndex] = useState(0);
 
   const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, derivs, allstarz, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, colorChoice, setColorChoice, resetDefaults,preview, setPreview } = useStateContext();
@@ -245,6 +245,10 @@ const ProductDetails = ({ product, products }) => {
           </div>
           <h3>details: </h3>
           <p>{details}</p>
+          {details2 &&
+
+            <p><br></br>{details2}</p>
+          }
 
           <div className='quantity'>
             <div className="size-box">
