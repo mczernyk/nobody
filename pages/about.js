@@ -7,7 +7,7 @@ export default function about() {
     <div className="about-container">
       <h1>about</h1>
         <div className='about-content'>
-          <p>nobody allows you to create products from a curated group of NFT collections using assets in your wallet. you own your NFTs, now you can do something with them.</p>
+        <p>nobody lets you create products from a curated group of NFT collections using assets in your web3 wallet. you own your NFTs, now you can do something with them.</p>
 
           <p>nobody also sells original gear and pieces featuring assets from nobody's vault. NFTs can be expensive, nobody gives customers a different way to support these projects. the offerings from each collection will be rotated periodically based on nobody's holdings.</p>
 
