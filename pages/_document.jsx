@@ -13,16 +13,16 @@ export default function Document() {
       <Head>
         <link
           rel="preload"
-          href="/fonts/ITC Avant Garde Gothic LT Bold.otf"
+          href="/fonts/ITC Avant Garde Gothic LT Bold.ttf"
           as="font"
-          type="font/otf"
+          type="font/ttf"
           crossOrigin="anonymous"
         />
         <link
           rel="preload"
-          href="/fonts/ITC Avant Garde Gothic CE Book.otf"
+          href="/fonts/ITC Avant Garde Gothic CE Book.ttf"
           as="font"
-          type="font/otf"
+          type="font/ttf"
           crossOrigin="anonymous"
         />
       </Head>
