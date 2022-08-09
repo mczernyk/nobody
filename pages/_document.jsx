@@ -20,7 +20,7 @@ export default function Document() {
         />
         <link
           rel="preload"
-          href="/fonts/ITC Avant Garde Gothic CE Book.ttf"
+          href="/fonts/ITC Avant Garde Gothic LT Book Regular.ttf"
           as="font"
           type="font/ttf"
           crossOrigin="anonymous"

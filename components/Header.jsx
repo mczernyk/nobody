@@ -14,8 +14,10 @@ const Header = () => {
     <div className='header-container'>
       <div className='header-section-title'>
         <div className='header-title-box'>
-          <h1>no</h1>
-          <h1 className='title-underline'>body</h1>
+          <h1 style={{  fontFamily: "ITC Avant Garde Gothic LT Bold"
+        }}>no</h1>
+          <h1 style={{  fontFamily: "ITC Avant Garde Gothic LT Bold"
+        }}>body</h1>
         </div>
       </div>
       <div className='header-items'>
