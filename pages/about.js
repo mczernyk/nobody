@@ -9,7 +9,7 @@ export default function about() {
         <div className='about-content'>
           <p>nobody lets you create products from a curated group of NFT collections using assets in your web3 wallet. you own your NFTs, now you can do something with them.</p>
 
-          <p>nobody also sells original gear and pieces featuring assets from nobody's vault. NFTs can be expensive, nobody gives customers a different way to support these projects. the offerings from each collection will be rotated periodically based on nobody's holdings.</p>
+          <p>nobody also sells original gear and pieces featuring assets from nobody's vault. NFTs can be expensive, nobody gives customers a different way to support these projects. offerings from each collection will be rotated periodically based on nobody's holdings.</p>
 
           <p>nobody uses 20% of profits from sales to sweep the floor of each respective collection. nobody does so once this profit allocation reaches the floor price.</p>
 
