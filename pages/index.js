@@ -16,7 +16,7 @@ const Home = ({ products, bannerData }) => (
       <title>nobody</title>
       <meta property="og:title" content="nobody"/>
       <meta property="og:description" content="♡ nobody loves you ♡"/>
-      <meta property="og:image" content="/nbCircle.png"/>
+      <meta property="og:image" content="/nbCircleBlack.png"/>
 
 
     </Head>
