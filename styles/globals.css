@@ -48,6 +48,11 @@ width: 100%
   justify-content: flex-start;
   align-items: center;
 }
+
+.navbar-left h1{
+  font-family: "ITC Avant Garde Gothic LT Bold";
+}
+
 .navbar-right{
   display: flex;
   flex-direction: row;
@@ -100,17 +105,19 @@ width: 100%
   text-decoration: underline wavy red;
   text-transform: uppercase;
   padding: 10px;
+  font-family: "ITC Avant Garde Gothic LT Bold";
 }
 
 .about-container h2 {
   text-align: center;
   color: red;
-  padding: 40px
+  padding: 40px;
+  font-family: "ITC Avant Garde Gothic LT Bold";
 }
 
 .about-container h3 {
   text-align: center;
-  padding: 20px
+  padding: 20px;
 }
 
 .about-container h3:hover {
@@ -207,10 +214,11 @@ width: 100%
     -webkit-text-stroke: 1px #f02d34;
     margin-left: 6px;
 }
-.logo{
+.logo {
   color: black;
   font-size: 18px;
 }
+
 .logo:hover{
   color: red;
   font-size: 18px;
@@ -290,8 +298,9 @@ width: 100%
   text-align: center;
   text-decoration: underline wavy red;
   text-transform: uppercase;
-
   padding: 10px;
+  font-family: "ITC Avant Garde Gothic LT Bold";
+
 }
 
 .product-card{
@@ -378,7 +387,10 @@ width: 100%
   padding: 20px;
   border: white 10px solid;
   border-radius: 50%;
-  /* font-family: "ITC Avant Garde Gothic LT Bold"; */
+}
+
+.header-title-box h1 {
+  font-family: "ITC Avant Garde Gothic LT Bold";
 
 }
 .title-underline {
@@ -400,6 +412,10 @@ width: 100%
   flex-direction: row;
   width: 100%;
 }
+.header-collections p {
+  font-family: "ITC Avant Garde Gothic LT Bold"
+}
+
 .header-collections p:hover {
   text-decoration: underline wavy red;
   cursor: pointer;
@@ -424,6 +440,10 @@ width: 100%
 .header-about:hover {
   text-decoration: underline wavy red;
   cursor: pointer;
+}
+
+.header-about p {
+  font-family: "ITC Avant Garde Gothic LT Bold";
 }
 
 .hero-banner-container{
@@ -795,9 +815,13 @@ padding: 30px 65px;
 }
 .product-detail-desc h3{
   margin-top: 10px;
+  font-family: "ITC Avant Garde Gothic LT Bold";
+
 }
 .product-detail-desc h1{
   text-transform: uppercase;
+  font-family: "ITC Avant Garde Gothic LT Bold";
+
 }
 .product-detail-desc p{
   margin-top: 10px;
@@ -829,6 +853,8 @@ padding: 30px 65px;
   margin-top: 10px ;
   align-items: flex-end;
   justify-content: flex-start;}
+
+
 .product-detail-desc .buttons{
   display: flex;
   gap: 30px;
@@ -906,8 +932,9 @@ padding: 30px 65px;
   color: black;
   text-decoration: underline wavy red;
   text-transform: uppercase;
-
   font-size: 28px;
+  font-family: "ITC Avant Garde Gothic LT Bold";
+
 }
 .maylike-products-container{
   display: flex;
