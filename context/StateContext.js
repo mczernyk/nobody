@@ -24,6 +24,8 @@ export const StateContext = ({ children }) => {
   const [banners, setBanners] = useState([])
   const [derivs, setDerivs] = useState([])
   const [allstarz, setAllstarz] = useState([])
+  const [remilios, setRemilios] = useState([])
+
 
 
 
@@ -98,12 +100,15 @@ export const StateContext = ({ children }) => {
 
         const allstarzFound = await data.items.filter(each => each.collection === "ETHEREUM:0xec0a7a26456b8451aefc4b00393ce1beff5eb3e9")
 
+        const remiliosFound = await data.items.filter(each => each.collection === "ETHEREUM:0xd3d9ddd0cf0a5f0bfb8f7fceae075df687eaebab")
+
         setMiladys(miladysFound)
         setAuras(aurasFound)
         setCdbs(cdbsFound)
         setBanners(bannersFound)
         setDerivs(derivsFound)
         setAllstarz(allstarzFound)
+        setRemilios(remiliosFound)
       }
 
 
@@ -305,6 +310,7 @@ export const StateContext = ({ children }) => {
         cdbs,
         derivs,
         allstarz,
+        remilios,
         customChoice,
         setCustomChoice,
         sizeChoice,

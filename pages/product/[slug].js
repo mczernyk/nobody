@@ -11,7 +11,7 @@ const ProductDetails = ({ product, products }) => {
   const { image, name, details, details2, price, size, color, custom, collection } = product;
   const [index, setIndex] = useState(0);
 
-  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, derivs, allstarz, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, colorChoice, setColorChoice, resetDefaults,preview, setPreview } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, derivs, allstarz, remilios, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, colorChoice, setColorChoice, resetDefaults,preview, setPreview } = useStateContext();
 
   useEffect(() => {
     resetDefaults(product)
@@ -388,6 +388,27 @@ const ProductDetails = ({ product, products }) => {
                       ):(
                       <div>
                         <p>no NFTs detected, try connecting your wallet again</p>
+                      </div>
+                    )
+                  }
+
+                </div>
+              }
+
+              {collection === 'remilio' &&
+                <div>
+                  {remilios.length ?
+                    (
+                      <div>
+                        <div className='quantity'>
+                          <p>{remilios.length} NFTs found.</p>
+                          {customChoice && <p>{customChoice} selected.</p>}
+                        </div>
+                        <NFTContainer nfts={remilios} product={product}/>
+                      </div>
+                      ):(
+                      <div>
+                        <p>no NFTs detected, try connecting your wallet again please</p>
                       </div>
                     )
                   }
