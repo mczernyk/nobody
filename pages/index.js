@@ -141,6 +141,7 @@ const Home = ({ products, bannerData }) => (
         }).map((product) => product.collection === 'remilio' && <Product key={product._id} product={product} />)}
       </div>
 
+
     </div>
 
     <div className='products-collection-container' id="misc">
