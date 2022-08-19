@@ -7,6 +7,8 @@ import { client, urlFor } from '../../lib/client';
 import { Product, NFTContainer, NFTCard } from '../../components';
 import { useStateContext } from '../../context/StateContext';
 
+import Head from 'next/head'
+
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, details2, price, size, color, custom, collection } = product;
   const [index, setIndex] = useState(0);
@@ -206,11 +208,18 @@ const ProductDetails = ({ product, products }) => {
   const handleBuyNow = () => {
     onAdd(product, qty, sizeChoice, colorChoice, customChoice, preview);
 
+
     setShowCart(true);
   }
 
   return (
     <div>
+      <Head>
+        <title>nobody</title>
+        <meta property="og:title" content={product.name}/>
+        <meta property="og:description" content={product.details}/>
+        <meta property="og:image" content={product.image[0].asset._ref.replace('image-', 'https://cdn.sanity.io/images/yiekg475/production/').replace('-png', '.png').replace('-jpg', '.jpg')}/>
+      </Head>
       <div className="product-detail-container">
         {image && (<div>
           <div className="image-container">
