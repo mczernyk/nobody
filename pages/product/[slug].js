@@ -452,6 +452,15 @@ const ProductDetails = ({ product, products }) => {
         </div>
       </div>
 
+      <div className="home-button">
+        <h3>
+          <Link href="/">
+          go home
+          </Link>
+
+        </h3>
+      </div>
+
       <div className="maylike-products-wrapper">
           <h2>more from this collection</h2>
           <div className="marquee">
@@ -471,15 +480,6 @@ const ProductDetails = ({ product, products }) => {
               ))}
             </div>
           </div>
-      </div>
-
-      <div className="home-button">
-        <h3>
-          <Link href="/">
-          go home
-          </Link>
-
-        </h3>
       </div>
     </div>
   )

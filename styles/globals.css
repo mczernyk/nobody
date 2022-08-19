@@ -269,14 +269,18 @@ width: 100%
 
 }
 
-.home-button {
-  text-align: right;
-  padding: 0px 10px;
+.home-button{
+  width: 100%;
+}
+
+.home-button h3{
+  text-align: center;
+  /* padding: 0px 10px; */
   color: black
 }
-.home-button:hover {
+.home-button h3:hover {
   color: red;
-
+  transform: scale(1.1,1.1);
 }
 .products-container{
   display: flex;
