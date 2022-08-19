@@ -4,6 +4,12 @@ import Link from 'next/link';
 
 export default function about() {
   return (
+    <div>
+    <title>nobody</title>
+    <meta property="og:title" content="nobody"/>
+    <meta property="og:description" content="♡ nobody loves you ♡"/>
+    <meta property="og:image" content="/nbCircleBlack.png"/>
+
     <div className="about-container">
       <h1>about</h1>
         <div className='about-content'>
@@ -29,5 +35,10 @@ export default function about() {
 
 
     </div>
+
+
+
+    </div>
+
   )
 }
