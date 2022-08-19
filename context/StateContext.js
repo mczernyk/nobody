@@ -65,7 +65,7 @@ export const StateContext = ({ children }) => {
 
       setAbbvWalletAddress(abbvAddy)
 
-      console.log('MetaMask is installed!');
+      // console.log('MetaMask is installed!');
       toast.success(`wallet connected ;)`);
     }
   }
@@ -82,7 +82,9 @@ export const StateContext = ({ children }) => {
 
       setNfts(data.items)
 
-      console.log(data.items)
+
+      // NFT LIST
+      // console.log(data.items)
 
       if (data.items) {
 
@@ -124,7 +126,6 @@ export const StateContext = ({ children }) => {
   }, [walletAddress])
 
   const resetDefaults = (product) => {
-    console.log('product', product.name)
     setSizeChoice(`${product.size[0]}`)
     setColorChoice(`${product.color[0]}`)
     setPreview(0)
@@ -152,10 +153,6 @@ export const StateContext = ({ children }) => {
     if (!colorChoice) {
       colorChoice=tempColor
     }
-
-    console.log('color', colorChoice)
-
-    console.log('custom choice?', customChoice)
 
     const prodBuy = {
       name: product.name,
