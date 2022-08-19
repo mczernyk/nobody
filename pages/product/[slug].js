@@ -123,6 +123,39 @@ const ProductDetails = ({ product, products }) => {
 
         }
       }
+
+      if (name === "embroidered bucket hat") {
+        if (event.target.value === 'denim blue') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'denim black') {
+          setIndex(1)
+          setPreview(1)
+
+        }
+        if (event.target.value === 'black') {
+          setIndex(2)
+          setPreview(2)
+
+        }
+        if (event.target.value === 'olive') {
+          setIndex(3)
+          setPreview(3)
+
+        }
+        if (event.target.value === 'blue') {
+          setIndex(4)
+          setPreview(4)
+
+        }
+        if (event.target.value === 'tan') {
+          setIndex(5)
+          setPreview(5)
+
+        }
+      }
+
       if (name === "embroidered pattern tee") {
         if (event.target.value === 'marble') {
           setIndex(0)
