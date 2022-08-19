@@ -453,13 +453,15 @@ const ProductDetails = ({ product, products }) => {
       </div>
 
       <div className="home-button">
-        <h3>
+        <h2>
           <Link href="/">
           go home
           </Link>
 
-        </h3>
+        </h2>
       </div>
+
+
 
       <div className="maylike-products-wrapper">
           <h2>more from this collection</h2>

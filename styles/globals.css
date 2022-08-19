@@ -123,7 +123,6 @@ width: 100%
 .about-container h3:hover {
   color: red;
   transform: scale(1.1,1.1);
-
 }
 
 .about-container p{
@@ -271,16 +270,17 @@ width: 100%
 
 .home-button{
   width: 100%;
+  /* margin: 6px 18px; */
 }
 
-.home-button h3{
+.home-button h2{
   text-align: center;
   /* padding: 0px 10px; */
-  color: black
+  color: black;
 }
-.home-button h3:hover {
+
+.home-button h2:hover {
   color: red;
-  transform: scale(1.1,1.1);
 }
 .products-container{
   display: flex;
@@ -633,6 +633,9 @@ text-align: end;
 .twitter:hover{
   color: #1DA1F2
 }
+.envelope:hover{
+  color: white
+}
 .footer-links {
   display: flex;
   flex-direction: row;
@@ -954,31 +957,26 @@ padding: 30px 65px;
 
 }
 .success, .cancel{
-  width: 1000px;
-margin: auto;
-margin-top: 160px;
-  background-color: #dcdcdc;
+  /* width: 1000px; */
+  margin: auto;
+  margin-top: 160px;
+  /* background-color: #dcdcdc; */
   padding: 50px;
-  border-radius: 15px;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.success .icon {
-   color: green;
-   font-size: 40px;
-}
-.success h2{
-  text-transform: capitalize;
+.success h2 {
   margin-top: 15px 0px;
   font-weight: 900;
-  font-size: 40px;
+  font-size: 30px;
   color:black;
 }
 .success .email-msg{
-   font-size: 16px;
+   font-size: 12px;
   font-weight: 600;
   text-align: center;
 }
@@ -987,18 +985,25 @@ margin-top: 160px;
   font-weight: 600;
 }
 .success .description{
-  font-size: 16px;
-  font-weight: 600;
   text-align: center;
   margin: 10px;
   margin-top: 30px;
+  white-space: pre-wrap;
 }
 .success .description .email{
-  margin-left: 5px;
   color: #f02d34;
+  font-weight: bold;
 }
 .product-max-qty{
   margin-top: 10px;
+}
+
+.success-button {
+  margin-top: 30px;
+}
+.success-button h3:hover {
+  color: red;
+  transform: scale(1.1,1.1);
 }
 
 @media screen and (max-width:800px) {
