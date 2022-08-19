@@ -317,7 +317,7 @@ const ProductDetails = ({ product, products }) => {
           {custom && <div className='quantity'>
             <div className="check-box">
               <label className='checkRow'>
-                <h3>print without name or #:</h3>
+                <h3>print without name and #</h3>
                 <input
                   type="checkbox"
                   id="checkbox"
