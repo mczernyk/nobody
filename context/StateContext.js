@@ -12,6 +12,7 @@ export const StateContext = ({ children }) => {
   const [customChoice, setCustomChoice] = useState('');
   const [sizeChoice, setSizeChoice] = useState('')
   const [colorChoice, setColorChoice] = useState('')
+  const [checked, setChecked] = useState(false)
   const [preview, setPreview] = useState(0);
   const [menuVisible, setMenuVisible] = useState(false)
 
@@ -130,6 +131,7 @@ export const StateContext = ({ children }) => {
     setColorChoice(`${product.color[0]}`)
     setPreview(0)
     setMenuVisible(false)
+    setChecked(false)
   }
 
 
@@ -140,7 +142,7 @@ export const StateContext = ({ children }) => {
   let tempSize=''
   let tempColor=''
 
-  const onAdd = (product, quantity, sizeChoice, colorChoice, customChoice, preview) => {
+  const onAdd = (product, quantity, sizeChoice, colorChoice, customChoice, preview, checked) => {
 
     if (!quantity) {
       quantity=tempQuant
@@ -163,6 +165,7 @@ export const StateContext = ({ children }) => {
       custom: product.custom,
       preview: preview,
       slug: product.slug,
+      checked: checked ? 'no name/#' : '',
       _id: product._id,
       _type: product._type,
       key: `${product._id}${product.name}sz${sizeChoice}${colorChoice}`
@@ -170,8 +173,10 @@ export const StateContext = ({ children }) => {
 
     if (customChoice){
       prodBuy.name = customChoice
-      prodBuy.key = `${product._id}${customChoice}sz${sizeChoice}${colorChoice}`
+      prodBuy.key = `${product._id}${customChoice}sz${sizeChoice}${colorChoice}${checked}`
     }
+
+    console.log('checkedName', prodBuy.checked)
 
 
 
@@ -314,6 +319,8 @@ export const StateContext = ({ children }) => {
         setSizeChoice,
         colorChoice,
         setColorChoice,
+        checked,
+        setChecked,
         resetDefaults,
         preview,
         setPreview,

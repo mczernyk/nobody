@@ -13,7 +13,7 @@ const ProductDetails = ({ product, products }) => {
   const { image, name, details, details2, price, size, color, custom, collection } = product;
   const [index, setIndex] = useState(0);
 
-  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, derivs, allstarz, remilios, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, colorChoice, setColorChoice, resetDefaults,preview, setPreview } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, derivs, allstarz, remilios, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, checked, setChecked, colorChoice, setColorChoice, resetDefaults,preview, setPreview } = useStateContext();
 
   useEffect(() => {
     resetDefaults(product)
@@ -23,6 +23,13 @@ const ProductDetails = ({ product, products }) => {
   const handleChange = (event) => {
     setSizeChoice(event.target.value);
   };
+
+  const handleCheck = () => {
+    setChecked(!checked);
+    console.log('check', checked)
+  };
+
+
 
   const handleSizeSelect = (index) => {
     if (collection === 'originals') {
@@ -239,9 +246,7 @@ const ProductDetails = ({ product, products }) => {
 
 
   const handleBuyNow = () => {
-    onAdd(product, qty, sizeChoice, colorChoice, customChoice, preview);
-
-
+    onAdd(product, qty, sizeChoice, colorChoice, customChoice, preview, checked);
     setShowCart(true);
   }
 
@@ -301,14 +306,27 @@ const ProductDetails = ({ product, products }) => {
 
             </div>
             <div className="size-box">
-            <h3>color: </h3>
-            <select id="size" value={colorChoice} onChange={handleChangeColor}>
-              {color.map((item, i) => <option key={i} value={item}>{item}</option>)}
-            </select>
+              <h3>color: </h3>
+              <select id="color" value={colorChoice} onChange={handleChangeColor}>
+                {color.map((item, i) => <option key={i} value={item}>{item}</option>)}
+              </select>
+            </div>
 
           </div>
 
-          </div>
+          {custom && <div className='quantity'>
+            <div className="check-box">
+              <label className='checkRow'>
+                <h3>print without name/#  </h3>
+                <input
+                  type="checkbox"
+                  id="checkbox"
+                  checked={checked}
+                  onChange={handleCheck}
+                />
+              </label>
+            </div>
+          </div>}
 
           <p className="price">${price}</p>
 
@@ -485,7 +503,7 @@ const ProductDetails = ({ product, products }) => {
 
 
          <div className="buttons">
-            <button disabled={customChoice === '' && custom } type="button" className="add-to-cart" onClick={() => onAdd(product, qty, sizeChoice, colorChoice, customChoice, preview)}>Add to Cart</button>
+            <button disabled={customChoice === '' && custom } type="button" className="add-to-cart" onClick={() => onAdd(product, qty, sizeChoice, colorChoice, customChoice, preview, checked)}>Add to Cart</button>
             <button disabled={customChoice === '' && custom } type="button" className="buy-now" onClick={handleBuyNow}>Buy Now</button>
           </div>
 
@@ -496,7 +514,7 @@ const ProductDetails = ({ product, products }) => {
 
       <div className="home-button">
         <h2>
-          <Link href="/">
+          <Link href="/" onClick={resetDefaults}>
           go home
           </Link>
 

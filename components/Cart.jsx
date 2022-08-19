@@ -74,6 +74,9 @@ const Cart = () => {
                   <h4>size: {item.sizeChoice}</h4>
                   <h4>color: <span className='cart-item-name'>{item.colorChoice}</span></h4>
                 </div>
+                {(item.checked === 'no name/#') && <div className="flex top">
+                  <h4>print without name/#</h4>
+                </div>}
                 <div className="flex bottom">
                   <div>
                   <p className="quantity-desc">

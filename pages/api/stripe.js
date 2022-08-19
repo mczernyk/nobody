@@ -26,7 +26,7 @@ export default async function handler(req, res) {
             price_data: {
               currency: 'usd',
               product_data: {
-                name: `${item.name} ${item.sizeChoice} ${item.colorChoice}`,
+                name: `${item.name} ${item.sizeChoice} ${item.colorChoice} ${item.checked}`,
                 metadata: {
                   size: item.sizeChoice,
                   color: item.colorChoice
