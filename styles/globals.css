@@ -317,7 +317,7 @@ width: 100%
   transition: transform 0.5s ease;
 }
 
-.product-card:hover{
+.product-card:hover .product-image{
   transform: scale(1.05,1.05)
 }
 
