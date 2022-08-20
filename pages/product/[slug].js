@@ -13,7 +13,7 @@ const ProductDetails = ({ product, products }) => {
   const { image, name, details, details2, price, size, color, custom, collection } = product;
   const [index, setIndex] = useState(0);
 
-  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, derivs, allstarz, remilios, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, checked, setChecked, colorChoice, setColorChoice, resetDefaults,preview, setPreview } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, derivs, allstarz, remilios, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, checked, setChecked, colorChoice, setColorChoice, resetDefaults, preview, setPreview } = useStateContext();
 
   useEffect(() => {
     resetDefaults(product)
@@ -103,7 +103,7 @@ const ProductDetails = ({ product, products }) => {
   }
 
   const handleChangeColor = (event) => {
-    if (collection === 'originals') {
+    if (collection === 'originals' || collection === 'misc') {
       if (name === "embroidered dad hat") {
         if (event.target.value === 'sky') {
           setIndex(0)
