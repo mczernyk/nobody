@@ -233,7 +233,7 @@ const ProductDetails = ({ product, products }) => {
 
         }
       }
-      if (name === "love tee" || name === "passenger tee") {
+      if (name === "love tee" || name === "passenger tee" || name === "nnn tee") {
         if (event.target.value === 'black') {
           setIndex(0)
           setPreview(0)
