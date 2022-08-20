@@ -183,35 +183,40 @@ const ProductDetails = ({ product, products }) => {
           setPreview(1)
 
         }
-        if (event.target.value === 'denim blue') {
+        if (event.target.value === 'denim navy') {
           setIndex(2)
           setPreview(2)
 
         }
-        if (event.target.value === 'white') {
+        if (event.target.value === 'denim blue') {
           setIndex(3)
           setPreview(3)
 
         }
-
-        if (event.target.value === 'black') {
+        if (event.target.value === 'white') {
           setIndex(4)
           setPreview(4)
 
         }
-        if (event.target.value === 'olive') {
+
+        if (event.target.value === 'black') {
           setIndex(5)
           setPreview(5)
 
         }
-        if (event.target.value === 'blue') {
+        if (event.target.value === 'olive') {
           setIndex(6)
           setPreview(6)
 
         }
-        if (event.target.value === 'tan') {
+        if (event.target.value === 'blue') {
           setIndex(7)
           setPreview(7)
+
+        }
+        if (event.target.value === 'tan') {
+          setIndex(8)
+          setPreview(8)
 
         }
       }
