@@ -233,7 +233,7 @@ const ProductDetails = ({ product, products }) => {
 
         }
       }
-      if (name === "love tee" || name === "passenger tee" || name === "nnn tee") {
+      if (name === "love tee" || name === "passenger tee" || name === "nnn tee" || name === "trust tee") {
         if (event.target.value === 'black') {
           setIndex(0)
           setPreview(0)
@@ -253,6 +253,10 @@ const ProductDetails = ({ product, products }) => {
         if (event.target.value === 'purple') {
           setIndex(8)
           setPreview(8)
+        }
+        if (event.target.value === 'butter') {
+          setIndex(10)
+          setPreview(10)
         }
       }
       if (name === 'no body slides') {
@@ -293,6 +297,10 @@ const ProductDetails = ({ product, products }) => {
       if (event.target.value === 'purple') {
         setIndex(8)
         setPreview(8)
+      }
+      if (event.target.value === 'butter') {
+        setIndex(10)
+        setPreview(10)
       }
     }
 
