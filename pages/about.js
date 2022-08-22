@@ -23,6 +23,8 @@ export default function about() {
 
           <p>nobody offers a 10% collection discount for each month's best selling collection. this sale lasts 24 hours, the sale date is announced on <a className='twitter-about' href="https://twitter.com/nobody_clothing">twitter</a>.</p>
 
+          <p>nobody only ships to US addresses for now. dm us for international orders.</p>
+
           <h2>♡ nobody loves you ♡</h2>
           <h3>
           <Link href="/">
