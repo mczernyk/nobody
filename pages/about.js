@@ -1,14 +1,31 @@
 import React from 'react'
 import Link from 'next/link';
+import Head from 'next/head'
 
 
 export default function about() {
   return (
     <div>
-    <title>nobody</title>
-    <meta property="og:title" content="nobody"/>
-    <meta property="og:description" content="♡ nobody loves you ♡"/>
-    <meta property="og:image" content="/nbCircleBlack.png"/>
+    <Head>
+      <title>nobody ~ about</title>
+      <meta name="description" content="♡ nobody loves you ♡"/>
+      <meta property="image" content="/nbCircleBlack.png"/>
+
+      {/*<!-- Facebook Meta Tags -->*/}
+      <meta property="og:url" content="https://www.nobody.clothing/"/>
+      <meta property="og:type" content="website"/>
+      <meta property="og:title" content="nobody ~ about"/>
+      <meta property="og:description" content="♡ nobody loves you ♡"/>
+      <meta property="og:image" content="/nbCircleBlack.png"/>
+
+      {/*<!-- Twitter Meta Tags -->*/}
+      <meta name="twitter:card" content="summary_large_image"/>
+      <meta property="twitter:domain" content="nobody.clothing"/>
+      <meta property="twitter:url" content="/nbCircleBlack.png"/>
+      <meta name="twitter:title" content="nobody ~ about"/>
+      <meta name="twitter:description" content="♡ nobody loves you ♡"/>
+      <meta name="twitter:image" content="/nbCircleBlack.png"/>
+    </Head>
 
     <div className="about-container">
       <h1>about</h1>
