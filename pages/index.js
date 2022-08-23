@@ -14,9 +14,23 @@ const Home = ({ products, bannerData }) => (
   <div>
     <Head>
       <title>nobody</title>
+      <meta name="description" content="♡ nobody loves you ♡"/>
+
+      {/*<!-- Facebook Meta Tags -->*/}
+      <meta property="og:url" content="https://www.nobody.clothing/"/>
+      <meta property="og:type" content="website"/>
       <meta property="og:title" content="nobody"/>
       <meta property="og:description" content="♡ nobody loves you ♡"/>
       <meta property="og:image" content="/nbCircleBlack.png"/>
+
+      {/*<!-- Twitter Meta Tags -->*/}
+      <meta name="twitter:card" content="summary_large_image"/>
+      <meta property="twitter:domain" content="nobody.clothing"/>
+      <meta property="twitter:url" content="/nbCircleBlack.png"/>
+      <meta name="twitter:title" content="nobody"/>
+      <meta name="twitter:description" content="♡ nobody loves you ♡"/>
+      <meta name="twitter:image" content="/nbCircleBlack.png"/>
+
     </Head>
     <Header />
 
