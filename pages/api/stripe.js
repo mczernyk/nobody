@@ -13,6 +13,9 @@ export default async function handler(req, res) {
         shipping_address_collection: {
           allowed_countries: ['US']
         },
+        automatic_tax: {
+          enabled: true
+        },
         billing_address_collection: 'auto',
         shipping_options: [
           { shipping_rate: 'shr_1LY0yeFdJwjjFUnI1XDB8jdt' },
@@ -32,8 +35,10 @@ export default async function handler(req, res) {
                   color: item.colorChoice
                 },
                 images: [newImage],
+                tax_code: 'txcd_99999999'
               },
               unit_amount: item.price * 100,
+              tax_behavior: 'exclusive'
             },
             adjustable_quantity: {
               enabled:true,

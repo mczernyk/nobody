@@ -9,7 +9,7 @@ const NFTCard = ({nft, product}) => {
 
   const handleClick = (e, name) => {
     e.preventDefault()
-    console.log('choice', name)
+    // console.log('choice', name)
     setCustomChoice(name)
   }
 
