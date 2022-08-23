@@ -27,7 +27,7 @@ const Home = ({ products, bannerData }) => (
       {/*<!-- Twitter Meta Tags -->*/}
       <meta name="twitter:card" content="summary_large_image"/>
       <meta property="twitter:domain" content="nobody.clothing"/>
-      <meta property="twitter:url" content="/nbCircleBlack.png"/>
+      <meta property="twitter:url" content="https://www.nobody.clothing"/>
       <meta name="twitter:title" content="nobody"/>
       <meta name="twitter:description" content="♡ nobody loves you ♡"/>
       <meta name="twitter:image" content="/nbCircleBlack.png"/>
