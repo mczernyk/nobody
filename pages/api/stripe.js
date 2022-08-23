@@ -48,7 +48,8 @@ export default async function handler(req, res) {
               enabled:true,
               minimum: 1,
             },
-            quantity: item.quantity
+            quantity: item.quantity,
+            // tax_rates: ['txr_1La4CxFdJwjjFUnI6X4besxN']
           }
         }),
         success_url: `${req.headers.origin}/success`,

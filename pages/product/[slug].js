@@ -320,9 +320,12 @@ const ProductDetails = ({ product, products }) => {
     <div>
       <Head>
         <title>nobody</title>
-        <meta property="og:title" content={product.name}/>
-        <meta property="og:description" content={product.details}/>
-        <meta property="og:image" content={product.image[0].asset._ref.replace('image-', 'https://cdn.sanity.io/images/yiekg475/production/').replace('-png', '.png').replace('-jpg', '.jpg')}/>
+        <meta property="og:title" content={product.name} key="prod-title"/>
+        <meta property="title" content={product.name} key="prod-title"/>
+        <meta property="og:description" content={product.details} key="prod-description"/>
+        <meta property="prod-description" content={product.details} key="description"/>
+        <meta property="og:image" content={product.image[0].asset._ref.replace('image-', 'https://cdn.sanity.io/images/yiekg475/production/').replace('-png', '.png').replace('-jpg', '.jpg')} key="prod-image"/>
+        <meta property="image" content={product.image[0].asset._ref.replace('image-', 'https://cdn.sanity.io/images/yiekg475/production/').replace('-png', '.png').replace('-jpg', '.jpg')} key="prod-image"/>
       </Head>
       <div className="product-detail-container">
         {image && (<div>
