@@ -9,14 +9,14 @@ export default function about() {
     <Head>
       <title>nobody ~ about</title>
       <meta name="description" content="♡ nobody loves you ♡"/>
-      <meta property="image" content="https://www.nobody.clothing/nbCircleBlack.png"/>
+      <meta property="image" content="/nbCircleBlack.png"/>
 
       {/*<!-- Facebook Meta Tags -->*/}
       <meta property="og:url" content="https://www.nobody.clothing/about"/>
       <meta property="og:type" content="website"/>
       <meta property="og:title" content="nobody ~ about"/>
       <meta property="og:description" content="♡ nobody loves you ♡"/>
-      <meta property="og:image" content="https://www.nobody.clothing/nbCircleBlack.png"/>
+      <meta property="og:image" content="/nbCircleBlack.png"/>
 
       {/*<!-- Twitter Meta Tags -->*/}
       <meta name="twitter:card" content="summary_large_image"/>
@@ -24,7 +24,7 @@ export default function about() {
       <meta property="twitter:url" content="https://www.nobody.clothing/about"/>
       <meta name="twitter:title" content="nobody ~ about"/>
       <meta name="twitter:description" content="♡ nobody loves you ♡"/>
-      <meta name="twitter:image" content="https://www.nobody.clothing/nbCircleBlack.png"/>
+      <meta name="twitter:image" content="/nbCircleBlack.png"/>
     </Head>
 
     <div className="about-container">
