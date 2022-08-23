@@ -14,12 +14,9 @@ const Home = ({ products, bannerData }) => (
   <div>
     <Head>
       <title>nobody</title>
-      <meta property="og:title" content="nobody" key="title"/>
-      <meta property="title" content="nobody" key="title"/>
-      <meta property="og:description" content="♡ nobody loves you ♡" key="description"/>
-      <meta property="description" content="♡ nobody loves you ♡" key="description"/>
-      <meta property="og:image" content="/nbCircleBlack.png" key="image"/>
-      <meta property="image" content="/nbCircleBlack.png" key="image"/>
+      <meta property="og:title" content="nobody"/>
+      <meta property="og:description" content="♡ nobody loves you ♡"/>
+      <meta property="og:image" content="/nbCircleBlack.png"/>
     </Head>
     <Header />
 
