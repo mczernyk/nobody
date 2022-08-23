@@ -15,6 +15,7 @@ const Home = ({ products, bannerData }) => (
     <Head>
       <title>nobody</title>
       <meta name="description" content="♡ nobody loves you ♡"/>
+      <meta property="image" content="/nbCircleBlack.png"/>
 
       {/*<!-- Facebook Meta Tags -->*/}
       <meta property="og:url" content="https://www.nobody.clothing/"/>

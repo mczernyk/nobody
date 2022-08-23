@@ -319,10 +319,25 @@ const ProductDetails = ({ product, products }) => {
   return (
     <div>
       <Head>
-        <title>nobody</title>
+        <title>nobody ~ {product.name}</title>
+        <meta name="description" content={product.details}/>
+        <meta property="image" content={product.image[0].asset._ref.replace('image-', 'https://cdn.sanity.io/images/yiekg475/production/').replace('-png', '.png').replace('-jpg', '.jpg')}/>
+
+        {/*<!-- Facebook Meta Tags -->*/}
+        <meta property="og:url" content={`https://www.nobody.clothing/product/${product.slug}`}/>
+        <meta property="og:type" content="website"/>
         <meta property="og:title" content={product.name}/>
         <meta property="og:description" content={product.details}/>
         <meta property="og:image" content={product.image[0].asset._ref.replace('image-', 'https://cdn.sanity.io/images/yiekg475/production/').replace('-png', '.png').replace('-jpg', '.jpg')}/>
+
+        {/*<!-- Twitter Meta Tags -->*/}
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta property="twitter:domain" content="nobody.clothing"/>
+        <meta property="twitter:url" content={`https://www.nobody.clothing/product/${product.slug}`}/>
+        <meta name="twitter:title" content={product.name}/>
+        <meta name="twitter:description" content={product.details}/>
+        <meta name="twitter:image" content={product.image[0].asset._ref.replace('image-', 'https://cdn.sanity.io/images/yiekg475/production/').replace('-png', '.png').replace('-jpg', '.jpg')}/>
+
       </Head>
       <div className="product-detail-container">
         {image && (<div>
