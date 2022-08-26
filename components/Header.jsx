@@ -16,8 +16,10 @@ const Header = () => {
         <div className='header-title-box'>
           <h1>no</h1>
           <h1>body</h1>
+
         </div>
       </div>
+        <p>making digital assets real</p>
       <div className='header-items'>
         <div className='header-collections' >
           <p onClick={() => handleVisible(menuVisible)}>collections</p>

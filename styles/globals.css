@@ -369,11 +369,15 @@ width: 100%
   width: 100%;
   border-radius: 10px;
 }
+
+.header-container p {
+  padding-bottom:20px
+}
 .header-container-internal {
   width: 100%;
   padding: 100px 40px;
-
 }
+
 .header-section-title {
   display: flex;
   flex-direction: row;
