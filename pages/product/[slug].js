@@ -312,11 +312,11 @@ const ProductDetails = ({ product, products }) => {
         }
       }
       if (name === "smile crop top") {
-        if (event.target.value === 'black') {
+        if (event.target.value === 'white') {
           setIndex(0)
           setPreview(0)
         }
-        if (event.target.value === 'white') {
+        if (event.target.value === 'black') {
           setIndex(2)
           setPreview(2)
         }
