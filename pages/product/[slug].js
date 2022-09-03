@@ -191,22 +191,25 @@ const ProductDetails = ({ product, products }) => {
         if (event.target.value === 'denim blue') {
           setIndex(3)
           setPreview(3)
+
         }
-        if (event.target.value === 'white') {
+        if (event.target.value === 'cotton white') {
           setIndex(4)
           setPreview(4)
+
         }
 
-        if (event.target.value === 'black') {
+        if (event.target.value === 'cotton black') {
           setIndex(5)
           setPreview(5)
+
         }
-        if (event.target.value === 'olive') {
+        if (event.target.value === 'cotton olive') {
           setIndex(6)
           setPreview(6)
 
         }
-        if (event.target.value === 'blue') {
+        if (event.target.value === 'cotton blue') {
           setIndex(7)
           setPreview(7)
 
