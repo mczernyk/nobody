@@ -781,7 +781,7 @@ padding: 30px 65px;
   transition: .3s ease-in-out;
 }
 .product-detail-image:hover{
-  transform: scale(1.05,1.05);
+  transform: scale(1.1,1.1);
 
 }
 .small-images-container{
