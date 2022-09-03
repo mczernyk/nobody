@@ -260,7 +260,7 @@ const ProductDetails = ({ product, products }) => {
         }
       }
       if (name === "nnn tee") {
-        if (event.target.value === 'yellow') {
+        if (event.target.value === 'butter') {
           setIndex(0)
           setPreview(0)
         }
