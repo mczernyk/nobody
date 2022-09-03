@@ -259,6 +259,68 @@ const ProductDetails = ({ product, products }) => {
           setPreview(10)
         }
       }
+      if (name === "smile tee") {
+        if (event.target.value === 'berry') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'white') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'black') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'navy') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'purple') {
+          setIndex(8)
+          setPreview(8)
+        }
+        if (event.target.value === 'butter') {
+          setIndex(10)
+          setPreview(10)
+        }
+      }
+      if (name === "mind tee") {
+        if (event.target.value === 'purple') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'white') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'black') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'berry') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'navy') {
+          setIndex(8)
+          setPreview(8)
+        }
+        if (event.target.value === 'butter') {
+          setIndex(10)
+          setPreview(10)
+        }
+      }
+      if (name === "smile crop top") {
+        if (event.target.value === 'black') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'white') {
+          setIndex(2)
+          setPreview(2)
+        }
+      }
       if (name === 'no body slides') {
         if (event.target.value === 'white') {
           setIndex(0)
