@@ -233,7 +233,7 @@ const ProductDetails = ({ product, products }) => {
 
         }
       }
-      if (name === "love tee" || name === "passenger tee" || name === "nnn tee" || name === "trust tee") {
+      if (name === "love tee" || name === "passenger tee" || name === "trust tee") {
         if (event.target.value === 'black') {
           setIndex(0)
           setPreview(0)
@@ -259,12 +259,12 @@ const ProductDetails = ({ product, products }) => {
           setPreview(10)
         }
       }
-      if (name === "smile tee") {
-        if (event.target.value === 'berry') {
+      if (name === "nnn tee") {
+        if (event.target.value === 'yellow') {
           setIndex(0)
           setPreview(0)
         }
-        if (event.target.value === 'white') {
+        if (event.target.value === 'purple') {
           setIndex(2)
           setPreview(2)
         }
@@ -272,20 +272,21 @@ const ProductDetails = ({ product, products }) => {
           setIndex(4)
           setPreview(4)
         }
-        if (event.target.value === 'navy') {
+        if (event.target.value === 'white') {
           setIndex(6)
           setPreview(6)
         }
-        if (event.target.value === 'purple') {
+        if (event.target.value === 'berry') {
           setIndex(8)
           setPreview(8)
         }
-        if (event.target.value === 'butter') {
+        if (event.target.value === 'navy') {
           setIndex(10)
           setPreview(10)
         }
       }
-      if (name === "mind tee") {
+
+      if (name === "mind tee" || name === "smile tee") {
         if (event.target.value === 'purple') {
           setIndex(0)
           setPreview(0)
