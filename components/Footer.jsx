@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { BsTwitter, BsEnvelopeFill} from 'react-icons/bs';
+import {IoMdMail} from 'react-icons/io';
+import {AiFillInstagram, AiOutlineTwitter} from 'react-icons/ai'
 import { useStateContext } from '../context/StateContext';
 
 
@@ -28,8 +29,9 @@ const Footer = () => {
       <div>
 
         <p className="icons">
-        {/*<a className='envelope' href="mailto:nobodyclothingnyc@gmail.com"><BsEnvelopeFill /></a>*/}
-        <a className='twitter' href="https://twitter.com/nobody_clothing"><BsTwitter /></a>
+        <a className='envelope' href="mailto:nobodyclothingnyc@gmail.com"><IoMdMail /></a>
+        <a className='twitter' href="https://twitter.com/nobody_clothing"><AiOutlineTwitter /></a>
+        <a className='envelope' href="https://instagram.com/nobodyclothingnyc"><AiFillInstagram /></a>
 
         </p>
 
