@@ -13,7 +13,7 @@ const ProductDetails = ({ product, products }) => {
   const { image, name, details, details2, price, size, color, custom, collection } = product;
   const [index, setIndex] = useState(0);
 
-  const { decQty, incQty, qty, onAdd, setShowCart, miladys, auras, cdbs, derivs, allstarz, remilios, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, checked, setChecked, colorChoice, setColorChoice, resetDefaults, preview, setPreview } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart, miladys, pixeladys, auras, cdbs, derivs, allstarz, remilios, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, checked, setChecked, colorChoice, setColorChoice, resetDefaults, preview, setPreview } = useStateContext();
 
   useEffect(() => {
     resetDefaults(product)
@@ -128,6 +128,62 @@ const ProductDetails = ({ product, products }) => {
           setIndex(4)
           setPreview(4)
 
+        }
+      }
+
+      if (name === "embroidered dad hat smile") {
+        if (event.target.value === 'cotton candy') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'sky') {
+          setIndex(1)
+          setPreview(1)
+
+        }
+        if (event.target.value === 'light denim') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'blue denim') {
+          setIndex(3)
+          setPreview(3)
+        }
+        if (event.target.value === 'black denim') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'cotton white') {
+          setIndex(5)
+          setPreview(5)
+        }
+        if (event.target.value === 'cotton red') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'cotton tan') {
+          setIndex(7)
+          setPreview(7)
+        }
+        if (event.target.value === 'cotton navy') {
+          setIndex(8)
+          setPreview(8)
+        }
+        if (event.target.value === 'cotton green') {
+          setIndex(9)
+          setPreview(9)
+        }
+        if (event.target.value === 'cotton black') {
+          setIndex(10)
+          setPreview(10)
+        }
+        if (event.target.value === 'cotton light blue') {
+          setIndex(11)
+          setPreview(11)
+        }
+        if (event.target.value === 'cotton pink') {
+          setIndex(12)
+          setPreview(12)
         }
       }
 
@@ -502,6 +558,27 @@ const ProductDetails = ({ product, products }) => {
                         {customChoice && <p>{customChoice} selected.</p>}
                       </div>
                       <NFTContainer nfts={miladys} product={product}/>
+                    </div>
+                    ):(
+                      <div>
+                      <p>no NFTs detected from this collection, try connecting your wallet again please :)</p>
+                    </div>
+                    )
+                  }
+
+                </div>
+              }
+
+              {collection === 'pixelady' &&
+                <div>
+                  {pixeladys.length ?
+                    (
+                    <div>
+                      <div className='quantity'>
+                        <p>{pixeladys.length} NFTs found.</p>
+                        {customChoice && <p>{customChoice} selected.</p>}
+                      </div>
+                      <NFTContainer nfts={pixeladys} product={product}/>
                     </div>
                     ):(
                       <div>

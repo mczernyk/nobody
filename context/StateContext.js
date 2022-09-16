@@ -20,6 +20,7 @@ export const StateContext = ({ children }) => {
   const [abbvWalletAddress, setAbbvWalletAddress] = useState('')
   const [nfts, setNfts] = useState([])
   const [miladys, setMiladys] = useState([])
+  const [pixeladys, setPixeladys] = useState([])
   const [auras, setAuras] = useState([])
   const [cdbs, setCdbs] = useState([])
   const [banners, setBanners] = useState([])
@@ -85,11 +86,13 @@ export const StateContext = ({ children }) => {
 
 
       // NFT LIST
-      // console.log(data.items)
+      console.log(data.items)
 
       if (data.items) {
 
         const miladysFound = await data.items.filter(each => each.collection === "ETHEREUM:0x5af0d9827e0c53e4799bb226655a1de152a425a5")
+
+        const pixeladysFound = await data.items.filter(each => each.collection === "ETHEREUM:0x8fc0d90f2c45a5e7f94904075c952e0943cfccfd")
 
         const aurasFound = await data.items.filter(each => each.collection === "ETHEREUM:0x2fc722c1c77170a61f17962cc4d039692f033b43")
 
@@ -106,6 +109,7 @@ export const StateContext = ({ children }) => {
         const remiliosFound = await data.items.filter(each => each.collection === "ETHEREUM:0xd3d9ddd0cf0a5f0bfb8f7fceae075df687eaebab")
 
         setMiladys(miladysFound)
+        setPixeladys(pixeladysFound)
         setAuras(aurasFound)
         setCdbs(cdbsFound)
         setBanners(bannersFound)
@@ -308,6 +312,7 @@ export const StateContext = ({ children }) => {
         nfts,
         setNfts,
         miladys,
+        pixeladys,
         auras,
         cdbs,
         derivs,
