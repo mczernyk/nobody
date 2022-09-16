@@ -29,81 +29,24 @@ const ProductDetails = ({ product, products }) => {
     console.log('check', checked)
   };
 
-
-
-  const handleSizeSelect = (index) => {
-    if (collection === 'originals') {
-      if (name === "embroidered dad hat") {
-        if (index === 0 || index === 5) {
-          setColorChoice('sky')
-        }
-        if (index === 1 || index === 6) {
-          setColorChoice('cotton candy')
-
-        }
-        if (index === 2|| index === 7) {
-          setColorChoice('black denim')
-
-        }
-        if (index === 3|| index === 8) {
-          setColorChoice('blue denim')
-
-        }
-        if (index === 4|| index === 9) {
-          setColorChoice('black')
-
-        }
-      }
-      if (name === "embroidered pattern tee") {
-        if (index === 0 || index === 1) {
-          setColorChoice('marble')
-        }
-        if (index === 2 || index === 3) {
-          setColorChoice('tie dye')
-        }
-
-      }
-      if (name === "love tee") {
-        if (index === 0 || index === 1) {
-          setColorChoice('white')
-        }
-        if (index === 2 || index === 3) {
-          setColorChoice('black')
-        }
-        if (index === 4 || index ===5) {
-          setColorChoice('berry')
-        }
-        if (index === 6 || index === 7) {
-          setColorChoice('navy')
-        }
-        if (index === 8 || index === 9) {
-          setColorChoice('purple')
-        }
-      }
-
-    } else {
-      if (index === 0 || index === 1) {
-        setColorChoice('white')
-      }
-      if (index === 2 || index === 3) {
-        setColorChoice('black')
-      }
-      if (index === 4 || index === 5) {
-        setColorChoice('berry')
-      }
-      if (index === 6 || index === 7) {
-        setColorChoice('navy')
-      }
-      if (index === 8 || index === 9) {
-        setColorChoice('purple')
-      }
-    }
-
-
-  }
-
   const handleChangeColor = (event) => {
     if (collection === 'originals' || collection === 'misc') {
+      if (name === "embroidered denim jacket") {
+        if (event.target.value === 'black denim') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'blue denim') {
+          setIndex(2)
+          setPreview(2)
+
+        }
+        if (event.target.value === 'white denim') {
+          setIndex(4)
+          setPreview(4)
+
+        }
+      }
       if (name === "embroidered dad hat") {
         if (event.target.value === 'sky') {
           setIndex(0)
