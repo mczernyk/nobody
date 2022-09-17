@@ -108,6 +108,7 @@ export const StateContext = ({ children }) => {
 
         const remiliosFound = await data.items.filter(each => each.collection === "ETHEREUM:0xd3d9ddd0cf0a5f0bfb8f7fceae075df687eaebab")
 
+
         setMiladys(miladysFound)
         setPixeladys(pixeladysFound)
         setAuras(aurasFound)
