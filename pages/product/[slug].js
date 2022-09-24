@@ -172,7 +172,7 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
-      if (name === "embroidered bucket hat" || name === "embroidered bucket hat smile") {
+      if (name === "embroidered bucket hat") {
         if (event.target.value === 'denim multi') {
           setIndex(0)
           setPreview(0)
