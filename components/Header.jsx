@@ -25,6 +25,7 @@ const Header = () => {
           <p onClick={() => handleVisible(menuVisible)}>collections</p>
           {menuVisible && <div className='header-menu-items'>
             <p onClick={(e) => handleClickScroll(e, 'nobody')}>nobody</p>
+            <p onClick={(e) => handleClickScroll(e, 'misc')}>accessories</p>
             <p onClick={(e) => handleClickScroll(e, 'milady')}>milady</p>
             <p onClick={(e) => handleClickScroll(e, 'pixelady')}>pixelady</p>
             <p onClick={(e) => handleClickScroll(e, 'milady aura')}>aura</p>
@@ -32,7 +33,6 @@ const Header = () => {
             <p onClick={(e) => handleClickScroll(e, 'remilio')}>remilio</p>
             <p onClick={(e) => handleClickScroll(e, 'cdb')}>cryptodickbutt</p>
             <p onClick={(e) => handleClickScroll(e, 'allstarz')}>allstarz</p>
-            <p onClick={(e) => handleClickScroll(e, 'misc')}>accessories</p>
           </div>}
         </div>
         <div className='header-about'>
