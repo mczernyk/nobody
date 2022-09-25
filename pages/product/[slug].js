@@ -131,42 +131,42 @@ const ProductDetails = ({ product, products }) => {
       }
 
       if (name === "embroidered beanie") {
-        if (event.target.value === 'sky') {
+        if (event.target.value === 'sky beanie') {
           setIndex(0)
           setPreview(0)
         }
-        if (event.target.value === 'cotton candy') {
+        if (event.target.value === 'cotton candy beanie') {
           setIndex(1)
           setPreview(1)
 
         }
-        if (event.target.value === 'black') {
+        if (event.target.value === 'black beanie') {
           setIndex(2)
           setPreview(2)
 
         }
-        if (event.target.value === 'navy') {
+        if (event.target.value === 'navy beanie') {
           setIndex(3)
           setPreview(3)
 
         }
-        if (event.target.value === 'green') {
+        if (event.target.value === 'green beanie') {
           setIndex(4)
           setPreview(4)
         }
-        if (event.target.value === 'charcoal') {
+        if (event.target.value === 'charcoal beanie') {
           setIndex(5)
           setPreview(5)
         }
-        if (event.target.value === 'gray') {
+        if (event.target.value === 'gray beanie') {
           setIndex(6)
           setPreview(6)
         }
-         if (event.target.value === 'red') {
+         if (event.target.value === 'red beanie') {
           setIndex(7)
           setPreview(7)
         }
-        if (event.target.value === 'gold') {
+        if (event.target.value === 'gold beanie') {
           setIndex(8)
           setPreview(8)
         }
