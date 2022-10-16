@@ -80,6 +80,7 @@ export const StateContext = ({ children }) => {
 
     const response = await fetch(`https://api.rarible.org/v0.1/items/byOwner/?owner=ETHEREUM:${walletAddress}&size=${100000}`)
 
+
       const data = await response.json()
 
       setNfts(data.items)
