@@ -341,12 +341,6 @@ const ProductDetails = ({ product, products }) => {
 
     } else {
 
-      // if (name === "remilio radbro say cheese") {
-      //   if (event.target.value === 'black') {
-      //     setIndex(0)
-      //     setPreview(0)
-      //   }
-      // }
 
       if (event.target.value === 'black') {
         setIndex(0)
