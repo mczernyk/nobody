@@ -85,7 +85,6 @@ export const StateContext = ({ children }) => {
 
       setNfts(data.items)
 
-
       // NFT LIST
       console.log(data.items)
 
