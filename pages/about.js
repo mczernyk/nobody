@@ -42,6 +42,8 @@ export default function about() {
 
           <p>nobody only ships to US addresses for now. dm us for international orders.</p>
 
+          <p>nobody accepts payments through Stripe. dm us for crypto/other payment options.</p>
+
           <h2>♡ nobody loves you ♡</h2>
           <h3>
           <Link href="/">
