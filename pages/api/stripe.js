@@ -15,7 +15,7 @@ export default async function handler(req, res) {
         allow_promotion_codes: true,
         payment_method_types: ['card'],
         shipping_address_collection: {
-          allowed_countries: ['US']
+          allowed_countries: ['US', 'SE']
         },
         automatic_tax: {
           enabled: true
@@ -23,6 +23,7 @@ export default async function handler(req, res) {
         billing_address_collection: 'auto',
         shipping_options: [
           { shipping_rate: 'shr_1LY0yeFdJwjjFUnI1XDB8jdt' },
+          { shipping_rate: 'shr_1Lz6FpFdJwjjFUnIBBR61dIn' }
         ],
         line_items: req.body.map((item) => {
           const img = item.image[item.preview].asset._ref;
