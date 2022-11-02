@@ -72,6 +72,11 @@ const ProductDetails = ({ product, products }) => {
           setPreview(4)
 
         }
+        if (event.target.value === 'camo') {
+          setIndex(5)
+          setPreview(5)
+
+        }
       }
 
       if (name === "embroidered dad hat smile") {
@@ -127,6 +132,10 @@ const ProductDetails = ({ product, products }) => {
         if (event.target.value === 'cotton pink') {
           setIndex(12)
           setPreview(12)
+        }
+        if (event.target.value === 'camo') {
+          setIndex(13)
+          setPreview(13)
         }
       }
 
