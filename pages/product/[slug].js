@@ -154,19 +154,14 @@ const ProductDetails = ({ product, products }) => {
           setPreview(2)
 
         }
-        if (event.target.value === 'denim blue') {
+        if (event.target.value === 'white/black') {
           setIndex(3)
           setPreview(3)
 
         }
-        if (event.target.value === 'white/black') {
+        if (event.target.value === 'red/red') {
           setIndex(4)
           setPreview(4)
-
-        }
-        if (event.target.value === 'red/red') {
-          setIndex(5)
-          setPreview(5)
 
         }
       }
