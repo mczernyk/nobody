@@ -139,6 +139,38 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "embroidered foam trucker smile") {
+        if (event.target.value === 'USA') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'black/black') {
+          setIndex(1)
+          setPreview(1)
+
+        }
+        if (event.target.value === 'navy/navy') {
+          setIndex(2)
+          setPreview(2)
+
+        }
+        if (event.target.value === 'denim blue') {
+          setIndex(3)
+          setPreview(3)
+
+        }
+        if (event.target.value === 'white/black') {
+          setIndex(4)
+          setPreview(4)
+
+        }
+        if (event.target.value === 'red/red') {
+          setIndex(5)
+          setPreview(5)
+
+        }
+      }
+
       if (name === "embroidered beanie") {
         if (event.target.value === 'sky beanie') {
           setIndex(0)
