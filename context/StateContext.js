@@ -13,6 +13,8 @@ export const StateContext = ({ children }) => {
   const [sizeChoice, setSizeChoice] = useState('')
   const [colorChoice, setColorChoice] = useState('')
   const [checked, setChecked] = useState(false)
+  const [customText, setCustomText] = useState('')
+
   const [preview, setPreview] = useState(0);
   const [menuVisible, setMenuVisible] = useState(false)
 
@@ -327,6 +329,8 @@ export const StateContext = ({ children }) => {
         setColorChoice,
         checked,
         setChecked,
+        customText,
+        setCustomText,
         resetDefaults,
         preview,
         setPreview,

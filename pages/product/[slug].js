@@ -13,7 +13,7 @@ const ProductDetails = ({ product, products }) => {
   const { image, name, details, details2, price, size, color, custom, collection } = product;
   const [index, setIndex] = useState(0);
 
-  const { decQty, incQty, qty, onAdd, setShowCart, miladys, pixeladys, auras, cdbs, derivs, allstarz, remilios, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, checked, setChecked, colorChoice, setColorChoice, resetDefaults, preview, setPreview } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart, miladys, pixeladys, auras, cdbs, derivs, allstarz, remilios, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, checked, setChecked, customText, setCustomText,colorChoice, setColorChoice, resetDefaults, preview, setPreview } = useStateContext();
 
   useEffect(() => {
     resetDefaults(product)
@@ -28,6 +28,16 @@ const ProductDetails = ({ product, products }) => {
     setChecked(!checked);
     console.log('check', checked)
   };
+
+  const handleCustomText = (e) => {
+    let text = e + " at the Milady Rave"
+    setCustomText(text)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setCustomChoice(customText)
+  }
 
   const handleChangeColor = (event) => {
     if (collection === 'originals' || collection === 'misc') {
@@ -402,30 +412,36 @@ const ProductDetails = ({ product, products }) => {
 
     } else {
 
-
-      if (event.target.value === 'black') {
-        setIndex(0)
-        setPreview(0)
-      }
-      if (event.target.value === 'white') {
-        setIndex(2)
-        setPreview(2)
-      }
-      if (event.target.value === 'berry') {
-        setIndex(4)
-        setPreview(4)
-      }
-      if (event.target.value === 'navy') {
-        setIndex(6)
-        setPreview(6)
-      }
-      if (event.target.value === 'purple') {
-        setIndex(8)
-        setPreview(8)
-      }
-      if (event.target.value === 'butter') {
-        setIndex(10)
-        setPreview(10)
+      if (name === "milady rave custom tee") {
+        if (event.target.value === 'black') {
+          setIndex(0)
+          setPreview(0)
+        }
+      } else {
+        if (event.target.value === 'black') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'white') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'berry') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'navy') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'purple') {
+          setIndex(8)
+          setPreview(8)
+        }
+        if (event.target.value === 'butter') {
+          setIndex(10)
+          setPreview(10)
+        }
       }
     }
 
@@ -520,7 +536,7 @@ const ProductDetails = ({ product, products }) => {
 
           </div>
 
-          {custom && <div className='quantity'>
+          {(custom && name !== 'milady rave custom tee') && <div className='quantity'>
             <div className="check-box">
               <label className='checkRow'>
                 <h3>print without name and #</h3>
@@ -536,7 +552,28 @@ const ProductDetails = ({ product, products }) => {
 
           <p className="price">${price}</p>
 
-          {custom &&
+          {name === 'milady rave custom tee' &&
+            <div>
+              <h3>add Milady Rave text:</h3>
+              <form onSubmit={handleSubmit}>
+                <input
+                type='text'
+                maxLength={40}
+                onChange={e => handleCustomText(e.target.value)}/>
+                <input type="submit" value="set text"/>
+              </form>
+
+            </div>
+          }
+          {(name === 'milady rave custom tee' && customChoice &&
+            <div>
+            <h3>your Milady Rave text:</h3>
+              <p>{customChoice} at the Milady Rave</p>
+            </div>
+          )}
+
+
+          {(custom && name !== 'milady rave custom tee') &&
             <div>
             <h3>connect your wallet and choose an NFT below:</h3>
 
