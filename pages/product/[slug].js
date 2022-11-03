@@ -166,6 +166,30 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "embroidered foam trucker split") {
+
+        if (event.target.value === 'navy/navy') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'black/black') {
+          setIndex(1)
+          setPreview(1)
+        }
+        if (event.target.value === 'white/black') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'USA') {
+          setIndex(3)
+          setPreview(3)
+        }
+        if (event.target.value === 'red/red') {
+          setIndex(4)
+          setPreview(4)
+        }
+      }
+
       if (name === "embroidered beanie") {
         if (event.target.value === 'sky beanie') {
           setIndex(0)
