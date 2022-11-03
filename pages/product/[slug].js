@@ -139,6 +139,7 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+
       if (name === "embroidered foam trucker smile") {
         if (event.target.value === 'USA') {
           setIndex(0)
