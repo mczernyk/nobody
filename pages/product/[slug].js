@@ -555,7 +555,7 @@ const ProductDetails = ({ product, products }) => {
           {name === 'milady rave custom tee' &&
             <div>
               <h3>add Milady Rave text:</h3>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} className="quantity">
                 <input
                 type='text'
                 maxLength={40}
