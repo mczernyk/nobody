@@ -144,12 +144,12 @@ const ProductDetails = ({ product, products }) => {
           setIndex(0)
           setPreview(0)
         }
-        if (event.target.value === 'black/black') {
+        if (event.target.value === 'navy/navy') {
           setIndex(1)
           setPreview(1)
 
         }
-        if (event.target.value === 'navy/navy') {
+        if (event.target.value === 'red/red') {
           setIndex(2)
           setPreview(2)
 
@@ -159,7 +159,7 @@ const ProductDetails = ({ product, products }) => {
           setPreview(3)
 
         }
-        if (event.target.value === 'red/red') {
+        if (event.target.value === 'black/black') {
           setIndex(4)
           setPreview(4)
 
