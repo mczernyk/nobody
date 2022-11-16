@@ -300,7 +300,6 @@ const ProductDetails = ({ product, products }) => {
         if (event.target.value === 'tie dye') {
           setIndex(2)
           setPreview(2)
-
         }
       }
       if (name === "love tee" || name === "passenger tee" || name === "trust tee" || 'self tee' || 'planet tee' || 'vacation tee') {
