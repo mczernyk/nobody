@@ -163,6 +163,10 @@ const ProductDetails = ({ product, products }) => {
           setIndex(4)
           setPreview(4)
         }
+        if (event.target.value === 'white cotton') {
+          setIndex(6)
+          setPreview(6)
+        }
       }
 
 
