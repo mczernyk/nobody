@@ -149,6 +149,22 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "embroidered dad hat no") {
+
+        if (event.target.value === 'light denim') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'black denim') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'blue denim') {
+          setIndex(4)
+          setPreview(4)
+        }
+      }
+
 
       if (name === "embroidered foam trucker smile") {
         if (event.target.value === 'USA') {
