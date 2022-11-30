@@ -26,6 +26,8 @@ export const StateContext = ({ children }) => {
   const [auras, setAuras] = useState([])
   const [cdbs, setCdbs] = useState([])
   const [banners, setBanners] = useState([])
+  const [mililys, setMililys] = useState([])
+  const [milads, setMilads] = useState([])
   const [derivs, setDerivs] = useState([])
   const [allstarz, setAllstarz] = useState([])
   const [remilios, setRemilios] = useState([])
@@ -110,6 +112,10 @@ export const StateContext = ({ children }) => {
 
         const remiliosFound = await data.items.filter(each => each.collection === "ETHEREUM:0xd3d9ddd0cf0a5f0bfb8f7fceae075df687eaebab")
 
+        const mililysFound = await data.items.filter(each => each.collection === "ETHEREUM:0x71481a928c24c32e4d9a4394fab3168a3a1cfd11")
+
+        const miladsFound = await data.items.filter(each => each.collection === "ETHEREUM:0x61628d84d0871a38f102d5f16f4e69ee91d6cdd9")
+
 
         setMiladys(miladysFound)
         setPixeladys(pixeladysFound)
@@ -119,6 +125,8 @@ export const StateContext = ({ children }) => {
         setDerivs(derivsFound)
         setAllstarz(allstarzFound)
         setRemilios(remiliosFound)
+        setMililys(mililysFound)
+        setMilads(miladsFound)
       }
 
 
@@ -315,12 +323,15 @@ export const StateContext = ({ children }) => {
         nfts,
         setNfts,
         miladys,
+        milads,
+        mililys,
         pixeladys,
         auras,
         cdbs,
         derivs,
         allstarz,
         remilios,
+        banners,
         customChoice,
         setCustomChoice,
         sizeChoice,

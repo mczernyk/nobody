@@ -27,12 +27,11 @@ const Header = () => {
             <p onClick={(e) => handleClickScroll(e, 'nobody')}>nobody</p>
             <p onClick={(e) => handleClickScroll(e, 'misc')}>accessories</p>
             <p onClick={(e) => handleClickScroll(e, 'milady')}>milady</p>
-            <p onClick={(e) => handleClickScroll(e, 'pixelady')}>pixelady</p>
-            <p onClick={(e) => handleClickScroll(e, 'milady aura')}>aura</p>
-            <p onClick={(e) => handleClickScroll(e, 'milady deriv')}>milady deriv</p>
+            <p onClick={(e) => handleClickScroll(e, 'milily')}>milady deriv</p>
             <p onClick={(e) => handleClickScroll(e, 'remilio')}>remilio</p>
             <p onClick={(e) => handleClickScroll(e, 'cdb')}>cryptodickbutt</p>
             <p onClick={(e) => handleClickScroll(e, 'allstarz')}>allstarz</p>
+            <p onClick={(e) => handleClickScroll(e, 'banners')}>banners</p>
           </div>}
         </div>
         <div className='header-about'>

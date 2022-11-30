@@ -13,7 +13,7 @@ const ProductDetails = ({ product, products }) => {
   const { image, name, details, details2, price, size, color, custom, collection } = product;
   const [index, setIndex] = useState(0);
 
-  const { decQty, incQty, qty, onAdd, setShowCart, miladys, pixeladys, auras, cdbs, derivs, allstarz, remilios, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, checked, setChecked, customText, setCustomText,colorChoice, setColorChoice, resetDefaults, preview, setPreview } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart, miladys, mililys, milads, pixeladys, auras, cdbs, derivs, allstarz, remilios, banners, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, checked, setChecked, customText, setCustomText, colorChoice, setColorChoice, resetDefaults, preview, setPreview } = useStateContext();
 
   useEffect(() => {
     resetDefaults(product)
@@ -631,6 +631,48 @@ const ProductDetails = ({ product, products }) => {
                 </div>
               }
 
+              {collection === 'milily' &&
+                <div>
+                  {mililys.length ?
+                    (
+                    <div>
+                      <div className='quantity'>
+                        <p>{mililys.length} NFTs found.</p>
+                        {customChoice && <p>{customChoice} selected.</p>}
+                      </div>
+                      <NFTContainer nfts={mililys} product={product}/>
+                    </div>
+                    ):(
+                      <div>
+                      <p>no NFTs detected from this collection, try connecting your wallet again please :)</p>
+                    </div>
+                    )
+                  }
+
+                </div>
+              }
+
+              {collection === 'milad' &&
+                <div>
+                  {milads.length ?
+                    (
+                    <div>
+                      <div className='quantity'>
+                        <p>{milads.length} NFTs found.</p>
+                        {customChoice && <p>{customChoice} selected.</p>}
+                      </div>
+                      <NFTContainer nfts={milads} product={product}/>
+                    </div>
+                    ):(
+                      <div>
+                      <p>no NFTs detected from this collection, try connecting your wallet again please :)</p>
+                    </div>
+                    )
+                  }
+
+                </div>
+              }
+
               {collection === 'pixelady' &&
                 <div>
                   {pixeladys.length ?
@@ -646,28 +688,6 @@ const ProductDetails = ({ product, products }) => {
                       <div>
                       <p>no NFTs detected from this collection, try connecting your wallet again please :)</p>
                     </div>
-                    )
-                  }
-
-                </div>
-              }
-
-
-              {collection === 'allstarz' &&
-                <div>
-                  {allstarz.length ?
-                    (
-                      <div>
-                        <div className='quantity'>
-                          <p>{allstarz.length} NFTs found.</p>
-                          {customChoice && <p>{customChoice} selected.</p>}
-                        </div>
-                        <NFTContainer nfts={allstarz} product={product}/>
-                      </div>
-                      ):(
-                      <div>
-                        <p>no NFTs detected, try connecting your wallet again please</p>
-                      </div>
                     )
                   }
 
@@ -695,27 +715,6 @@ const ProductDetails = ({ product, products }) => {
                 </div>
               }
 
-              {collection === 'cdb' &&
-                <div>
-                  {
-                    cdbs.length ?
-                    (
-                      <div>
-                        <div className='quantity'>
-                          <p>{cdbs.length} NFTs found.</p>
-                          {customChoice && <p>{customChoice} selected.</p>}
-                        </div>
-                        <NFTContainer nfts={cdbs} product={product}/>
-                      </div>
-                      ):(
-                      <div>
-                        <p>no NFTs detected, try connecting your wallet again please</p>
-                      </div>
-                    )
-                  }
-
-                </div>
-              }
               {collection === 'milady-deriv' &&
                 <div>
                   {
@@ -758,6 +757,71 @@ const ProductDetails = ({ product, products }) => {
 
                 </div>
               }
+
+              {collection === 'allstarz' &&
+                <div>
+                  {allstarz.length ?
+                    (
+                      <div>
+                        <div className='quantity'>
+                          <p>{allstarz.length} NFTs found.</p>
+                          {customChoice && <p>{customChoice} selected.</p>}
+                        </div>
+                        <NFTContainer nfts={allstarz} product={product}/>
+                      </div>
+                      ):(
+                      <div>
+                        <p>no NFTs detected, try connecting your wallet again please</p>
+                      </div>
+                    )
+                  }
+
+                </div>
+              }
+
+              {collection === 'cdb' &&
+                <div>
+                  {
+                    cdbs.length ?
+                    (
+                      <div>
+                        <div className='quantity'>
+                          <p>{cdbs.length} NFTs found.</p>
+                          {customChoice && <p>{customChoice} selected.</p>}
+                        </div>
+                        <NFTContainer nfts={cdbs} product={product}/>
+                      </div>
+                      ):(
+                      <div>
+                        <p>no NFTs detected, try connecting your wallet again please</p>
+                      </div>
+                    )
+                  }
+
+                </div>
+              }
+
+              {collection === 'banners' &&
+                <div>
+                  {banners.length ?
+                    (
+                    <div>
+                      <div className='quantity'>
+                        <p>{banners.length} NFTs found.</p>
+                        {customChoice && <p>{customChoice} selected.</p>}
+                      </div>
+                      <NFTContainer nfts={banners} product={product}/>
+                    </div>
+                    ):(
+                      <div>
+                      <p>no NFTs detected from this collection, try connecting your wallet again please :)</p>
+                    </div>
+                    )
+                  }
+
+                </div>
+              }
+
 
 
 
