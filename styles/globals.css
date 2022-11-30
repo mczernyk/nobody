@@ -371,7 +371,7 @@ width: 100%
 }
 
 .header-container p {
-  padding-bottom:20px
+  padding-bottom: 18px
 }
 .header-container-internal {
   width: 100%;
@@ -413,7 +413,7 @@ width: 100%
   width: 100%;
   padding-left: 18px;
   padding-right: 18px;
-  padding-bottom: 18px
+  /* padding-bottom: 18px */
 }
 .header-collections {
   display: flex;
