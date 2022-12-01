@@ -31,6 +31,8 @@ export const StateContext = ({ children }) => {
   const [derivs, setDerivs] = useState([])
   const [allstarz, setAllstarz] = useState([])
   const [remilios, setRemilios] = useState([])
+  const [radbros, setRadbros] = useState([])
+
 
 
 
@@ -112,6 +114,8 @@ export const StateContext = ({ children }) => {
 
         const remiliosFound = await data.items.filter(each => each.collection === "ETHEREUM:0xd3d9ddd0cf0a5f0bfb8f7fceae075df687eaebab")
 
+        const radbrosFound = await data.items.filter(each => each.collection === "ETHEREUM:0xe83c9f09b0992e4a34faf125ed4fedd3407c4a23")
+
         const mililysFound = await data.items.filter(each => each.collection === "ETHEREUM:0x71481a928c24c32e4d9a4394fab3168a3a1cfd11")
 
         const miladsFound = await data.items.filter(each => each.collection === "ETHEREUM:0x61628d84d0871a38f102d5f16f4e69ee91d6cdd9")
@@ -125,6 +129,7 @@ export const StateContext = ({ children }) => {
         setDerivs(derivsFound)
         setAllstarz(allstarzFound)
         setRemilios(remiliosFound)
+        setRadbros(radbrosFound)
         setMililys(mililysFound)
         setMilads(miladsFound)
       }
@@ -331,6 +336,7 @@ export const StateContext = ({ children }) => {
         derivs,
         allstarz,
         remilios,
+        radbros,
         banners,
         customChoice,
         setCustomChoice,

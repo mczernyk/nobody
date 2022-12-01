@@ -13,7 +13,7 @@ const ProductDetails = ({ product, products }) => {
   const { image, name, details, details2, price, size, color, custom, collection } = product;
   const [index, setIndex] = useState(0);
 
-  const { decQty, incQty, qty, onAdd, setShowCart, miladys, mililys, milads, pixeladys, auras, cdbs, derivs, allstarz, remilios, banners, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, checked, setChecked, customText, setCustomText, colorChoice, setColorChoice, resetDefaults, preview, setPreview } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart, miladys, mililys, milads, pixeladys, auras, cdbs, derivs, allstarz, radbros, remilios, banners, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, checked, setChecked, customText, setCustomText, colorChoice, setColorChoice, resetDefaults, preview, setPreview } = useStateContext();
 
   useEffect(() => {
     resetDefaults(product)
@@ -730,6 +730,27 @@ const ProductDetails = ({ product, products }) => {
                       ):(
                       <div>
                         <p>no NFTs detected, try connecting your wallet again</p>
+                      </div>
+                    )
+                  }
+
+                </div>
+              }
+
+              {collection === 'radbro' &&
+                <div>
+                  {radbros.length ?
+                    (
+                      <div>
+                        <div className='quantity'>
+                          <p>{radbros.length} NFTs found.</p>
+                          {customChoice && <p>{customChoice} selected.</p>}
+                        </div>
+                        <NFTContainer nfts={radbros} product={product}/>
+                      </div>
+                      ):(
+                      <div>
+                        <p>no NFTs detected, try connecting your wallet again please</p>
                       </div>
                     )
                   }
