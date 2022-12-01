@@ -181,7 +181,7 @@ const Home = ({ products, bannerData }) => (
 
     <div className='products-collection-container' id="remilio">
 
-      <h2>remilio</h2>
+      <h2>remilio & radbro</h2>
 
       <div className="products-container">
         {products?.sort(function (a, b) {
