@@ -85,10 +85,8 @@ const ProductDetails = ({ product, products }) => {
         if (event.target.value === 'camo') {
           setIndex(5)
           setPreview(5)
-
         }
       }
-
 
       if (name === "embroidered dad hat smile") {
         if (event.target.value === 'cotton candy') {
