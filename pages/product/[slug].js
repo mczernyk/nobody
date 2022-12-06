@@ -96,7 +96,6 @@ const ProductDetails = ({ product, products }) => {
         if (event.target.value === 'sky') {
           setIndex(1)
           setPreview(1)
-
         }
         if (event.target.value === 'light denim') {
           setIndex(2)
