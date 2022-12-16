@@ -409,7 +409,7 @@ const ProductDetails = ({ product, products }) => {
           setPreview(2)
         }
       }
-      if (name === "split logo hoodie") {
+      if (name === "embroidered split hoodie") {
         if (event.target.value === 'green') {
           setIndex(0)
           setPreview(0)
@@ -452,7 +452,7 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
-      if (name === "rose logo hoodie") {
+      if (name === "embroidered rose hoodie") {
         if (event.target.value === 'peach') {
           setIndex(0)
           setPreview(0)
@@ -495,7 +495,7 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
-      if (name === "smile logo hoodie") {
+      if (name === "embroidered smile hoodie") {
         if (event.target.value === 'navy') {
           setIndex(0)
           setPreview(0)
