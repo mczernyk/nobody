@@ -409,6 +409,92 @@ const ProductDetails = ({ product, products }) => {
           setPreview(2)
         }
       }
+      if (name === "embroidered split logo hoodie") {
+        if (event.target.value === 'green') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'blue') {
+          setIndex(1)
+          setPreview(1)
+        }
+        if (event.target.value === 'black') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'grey') {
+          setIndex(3)
+          setPreview(3)
+        }
+        if (event.target.value === 'olive') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'peach') {
+          setIndex(5)
+          setPreview(5)
+        }
+        if (event.target.value === 'maroon') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'navy') {
+          setIndex(7)
+          setPreview(7)
+        }
+        if (event.target.value === 'purple') {
+          setIndex(8)
+          setPreview(8)
+        }
+        if (event.target.value === 'charcoal') {
+          setIndex(9)
+          setPreview(9)
+        }
+      }
+
+      if (name === "embroidered rose logo hoodie") {
+        if (event.target.value === 'peach') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'olive') {
+          setIndex(1)
+          setPreview(1)
+        }
+        if (event.target.value === 'purple') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'navy') {
+          setIndex(3)
+          setPreview(3)
+        }
+        if (event.target.value === 'black') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'grey') {
+          setIndex(5)
+          setPreview(5)
+        }
+        if (event.target.value === 'green') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'maroon') {
+          setIndex(7)
+          setPreview(7)
+        }
+        if (event.target.value === 'blue') {
+          setIndex(8)
+          setPreview(8)
+        }
+        if (event.target.value === 'charcoal') {
+          setIndex(9)
+          setPreview(9)
+        }
+      }
+
       if (name === 'no body slides') {
         if (event.target.value === 'white') {
           setIndex(0)
