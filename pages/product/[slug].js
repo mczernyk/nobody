@@ -581,7 +581,7 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
-      if (name === "color crewneck") {
+      if (name === "colorblind crewneck") {
         if (event.target.value === 'red') {
           setIndex(0)
           setPreview(0)
