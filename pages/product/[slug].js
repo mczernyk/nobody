@@ -316,8 +316,16 @@ const ProductDetails = ({ product, products }) => {
 
         }
         if (event.target.value === 'tie dye') {
+          setIndex(1)
+          setPreview(1)
+        }
+        if (event.target.value === 'purple') {
           setIndex(2)
           setPreview(2)
+        }
+        if (event.target.value === 'blue') {
+          setIndex(3)
+          setPreview(3)
         }
       }
       if (name === "love tee" || name === "passenger tee" || name === "trust tee" || 'self tee' || 'planet tee' || 'vacation tee') {
