@@ -310,7 +310,7 @@ const ProductDetails = ({ product, products }) => {
       }
 
       if (name === "embroidered pattern tee") {
-        if (event.target.value === 'marble') {
+        if (event.target.value === 'marble (M, L, XL temporarily out of stock)') {
           setIndex(0)
           setPreview(0)
 
@@ -319,7 +319,7 @@ const ProductDetails = ({ product, products }) => {
           setIndex(1)
           setPreview(1)
         }
-        if (event.target.value === 'purple') {
+        if (event.target.value === 'purple (S temporarily out of stock)') {
           setIndex(2)
           setPreview(2)
         }
