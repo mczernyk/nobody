@@ -752,7 +752,7 @@ const ProductDetails = ({ product, products }) => {
 
           </div>
 
-          {(custom && name !== 'milady rave custom tee') && <div className='quantity'>
+          {(custom && name !== 'milady rave custom tee' && name.includes('sticker') === false) && <div className='quantity'>
             <div className="check-box">
               <label className='checkRow'>
                 <h3>print without name and #</h3>
