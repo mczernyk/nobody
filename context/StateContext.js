@@ -114,7 +114,7 @@ export const StateContext = ({ children }) => {
 
         const remiliosFound = await data.items.filter(each => each.collection === "ETHEREUM:0xd3d9ddd0cf0a5f0bfb8f7fceae075df687eaebab")
 
-        const radbrosFound = await data.items.filter(each => each.collection === "ETHEREUM:0xABCDB5710B88f456fED1e99025379e2969F29610")
+        const radbrosFound = await data.items.filter(each => each.collection === "ETHEREUM:0xabcdb5710b88f456fed1e99025379e2969f29610")
 
         const mililysFound = await data.items.filter(each => each.collection === "ETHEREUM:0x71481a928c24c32e4d9a4394fab3168a3a1cfd11")
 
