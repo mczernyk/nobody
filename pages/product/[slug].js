@@ -13,7 +13,7 @@ const ProductDetails = ({ product, products }) => {
   const { image, name, details, details2, price, size, color, custom, collection } = product;
   const [index, setIndex] = useState(0);
 
-  const { decQty, incQty, qty, onAdd, setShowCart, miladys, mililys, milads, pixeladys, auras, cdbs, derivs, allstarz, radbros, remilios, banners, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, checked, setChecked, customText, setCustomText, colorChoice, setColorChoice, resetDefaults, preview, setPreview } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart, miladys, mililys, milads, pixeladys, auras, cdbs, derivs, allstarz, radbros, remilios, banners, mifairys, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, checked, setChecked, customText, setCustomText, colorChoice, setColorChoice, resetDefaults, preview, setPreview } = useStateContext();
 
   useEffect(() => {
     resetDefaults(product)
@@ -838,6 +838,27 @@ const ProductDetails = ({ product, products }) => {
                         {customChoice && <p>{customChoice} selected.</p>}
                       </div>
                       <NFTContainer nfts={mililys} product={product}/>
+                    </div>
+                    ):(
+                      <div>
+                      <p>no NFTs detected from this collection, try connecting your wallet again please :)</p>
+                    </div>
+                    )
+                  }
+
+                </div>
+              }
+
+              {collection === 'mifairy' &&
+                <div>
+                  {mifairys.length ?
+                    (
+                    <div>
+                      <div className='quantity'>
+                        <p>{mifairys.length} NFTs found.</p>
+                        {customChoice && <p>{customChoice} selected.</p>}
+                      </div>
+                      <NFTContainer nfts={mifairys} product={product}/>
                     </div>
                     ):(
                       <div>

@@ -117,6 +117,48 @@ const Home = ({ products, bannerData }) => (
 
     </div>
 
+
+    <div className='products-collection-container' id="milady aura">
+
+      <h2>milady aura</h2>
+
+      <div className="products-container">
+      {products?.map((product) => product.collection === 'aura' && <Product key={product._id} product={product} />)}
+      </div>
+
+    </div>
+
+    <div className='products-collection-container' id="milady deriv">
+
+      <h2>milAIdy & spring miaura</h2>
+
+      <div className="products-container">
+        {products?.map((product) => (product.collection === 'milaidy' || product.collection === 'miaura' || product.collection === 'milady-deriv') && <Product key={product._id} product={product} />)}
+      </div>
+
+    </div>
+
+    <div className='products-collection-container' id="mifairy">
+
+      <h2>mifairy</h2>
+
+      <div className="products-container">
+        {products?.sort(function (a, b) {
+          const nameA = a.name.toUpperCase()
+          const nameB = b.name.toUpperCase()
+          if (nameA < nameB){
+            return -1
+          }
+          if (nameA > nameB){
+            return 1
+          }
+          return 0
+        }).map((product) => product.collection === 'mifairy' &&
+        <Product key={product._id} product={product} />)}
+      </div>
+
+    </div>
+
     <div className='products-collection-container' id="milad">
 
       <h2>milad</h2>
@@ -155,26 +197,6 @@ const Home = ({ products, bannerData }) => (
           return 0
         }).map((product) => product.collection === 'pixelady' &&
         <Product key={product._id} product={product} />)}
-      </div>
-
-    </div>
-
-    <div className='products-collection-container' id="milady aura">
-
-      <h2>milady aura</h2>
-
-      <div className="products-container">
-      {products?.map((product) => product.collection === 'aura' && <Product key={product._id} product={product} />)}
-      </div>
-
-    </div>
-
-    <div className='products-collection-container' id="milady deriv">
-
-      <h2>milAIdy & spring miaura</h2>
-
-      <div className="products-container">
-        {products?.map((product) => (product.collection === 'milaidy' || product.collection === 'miaura' || product.collection === 'milady-deriv') && <Product key={product._id} product={product} />)}
       </div>
 
     </div>
