@@ -138,7 +138,7 @@ const Home = ({ products, bannerData }) => (
 
     </div>
 
-    <div className='products-collection-container' id="mifairy">
+    {/*<div className='products-collection-container' id="mifairy">
 
       <h2>mifairy</h2>
 
@@ -157,7 +157,7 @@ const Home = ({ products, bannerData }) => (
         <Product key={product._id} product={product} />)}
       </div>
 
-    </div>
+      </div>*/}
 
     <div className='products-collection-container' id="milad">
 
