@@ -122,8 +122,7 @@ export const StateContext = ({ children }) => {
 
         const miladsFound = await data.items.filter(each => each.collection === "ETHEREUM:0x61628d84d0871a38f102d5f16f4e69ee91d6cdd9")
 
-        const mifairysFound = await data.items.filter(each => each.collection ===
-        "ETHEREUM:0x67b5ee6e29a4230177dda07ad7848e42d89cf9a0")
+        const mifairysFound = await data.items.filter(each => each.collection === "ETHEREUM:0x67b5ee6e29a4230177dda07ad7848e42d89cf9a0")
 
         setMiladys(miladysFound)
         setPixeladys(pixeladysFound)
