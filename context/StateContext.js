@@ -28,6 +28,7 @@ export const StateContext = ({ children }) => {
   const [banners, setBanners] = useState([])
   const [mililys, setMililys] = useState([])
   const [milads, setMilads] = useState([])
+  const [miladyStations, setMiladyStations] = useState([])
   const [derivs, setDerivs] = useState([])
   const [allstarz, setAllstarz] = useState([])
   const [remilios, setRemilios] = useState([])
@@ -124,6 +125,8 @@ export const StateContext = ({ children }) => {
 
         const mifairysFound = await data.items.filter(each => each.collection === "ETHEREUM:0x67b5ee6e29a4230177dda07ad7848e42d89cf9a0")
 
+        const miladyStationsFound = await data.items.filter(each => each.collection === "ETHEREUM:0xb24bab1732d34cad0a7c7035c3539aec553bf3a0")
+
 
 
         setMiladys(miladysFound)
@@ -138,6 +141,7 @@ export const StateContext = ({ children }) => {
         setMililys(mililysFound)
         setMilads(miladsFound)
         setMifairys(mifairysFound)
+        setMiladyStations(miladyStationsFound)
       }
 
 
@@ -345,6 +349,7 @@ export const StateContext = ({ children }) => {
         radbros,
         banners,
         mifairys,
+        miladyStations,
         customChoice,
         setCustomChoice,
         sizeChoice,

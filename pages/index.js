@@ -96,6 +96,27 @@ const Home = ({ products, bannerData }) => (
 
     </div>
 
+    <div className='products-collection-container' id="pixelady">
+
+      <h2>pixelady</h2>
+
+      <div className="products-container">
+        {products?.sort(function (a, b) {
+          const nameA = a.name.toUpperCase()
+          const nameB = b.name.toUpperCase()
+          if (nameA < nameB){
+            return -1
+          }
+          if (nameA > nameB){
+            return 1
+          }
+          return 0
+        }).map((product) => product.collection === 'pixelady' &&
+        <Product key={product._id} product={product} />)}
+      </div>
+
+    </div>
+
     <div className='products-collection-container' id="milily">
 
       <h2>milily</h2>
@@ -157,7 +178,7 @@ const Home = ({ products, bannerData }) => (
         <Product key={product._id} product={product} />)}
       </div>
 
-      </div>
+    </div>
 
     <div className='products-collection-container' id="milad">
 
@@ -180,9 +201,9 @@ const Home = ({ products, bannerData }) => (
 
     </div>
 
-    <div className='products-collection-container' id="pixelady">
+    <div className='products-collection-container' id="milady-station">
 
-      <h2>pixelady</h2>
+      <h2>milady station</h2>
 
       <div className="products-container">
         {products?.sort(function (a, b) {
@@ -195,7 +216,7 @@ const Home = ({ products, bannerData }) => (
             return 1
           }
           return 0
-        }).map((product) => product.collection === 'pixelady' &&
+        }).map((product) => product.collection === 'milady-station' &&
         <Product key={product._id} product={product} />)}
       </div>
 
