@@ -203,7 +203,7 @@ const Home = ({ products, bannerData }) => (
 
     <div className='products-collection-container' id="milady-station">
 
-      <h2>milady station</h2>
+      <h2>MiladyStation</h2>
 
       <div className="products-container">
         {products?.sort(function (a, b) {
