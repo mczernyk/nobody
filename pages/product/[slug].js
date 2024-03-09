@@ -88,6 +88,34 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "embroidered dad hat read") {
+        if (event.target.value === 'camo') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'cotton black') {
+          setIndex(1)
+          setPreview(1)
+
+        }
+        if (event.target.value === 'cotton red') {
+          setIndex(2)
+          setPreview(2)
+
+        }
+        if (event.target.value === 'cotton navy') {
+          setIndex(3)
+          setPreview(3)
+
+        }
+        if (event.target.value === 'cotton pink') {
+          setIndex(4)
+          setPreview(4)
+
+        }
+
+      }
+
       if (name === "embroidered dad hat smile") {
         if (event.target.value === 'cotton candy') {
           setIndex(0)
