@@ -115,8 +115,8 @@ const ProductDetails = ({ product, products }) => {
         }
 
         if (event.target.value === 'cotton pink') {
-          setIndex(4)
-          setPreview(4)
+          setIndex(5)
+          setPreview(5)
 
         }
 
