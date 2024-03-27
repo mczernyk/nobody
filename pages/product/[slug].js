@@ -451,7 +451,7 @@ const ProductDetails = ({ product, products }) => {
           setPreview(2)
         }
       }
-      if (name === "embroidered split hoodie") {
+      if (name === "embroidered split hoodie" || "embroidered flower hoodie") {
         if (event.target.value === 'green') {
           setIndex(0)
           setPreview(0)
