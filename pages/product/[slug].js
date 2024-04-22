@@ -409,6 +409,82 @@ const ProductDetails = ({ product, products }) => {
           setPreview(10)
         }
       }
+
+      if (name === "lounge tee") {
+        if (event.target.value === 'green') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'navy') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'black') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'white') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'purple') {
+          setIndex(8)
+          setPreview(8)
+        }
+        if (event.target.value === 'butter') {
+          setIndex(10)
+          setPreview(10)
+        }
+      }
+
+      if (name === "gun tee") {
+        if (event.target.value === 'butter') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'blue') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'black') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'red') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'white') {
+          setIndex(8)
+          setPreview(8)
+        }
+
+      }
+
+      if (name === "bart tee") {
+        if (event.target.value === 'white') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'green') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'navy') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'berry') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'purple') {
+          setIndex(8)
+          setPreview(8)
+        }
+
+      }
+
       if (name === "nnn tee") {
         if (event.target.value === 'butter') {
           setIndex(0)
