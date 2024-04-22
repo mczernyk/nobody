@@ -88,6 +88,27 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "embroidered dad hat flower") {
+        if (event.target.value === 'black cotton') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'red cotton') {
+          setIndex(1)
+          setPreview(1)
+
+        }
+        if (event.target.value === 'tan cotton') {
+          setIndex(2)
+          setPreview(2)
+
+        }
+        if (event.target.value === 'pink cotton') {
+          setIndex(3)
+          setPreview(3)
+        }
+      }
+
       if (name === "embroidered dad hat read") {
         if (event.target.value === 'camo') {
           setIndex(0)
