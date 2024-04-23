@@ -1001,6 +1001,49 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "script logo tee") {
+        if (event.target.value === 'ivory') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'navy') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'light blue') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'blue') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'black') {
+          setIndex(8)
+          setPreview(8)
+        }
+        if (event.target.value === 'butter') {
+          setIndex(10)
+          setPreview(10)
+        }
+        if (event.target.value === 'white') {
+          setIndex(12)
+          setPreview(12)
+        }
+        if (event.target.value === 'berry') {
+          setIndex(14)
+          setPreview(14)
+        }
+        if (event.target.value === 'purple') {
+          setIndex(16)
+          setPreview(16)
+        }
+        if (event.target.value === 'green') {
+          setIndex(18)
+          setPreview(18)
+        }
+      }
+
       if (name === "egirl logo crewneck") {
         if (event.target.value === 'black') {
           setIndex(0)
