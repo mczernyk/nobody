@@ -915,6 +915,45 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "egirl logo dad hat") {
+        if (event.target.value === 'blue denim') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'light denim') {
+          setIndex(1)
+          setPreview(1)
+
+        }
+        if (event.target.value === 'black cotton') {
+          setIndex(2)
+          setPreview(2)
+
+        }
+        if (event.target.value === 'pink cotton') {
+          setIndex(3)
+          setPreview(3)
+
+        }
+        if (event.target.value === 'camo cotton') {
+          setIndex(4)
+          setPreview(4)
+
+        }
+        if (event.target.value === 'light blue cotton') {
+          setIndex(5)
+          setPreview(5)
+        }
+        if (event.target.value === 'tan cotton') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'slate cotton') {
+          setIndex(7)
+          setPreview(7)
+        }
+      }
+
 
     } else {
 
