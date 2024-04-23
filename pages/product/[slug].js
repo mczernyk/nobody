@@ -425,7 +425,7 @@ const ProductDetails = ({ product, products }) => {
           setIndex(2)
           setPreview(2)
         }
-        if (event.target.value === 'navy') {
+        if (event.target.value === 'butter') {
           setIndex(4)
           setPreview(4)
         }
