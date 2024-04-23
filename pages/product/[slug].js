@@ -88,27 +88,6 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
-      if (name === "embroidered dad hat flower") {
-        if (event.target.value === 'black cotton') {
-          setIndex(0)
-          setPreview(0)
-        }
-        if (event.target.value === 'red cotton') {
-          setIndex(1)
-          setPreview(1)
-
-        }
-        if (event.target.value === 'tan cotton') {
-          setIndex(2)
-          setPreview(2)
-
-        }
-        if (event.target.value === 'pink cotton') {
-          setIndex(3)
-          setPreview(3)
-        }
-      }
-
       if (name === "embroidered dad hat read") {
         if (event.target.value === 'camo') {
           setIndex(0)
@@ -383,9 +362,7 @@ const ProductDetails = ({ product, products }) => {
           setPreview(3)
         }
       }
-
-
-      if (name === "love tee") {
+      if (name === "love tee" || name === "passenger tee" || name === "trust tee" || 'self tee' || 'planet tee' || 'vacation tee') {
         if (event.target.value === 'black') {
           setIndex(0)
           setPreview(0)
@@ -411,196 +388,6 @@ const ProductDetails = ({ product, products }) => {
           setPreview(10)
         }
       }
-
-      if (name === "passenger tee") {
-        if (event.target.value === 'black') {
-          setIndex(0)
-          setPreview(0)
-        }
-        if (event.target.value === 'white') {
-          setIndex(2)
-          setPreview(2)
-        }
-        if (event.target.value === 'berry') {
-          setIndex(4)
-          setPreview(4)
-        }
-        if (event.target.value === 'navy') {
-          setIndex(6)
-          setPreview(6)
-        }
-        if (event.target.value === 'purple') {
-          setIndex(8)
-          setPreview(8)
-        }
-        if (event.target.value === 'butter') {
-          setIndex(10)
-          setPreview(10)
-        }
-      }
-
-      if (name === "trust tee") {
-        if (event.target.value === 'black') {
-          setIndex(0)
-          setPreview(0)
-        }
-        if (event.target.value === 'white') {
-          setIndex(2)
-          setPreview(2)
-        }
-        if (event.target.value === 'berry') {
-          setIndex(4)
-          setPreview(4)
-        }
-        if (event.target.value === 'navy') {
-          setIndex(6)
-          setPreview(6)
-        }
-        if (event.target.value === 'purple') {
-          setIndex(8)
-          setPreview(8)
-        }
-        if (event.target.value === 'butter') {
-          setIndex(10)
-          setPreview(10)
-        }
-      }
-
-      if (name === 'self tee') {
-        if (event.target.value === 'black') {
-          setIndex(0)
-          setPreview(0)
-        }
-        if (event.target.value === 'white') {
-          setIndex(2)
-          setPreview(2)
-        }
-        if (event.target.value === 'berry') {
-          setIndex(4)
-          setPreview(4)
-        }
-        if (event.target.value === 'navy') {
-          setIndex(6)
-          setPreview(6)
-        }
-        if (event.target.value === 'purple') {
-          setIndex(8)
-          setPreview(8)
-        }
-        if (event.target.value === 'butter') {
-          setIndex(10)
-          setPreview(10)
-        }
-      }
-
-      if (name === 'planet tee') {
-        if (event.target.value === 'black') {
-          setIndex(0)
-          setPreview(0)
-        }
-        if (event.target.value === 'white') {
-          setIndex(2)
-          setPreview(2)
-        }
-        if (event.target.value === 'berry') {
-          setIndex(4)
-          setPreview(4)
-        }
-        if (event.target.value === 'navy') {
-          setIndex(6)
-          setPreview(6)
-        }
-        if (event.target.value === 'purple') {
-          setIndex(8)
-          setPreview(8)
-        }
-        if (event.target.value === 'butter') {
-          setIndex(10)
-          setPreview(10)
-        }
-      }
-
-      if (nname === 'vacation tee') {
-        if (event.target.value === 'black') {
-          setIndex(0)
-          setPreview(0)
-        }
-        if (event.target.value === 'white') {
-          setIndex(2)
-          setPreview(2)
-        }
-        if (event.target.value === 'berry') {
-          setIndex(4)
-          setPreview(4)
-        }
-        if (event.target.value === 'navy') {
-          setIndex(6)
-          setPreview(6)
-        }
-        if (event.target.value === 'purple') {
-          setIndex(8)
-          setPreview(8)
-        }
-        if (event.target.value === 'butter') {
-          setIndex(10)
-          setPreview(10)
-        }
-      }
-
-      if (name === "smile tee") {
-        if (event.target.value === 'purple') {
-          setIndex(0)
-          setPreview(0)
-        }
-        if (event.target.value === 'white') {
-          setIndex(2)
-          setPreview(2)
-        }
-        if (event.target.value === 'black') {
-          setIndex(4)
-          setPreview(4)
-        }
-        if (event.target.value === 'berry') {
-          setIndex(6)
-          setPreview(6)
-        }
-        if (event.target.value === 'navy') {
-          setIndex(8)
-          setPreview(8)
-        }
-        if (event.target.value === 'butter') {
-          setIndex(10)
-          setPreview(10)
-        }
-      }
-
-      if (name === "mind tee") {
-        if (event.target.value === 'purple') {
-          setIndex(0)
-          setPreview(0)
-        }
-        if (event.target.value === 'white') {
-          setIndex(2)
-          setPreview(2)
-        }
-        if (event.target.value === 'black') {
-          setIndex(4)
-          setPreview(4)
-        }
-        if (event.target.value === 'berry') {
-          setIndex(6)
-          setPreview(6)
-        }
-        if (event.target.value === 'navy') {
-          setIndex(8)
-          setPreview(8)
-        }
-        if (event.target.value === 'butter') {
-          setIndex(10)
-          setPreview(10)
-        }
-      }
-
       if (name === "nnn tee") {
         if (event.target.value === 'butter') {
           setIndex(0)
@@ -628,12 +415,12 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
-      if (name === "lounge tee") {
-        if (event.target.value === 'green') {
+      if (name === "mind tee" || name === "smile tee") {
+        if (event.target.value === 'purple') {
           setIndex(0)
           setPreview(0)
         }
-        if (event.target.value === 'navy') {
+        if (event.target.value === 'white') {
           setIndex(2)
           setPreview(2)
         }
@@ -641,11 +428,11 @@ const ProductDetails = ({ product, products }) => {
           setIndex(4)
           setPreview(4)
         }
-        if (event.target.value === 'white') {
+        if (event.target.value === 'berry') {
           setIndex(6)
           setPreview(6)
         }
-        if (event.target.value === 'purple') {
+        if (event.target.value === 'navy') {
           setIndex(8)
           setPreview(8)
         }
@@ -654,55 +441,6 @@ const ProductDetails = ({ product, products }) => {
           setPreview(10)
         }
       }
-
-      if (name === "gun tee") {
-        if (event.target.value === 'butter') {
-          setIndex(0)
-          setPreview(0)
-        }
-        if (event.target.value === 'blue') {
-          setIndex(2)
-          setPreview(2)
-        }
-        if (event.target.value === 'black') {
-          setIndex(4)
-          setPreview(4)
-        }
-        if (event.target.value === 'red') {
-          setIndex(6)
-          setPreview(6)
-        }
-        if (event.target.value === 'white') {
-          setIndex(8)
-          setPreview(8)
-        }
-
-      }
-
-      if (name === "bart tee") {
-        if (event.target.value === 'white') {
-          setIndex(0)
-          setPreview(0)
-        }
-        if (event.target.value === 'green') {
-          setIndex(2)
-          setPreview(2)
-        }
-        if (event.target.value === 'navy') {
-          setIndex(4)
-          setPreview(4)
-        }
-        if (event.target.value === 'berry') {
-          setIndex(6)
-          setPreview(6)
-        }
-        if (event.target.value === 'purple') {
-          setIndex(8)
-          setPreview(8)
-        }
-
-      }
-
       if (name === "smile crop top") {
         if (event.target.value === 'white') {
           setIndex(0)
@@ -713,7 +451,7 @@ const ProductDetails = ({ product, products }) => {
           setPreview(2)
         }
       }
-      if (name === "embroidered split hoodie") {
+      if (name === "embroidered split hoodie" || "embroidered flower hoodie") {
         if (event.target.value === 'green') {
           setIndex(0)
           setPreview(0)
