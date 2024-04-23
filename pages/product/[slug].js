@@ -1042,6 +1042,7 @@ const ProductDetails = ({ product, products }) => {
           setIndex(18)
           setPreview(18)
         }
+
       }
 
       if (name === "egirl logo crewneck") {
