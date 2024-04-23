@@ -545,7 +545,7 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
-      if (name === "embroidered smile hoodie") {
+      if (name === "embroidered smile hoodie ") {
         if (event.target.value === 'navy') {
           setIndex(0)
           setPreview(0)
