@@ -1186,6 +1186,22 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "egirl script logo dad hat") {
+        if (event.target.value === 'light denim') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'blue denim') {
+          setIndex(2)
+          setPreview(2)
+
+        }
+        if (event.target.value === 'black denim') {
+          setIndex(4)
+          setPreview(4)
+        }
+      }
+
 
     } else {
 
