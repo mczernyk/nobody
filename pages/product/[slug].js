@@ -521,6 +521,57 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "player tee") {
+        if (event.target.value === 'white') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'green') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'butter') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'berry') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'purple') {
+          setIndex(8)
+          setPreview(8)
+        }
+        if (event.target.value === 'brick') {
+          setIndex(10)
+          setPreview(10)
+        }
+        if (event.target.value === 'black') {
+          setIndex(12)
+          setPreview(12)
+        }
+        if (event.target.value === 'grey') {
+          setIndex(14)
+          setPreview(14)
+        }
+        if (event.target.value === 'ice') {
+          setIndex(16)
+          setPreview(16)
+        }
+        if (event.target.value === 'red') {
+          setIndex(18)
+          setPreview(18)
+        }
+        if (event.target.value === 'watermelon') {
+          setIndex(20)
+          setPreview(20)
+        }
+        if (event.target.value === 'navy') {
+          setIndex(22)
+          setPreview(22)
+        }
+      }
+
       if (name === "lounge tee") {
         if (event.target.value === 'green') {
           setIndex(0)
