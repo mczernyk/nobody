@@ -915,6 +915,53 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "egirl logo hoodie") {
+        if (event.target.value === 'ice') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'grey') {
+          setIndex(1)
+          setPreview(1)
+        }
+        if (event.target.value === 'peach') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'olive') {
+          setIndex(3)
+          setPreview(3)
+        }
+        if (event.target.value === 'green') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'maroon') {
+          setIndex(5)
+          setPreview(5)
+        }
+        if (event.target.value === 'purple') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'blue') {
+          setIndex(7)
+          setPreview(7)
+        }
+        if (event.target.value === 'navy') {
+          setIndex(8)
+          setPreview(8)
+        }
+        if (event.target.value === 'charcoal') {
+          setIndex(9)
+          setPreview(9)
+        }
+        if (event.target.value === 'black') {
+          setIndex(10)
+          setPreview(10)
+        }
+      }
+
       if (name === "egirl logo dad hat") {
         if (event.target.value === 'blue denim') {
           setIndex(0)
