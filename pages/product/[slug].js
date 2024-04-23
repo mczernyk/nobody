@@ -442,6 +442,29 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "gun tee") {
+        if (event.target.value === 'butter') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'blue') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'black') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'red') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'white') {
+          setIndex(8)
+          setPreview(8)
+        }
+      }
+
       if (name === "mind tee" || name === "smile tee") {
         if (event.target.value === 'purple') {
           setIndex(0)
