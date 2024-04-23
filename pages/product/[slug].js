@@ -388,6 +388,7 @@ const ProductDetails = ({ product, products }) => {
           setPreview(10)
         }
       }
+
       if (name === "nnn tee") {
         if (event.target.value === 'butter') {
           setIndex(0)
@@ -412,6 +413,29 @@ const ProductDetails = ({ product, products }) => {
         if (event.target.value === 'navy') {
           setIndex(10)
           setPreview(10)
+        }
+      }
+
+      if (name === "bart tee") {
+        if (event.target.value === 'white') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'green') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'navy') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'berry') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'purple') {
+          setIndex(8)
+          setPreview(8)
         }
       }
 
