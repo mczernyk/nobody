@@ -864,6 +864,57 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "egirl logo crewneck") {
+        if (event.target.value === 'black') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'pink') {
+          setIndex(1)
+          setPreview(1)
+        }
+        if (event.target.value === 'tan') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'olive') {
+          setIndex(3)
+          setPreview(3)
+        }
+        if (event.target.value === 'grey') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'charcoal') {
+          setIndex(5)
+          setPreview(5)
+        }
+        if (event.target.value === 'navy') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'blue') {
+          setIndex(7)
+          setPreview(7)
+        }
+        if (event.target.value === 'light blue') {
+          setIndex(8)
+          setPreview(8)
+        }
+        if (event.target.value === 'maroon') {
+          setIndex(9)
+          setPreview(9)
+        }
+        if (event.target.value === 'navy') {
+          setIndex(10)
+          setPreview(10)
+        }
+        if (event.target.value === 'forest') {
+          setIndex(11)
+          setPreview(11)
+        }
+      }
+
 
     } else {
 
