@@ -40,7 +40,7 @@ const ProductDetails = ({ product, products }) => {
   }
 
   const handleChangeColor = (event) => {
-    if (collection === 'originals' || collection === 'originals-outers'|| collection === 'misc') {
+    if (collection === 'originals' || collection === 'originals-outers'|| collection === 'misc' || collection === 'egirl') {
       if (name === "embroidered denim jacket") {
         if (event.target.value === 'black denim') {
           setIndex(0)
@@ -830,6 +830,37 @@ const ProductDetails = ({ product, products }) => {
         if (event.target.value === 'apricot white') {
           setIndex(0)
           setPreview(0)
+        }
+      }
+
+      if (name === "egirl crop top") {
+        if (event.target.value === 'pink') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'hazy pink') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'pale pink') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'camel') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'black') {
+          setIndex(8)
+          setPreview(8)
+        }
+        if (event.target.value === 'ecru') {
+          setIndex(10)
+          setPreview(10)
+        }
+        if (event.target.value === 'white') {
+          setIndex(12)
+          setPreview(12)
         }
       }
 
