@@ -413,6 +413,7 @@ const ProductDetails = ({ product, products }) => {
       }
 
       if (name === "passenger tee") {
+        if (event.target.value === 'black') {
           setIndex(0)
           setPreview(0)
         }
@@ -573,6 +574,33 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "mind tee") {
+        if (event.target.value === 'purple') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'white') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'black') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'berry') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'navy') {
+          setIndex(8)
+          setPreview(8)
+        }
+        if (event.target.value === 'butter') {
+          setIndex(10)
+          setPreview(10)
+        }
+      }
+
       if (name === "nnn tee") {
         if (event.target.value === 'butter') {
           setIndex(0)
@@ -595,33 +623,6 @@ const ProductDetails = ({ product, products }) => {
           setPreview(8)
         }
         if (event.target.value === 'navy') {
-          setIndex(10)
-          setPreview(10)
-        }
-      }
-
-      if (name === "mind tee" || name === "smile tee") {
-        if (event.target.value === 'purple') {
-          setIndex(0)
-          setPreview(0)
-        }
-        if (event.target.value === 'white') {
-          setIndex(2)
-          setPreview(2)
-        }
-        if (event.target.value === 'black') {
-          setIndex(4)
-          setPreview(4)
-        }
-        if (event.target.value === 'berry') {
-          setIndex(6)
-          setPreview(6)
-        }
-        if (event.target.value === 'navy') {
-          setIndex(8)
-          setPreview(8)
-        }
-        if (event.target.value === 'butter') {
           setIndex(10)
           setPreview(10)
         }
@@ -712,6 +713,7 @@ const ProductDetails = ({ product, products }) => {
           setPreview(2)
         }
       }
+
       if (name === "embroidered split hoodie" || "embroidered flower hoodie") {
         if (event.target.value === 'green') {
           setIndex(0)
