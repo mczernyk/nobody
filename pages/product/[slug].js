@@ -903,6 +903,45 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "juku tee") {
+        if (event.target.value === 'black') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'white') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'red') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'blue') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'green') {
+          setIndex(8)
+          setPreview(8)
+        }
+        if (event.target.value === 'berry') {
+          setIndex(10)
+          setPreview(10)
+        }
+        if (event.target.value === 'ice') {
+          setIndex(12)
+          setPreview(12)
+        }
+        if (event.target.value === 'purple') {
+          setIndex(14)
+          setPreview(14)
+        }
+        if (event.target.value === 'butter') {
+          setIndex(16)
+          setPreview(16)
+        }
+      }
+
       if (name === "egirl logo crewneck") {
         if (event.target.value === 'black') {
           setIndex(0)
