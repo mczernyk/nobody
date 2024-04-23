@@ -53,6 +53,12 @@ const Home = ({ products, bannerData }) => (
         }).map((product) => product.collection === 'originals' && <Product key={product._id} product={product} />)}
       </div>
 
+    </div>
+
+    <div className='products-collection-container'  id="outerwear">
+
+      <h2>outerwear</h2>
+
       <div className="products-container">
         {products?.sort(function (a, b) {
           const nameA = a.name.toUpperCase()
