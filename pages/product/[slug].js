@@ -40,7 +40,7 @@ const ProductDetails = ({ product, products }) => {
   }
 
   const handleChangeColor = (event) => {
-    if (collection === 'originals' || collection === 'misc') {
+    if (collection === 'originals' || collection === 'originals-outers'|| collection === 'misc') {
       if (name === "embroidered denim jacket") {
         if (event.target.value === 'black denim') {
           setIndex(0)
