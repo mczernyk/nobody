@@ -1237,6 +1237,35 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "egirl cordury dad hat") {
+        if (event.target.value === 'brown') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'red') {
+          setIndex(2)
+          setPreview(2)
+
+        }
+        if (event.target.value === 'navy') {
+          setIndex(4)
+          setPreview(4)
+
+        }
+        if (event.target.value === 'olive') {
+          setIndex(6)
+          setPreview(6)
+
+        }
+        if (event.target.value === 'black') {
+          setIndex(8)
+          setPreview(8)
+
+        }
+
+      }
+
+
       if (name === "egirl script logo dad hat") {
         if (event.target.value === 'light denim') {
           setIndex(0)
