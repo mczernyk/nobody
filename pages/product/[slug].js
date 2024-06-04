@@ -1266,7 +1266,7 @@ const ProductDetails = ({ product, products }) => {
       }
 
 
-      if (name === "egirl script logo dad hat") {
+      if (name === "egirl script logo dad hat" || name === "egirl og logo dad hat") {
         if (event.target.value === 'light denim') {
           setIndex(0)
           setPreview(0)
