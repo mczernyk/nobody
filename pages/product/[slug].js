@@ -974,7 +974,7 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
-      if (name === "ivermectin tee") {
+      if (name === "ivermectin tee" || name === "austin bomber tee") {
         if (event.target.value === 'black') {
           setIndex(0)
           setPreview(0)
