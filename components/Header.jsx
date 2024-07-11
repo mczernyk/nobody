@@ -19,7 +19,7 @@ const Header = () => {
 
         </div>
       </div>
-        <p>making digital assets real</p>
+        <p>"nobody loves you"</p>
       <div className='header-items'>
         <div className='header-collections' >
           <p onClick={() => handleVisible(menuVisible)}>collections</p>
