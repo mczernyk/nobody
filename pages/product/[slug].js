@@ -439,6 +439,7 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+
       if (name === "martini tee") {
         if (event.target.value === 'butter') {
           setIndex(0)
