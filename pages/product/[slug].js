@@ -1269,7 +1269,7 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
-      if (name === "egirl cordury dad hat") {
+      if (name === "egirl corduroy dad hat") {
         if (event.target.value === 'brown') {
           setIndex(0)
           setPreview(0)
