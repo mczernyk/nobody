@@ -277,11 +277,11 @@ const ProductDetails = ({ product, products }) => {
       }
 
       if (name === "embroidered beanie") {
-        if (event.target.value === 'sky beanie') {
+        if (event.target.value === 'sky [SOLD OUT]') {
           setIndex(0)
           setPreview(0)
         }
-        if (event.target.value === 'cotton candy beanie') {
+        if (event.target.value === 'cotton candy [SOLD OUT]') {
           setIndex(1)
           setPreview(1)
 
