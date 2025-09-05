@@ -411,6 +411,7 @@ const ProductDetails = ({ product, products }) => {
           setPreview(10)
         }
       }
+
       if (name === "company tee") {
         if (event.target.value === 'pink') {
           setIndex(0)
