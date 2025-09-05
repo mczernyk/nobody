@@ -409,6 +409,7 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+
       if (name === "embroidered pattern tee") {
         if (event.target.value === 'marble (M, L, XL temporarily out of stock)') {
           setIndex(0)
