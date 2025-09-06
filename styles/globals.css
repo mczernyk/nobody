@@ -294,10 +294,28 @@ width: 100%
 /* Limit to 4 products per row on desktop */
 @media screen and (min-width: 1024px) {
   .products-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    justify-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .products-container > * {
+    flex: 0 0 calc(25% - 15px);
+    max-width: calc(25% - 15px);
+  }
+}
+
+/* Ensure proper wrapping on smaller screens */
+@media screen and (max-width: 1023px) {
+  .products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .products-container > * {
+    flex: 0 0 auto;
+    max-width: none;
   }
 }
 .products-collection-container{
