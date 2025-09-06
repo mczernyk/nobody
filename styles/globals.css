@@ -305,6 +305,8 @@ width: 100%
     flex: 0 0 calc(25% - 11.25px);
     max-width: calc(25% - 11.25px);
     min-width: 310px; /* Ensure product cards can accommodate small-images-container */
+    display: flex;
+    justify-content: center;
   }
 }
 .products-collection-container{
