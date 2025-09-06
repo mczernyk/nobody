@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useStateContext } from '../context/StateContext';
+import { getNFTImageUrl, getNFTName } from '../lib/opensea';
 
 
 const NFTCard = ({nft, product}) => {
@@ -13,21 +14,23 @@ const NFTCard = ({nft, product}) => {
     setCustomChoice(name)
   }
 
-  return (
-    <div className="nft-card" onClick={(e) => handleClick(e, nft.meta.name)}>
+  const nftName = getNFTName(nft);
+  const nftImageUrl = getNFTImageUrl(nft);
 
-      {nft.collection === "ETHEREUM:0x8fc0d90f2c45a5e7f94904075c952e0943cfccfd"
-      ?
-      <img src={nft.meta.content[0].url} width="200px" alt={nft.meta.name}/>
-      :
-      <img src={nft.meta.content[nft.meta.content.length-1].url} width="200px" alt={nft.meta.name}/>
-      }
+  return (
+    <div className="nft-card" onClick={(e) => handleClick(e, nftName)}>
+      <img
+        src={nftImageUrl}
+        width="200px"
+        alt={nftName}
+        onError={(e) => {
+          e.target.src = '/nbCircle.png'; // Fallback image
+        }}
+      />
 
       <div className="nft-name">
-        {nft.meta.name}
+        {nftName}
       </div>
-
-
     </div>
   )
 }

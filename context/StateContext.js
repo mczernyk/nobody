@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
+import { getAllCollectionNFTs } from '../lib/opensea';
 
 const Context = createContext();
 
@@ -71,6 +72,10 @@ export const StateContext = ({ children }) => {
 
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
 
+      console.log('MetaMask accounts:', accounts);
+      console.log('First account:', accounts[0]);
+      console.log('Account type:', typeof accounts[0]);
+
       setWalletAddress(accounts[0])
 
       let abbvAddy = accounts[0].slice(0,5) + '...' + accounts[0].slice(-4)
@@ -83,76 +88,45 @@ export const StateContext = ({ children }) => {
   }
 
   const getNFTData = async () => {
-
-    if (!walletAddress) {
-      return
+    if (!walletAddress || walletAddress === 'no wallet connected :(') {
+      return;
     }
 
-    const response = await fetch(`https://api.rarible.org/v0.1/items/byOwner/?owner=ETHEREUM:${walletAddress}&size=${100000}`)
+    try {
+      console.log('=== NFT FETCH DEBUG ===');
+      console.log('Raw wallet address from state:', walletAddress);
+      console.log('Wallet address type:', typeof walletAddress);
+      console.log('Wallet address length:', walletAddress.length);
+      console.log('========================');
 
+      const collectionNFTs = await getAllCollectionNFTs(walletAddress);
 
-      const data = await response.json()
+      // Set all NFT collections
+      setMiladys(collectionNFTs.miladys);
+      setPixeladys(collectionNFTs.pixeladys);
+      setAuras(collectionNFTs.auras);
+      setCdbs(collectionNFTs.cdbs);
+      setBanners(collectionNFTs.banners);
+      setDerivs(collectionNFTs.derivs);
+      setAllstarz(collectionNFTs.allstarz);
+      setRemilios(collectionNFTs.remilios);
+      setRadbros(collectionNFTs.radbros);
+      setDadbros(collectionNFTs.dadbros);
+      setMililys(collectionNFTs.mililys);
+      setMilads(collectionNFTs.milads);
+      setMifairys(collectionNFTs.mifairys);
+      setMiladyStations(collectionNFTs.miladyStations);
 
-      setNfts(data.items)
+      // Set all NFTs for general use
+      const allNFTs = Object.values(collectionNFTs).flat();
+      setNfts(allNFTs);
 
-      // NFT LIST
-      console.log(data.items)
+      console.log('NFTs fetched successfully:', allNFTs.length, 'total NFTs');
 
-      if (data.items) {
-
-        const miladysFound = await data.items.filter(each => each.collection === "ETHEREUM:0x5af0d9827e0c53e4799bb226655a1de152a425a5")
-
-        const pixeladysFound = await data.items.filter(each => each.collection === "ETHEREUM:0x8fc0d90f2c45a5e7f94904075c952e0943cfccfd")
-
-        const aurasFound = await data.items.filter(each => each.collection === "ETHEREUM:0x2fc722c1c77170a61f17962cc4d039692f033b43")
-
-        const bannersFound = await data.items.filter(each => each.collection ===
-          "ETHEREUM:0x1352149cd78d686043b504e7e7d96c5946b0c39c")
-
-        const derivsFound = await data.items.filter(each => (each.collection ===
-          "ETHEREUM:0x3a007afa2dff13c9dc5020acae1bcb502d4312e2" || each.collection === "ETHEREUM:0x0d8a3359182dca59ccaf36f5c6c6008b83ceb4a6"))
-
-        const cdbsFound = await data.items.filter(each => each.collection === "ETHEREUM:0x42069abfe407c60cf4ae4112bedead391dba1cdb")
-
-        const allstarzFound = await data.items.filter(each => each.collection === "ETHEREUM:0xec0a7a26456b8451aefc4b00393ce1beff5eb3e9")
-
-        const remiliosFound = await data.items.filter(each => each.collection === "ETHEREUM:0xd3d9ddd0cf0a5f0bfb8f7fceae075df687eaebab")
-
-        const radbrosFound = await data.items.filter(each => each.collection === "ETHEREUM:0xabcdb5710b88f456fed1e99025379e2969f29610")
-
-        const dadbrosFound = await data.items.filter(each => each.collection === "")
-
-        const mililysFound = await data.items.filter(each => each.collection === "ETHEREUM:0x71481a928c24c32e4d9a4394fab3168a3a1cfd11")
-
-        const miladsFound = await data.items.filter(each => each.collection === "ETHEREUM:0x61628d84d0871a38f102d5f16f4e69ee91d6cdd9")
-
-        const mifairysFound = await data.items.filter(each => each.collection === "ETHEREUM:0x67b5ee6e29a4230177dda07ad7848e42d89cf9a0")
-
-        const miladyStationsFound = await data.items.filter(each => each.collection === "ETHEREUM:0xb24bab1732d34cad0a7c7035c3539aec553bf3a0")
-
-
-
-        setMiladys(miladysFound)
-        setPixeladys(pixeladysFound)
-        setAuras(aurasFound)
-        setCdbs(cdbsFound)
-        setBanners(bannersFound)
-        setDerivs(derivsFound)
-        setAllstarz(allstarzFound)
-        setRemilios(remiliosFound)
-        setRadbros(radbrosFound)
-        setDadbros(dadbrosFound)
-        setMililys(mililysFound)
-        setMilads(miladsFound)
-        setMifairys(mifairysFound)
-        setMiladyStations(miladyStationsFound)
-      }
-
-
-
-
-      // debugger
-
+    } catch (error) {
+      console.error('Error fetching NFT data:', error);
+      toast.error('Failed to fetch NFT data. Please try again.');
+    }
   }
 
 
