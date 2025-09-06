@@ -290,6 +290,16 @@ width: 100%
   margin-top: 20px;
   width: 100%;
 }
+
+/* Limit to 4 products per row on desktop */
+@media screen and (min-width: 1024px) {
+  .products-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    justify-items: center;
+  }
+}
 .products-collection-container{
   display: flex;
   flex-direction: column;
