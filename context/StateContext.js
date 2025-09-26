@@ -68,23 +68,539 @@ export const StateContext = ({ children }) => {
 
 
   const connectWallet = async () => {
-    if (typeof window.ethereum !== 'undefined') {
-
-      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-
-      console.log('MetaMask accounts:', accounts);
-      console.log('First account:', accounts[0]);
-      console.log('Account type:', typeof accounts[0]);
-
-      setWalletAddress(accounts[0])
-
-      let abbvAddy = accounts[0].slice(0,5) + '...' + accounts[0].slice(-4)
-
-      setAbbvWalletAddress(abbvAddy)
-
-      // console.log('MetaMask is installed!');
-      toast.success(`wallet connected ;)`);
+    // Only run on client side
+    if (typeof window === 'undefined') {
+      return;
     }
+
+    // Detect available wallets
+    const wallets = detectWallets();
+    console.log('Detected wallets:', wallets);
+
+    if (wallets.length === 0) {
+      toast.error('No wallet extensions detected. Please install MetaMask, Phantom, or another wallet.');
+      return;
+    }
+
+    // If multiple wallets, let user choose
+    if (wallets.length > 1) {
+      const selectedWallet = await showWalletSelectionDialog(wallets);
+      if (!selectedWallet) {
+        toast.info('Wallet selection cancelled');
+        return;
+      }
+      await connectToWallet(selectedWallet);
+    } else {
+      // Only one wallet detected, connect directly
+      await connectToWallet(wallets[0]);
+    }
+  }
+
+  const connectToWallet = async (wallet) => {
+    try {
+      console.log(`=== CONNECTING TO ${wallet.name.toUpperCase()} ===`);
+      console.log(`Wallet ID: ${wallet.id}`);
+      console.log(`Wallet Provider:`, wallet.provider);
+
+      // For MetaMask, add a small delay to allow full initialization
+      if (wallet.id === 'metamask') {
+        console.log('⏳ Waiting for MetaMask to fully initialize...');
+        await new Promise(resolve => setTimeout(resolve, 500));
+      }
+
+      // Request account access first to ensure we have permission
+      const accounts = await wallet.provider.request({
+        method: 'eth_requestAccounts'
+      });
+      console.log(`${wallet.name} returned accounts:`, accounts);
+      console.log(`Number of accounts: ${accounts.length}`);
+
+      if (accounts.length === 0) {
+        toast.error(`No accounts available in ${wallet.name}`);
+        return;
+      }
+
+      let selectedAccount = accounts[0];
+      console.log(`Initial selected account: ${selectedAccount}`);
+
+      // For MetaMask specifically, we need to force account selection
+      // because selectedAddress is often undefined due to wallet conflicts
+      if (wallet.id === 'metamask') {
+        console.log(`MetaMask selectedAddress: ${wallet.provider.selectedAddress}`);
+        console.log(`MetaMask isMetaMask: ${wallet.provider.isMetaMask}`);
+
+        // Force MetaMask to show account selection by requesting permissions first
+        try {
+          console.log('🔧 Forcing MetaMask account selection...');
+          await wallet.provider.request({
+            method: 'wallet_requestPermissions',
+            params: [{ eth_accounts: {} }]
+          });
+          console.log('✅ MetaMask permissions granted');
+        } catch (permError) {
+          console.log('⚠️ Permission request failed (this is often normal):', permError);
+        }
+      }
+
+      // Always check for multiple accounts and show selection dialog if needed
+      try {
+        const allAccounts = await wallet.provider.request({
+          method: 'eth_accounts'
+        });
+
+        console.log(`=== ACCOUNT SELECTION LOGIC ===`);
+        console.log(`All accounts from ${wallet.name}:`, allAccounts);
+        console.log(`All accounts length: ${allAccounts.length}`);
+        console.log(`Current selectedAccount: ${selectedAccount}`);
+
+        // For MetaMask, always show account selection dialog if multiple accounts exist
+        // because selectedAddress is unreliable due to wallet conflicts
+        if (wallet.id === 'metamask' && allAccounts.length > 1) {
+          console.log('🚨 METAMASK WITH MULTIPLE ACCOUNTS - FORCING SELECTION DIALOG');
+          const accountOptions = allAccounts.map(account => ({
+            address: account,
+            display: `${account.slice(0,6)}...${account.slice(-4)}`,
+            isSelected: account === selectedAccount
+          }));
+
+          console.log('MetaMask account options for dialog:', accountOptions);
+
+          const userSelectedAddress = await showAccountSelectionDialog(accountOptions);
+          if (userSelectedAddress) {
+            selectedAccount = userSelectedAddress;
+            console.log(`✅ User selected MetaMask account: ${selectedAccount}`);
+          } else {
+            console.log('❌ MetaMask account selection cancelled');
+            toast.info('Account selection cancelled');
+            return;
+          }
+        } else if (allAccounts.length > 1) {
+          console.log('🚨 MULTIPLE ACCOUNTS DETECTED - SHOWING SELECTION DIALOG');
+          const accountOptions = allAccounts.map(account => ({
+            address: account,
+            display: `${account.slice(0,6)}...${account.slice(-4)}`,
+            isSelected: account === selectedAccount
+          }));
+
+          console.log('Account options for dialog:', accountOptions);
+
+          const userSelectedAddress = await showAccountSelectionDialog(accountOptions);
+          if (userSelectedAddress) {
+            selectedAccount = userSelectedAddress;
+            console.log(`✅ User selected account: ${selectedAccount}`);
+          } else {
+            console.log('❌ Account selection cancelled');
+            toast.info('Account selection cancelled');
+            return;
+          }
+        } else if (allAccounts.length === 1) {
+          // Only one account, use it
+          selectedAccount = allAccounts[0];
+          console.log(`📝 Only one account available: ${selectedAccount}`);
+        } else {
+          console.log('⚠️ No accounts found in eth_accounts');
+        }
+      } catch (error) {
+        console.log('❌ Could not get all accounts for selection:', error);
+      }
+
+      // Set the selected account
+      setWalletAddress(selectedAccount);
+      let abbvAddy = selectedAccount.slice(0,5) + '...' + selectedAccount.slice(-4);
+      setAbbvWalletAddress(abbvAddy);
+      toast.success(`Connected to ${wallet.name}: ${abbvAddy}`);
+
+      // Listen for account changes
+      wallet.provider.on('accountsChanged', (newAccounts) => {
+        if (newAccounts.length > 0) {
+          console.log('Account changed to:', newAccounts[0]);
+          setWalletAddress(newAccounts[0]);
+          let newAbbvAddy = newAccounts[0].slice(0,5) + '...' + newAccounts[0].slice(-4);
+          setAbbvWalletAddress(newAbbvAddy);
+          toast.success('Wallet account switched');
+        } else {
+          setWalletAddress('no wallet connected :(');
+          setAbbvWalletAddress('');
+          toast.info('Wallet disconnected');
+        }
+      });
+
+    } catch (error) {
+      console.error(`Error connecting to ${wallet.name}:`, error);
+      if (error.code === 4001) {
+        toast.error(`Please connect your wallet in ${wallet.name}`);
+      } else {
+        toast.error(`Failed to connect to ${wallet.name}`);
+      }
+    }
+  };
+
+  const detectWallets = () => {
+    const wallets = [];
+    const detectedProviders = new Set();
+
+    console.log('=== WALLET DETECTION ===');
+    console.log('window.ethereum:', window.ethereum);
+    console.log('window.ethereum?.isMetaMask:', window.ethereum?.isMetaMask);
+    console.log('window.phantom:', window.phantom);
+    console.log('window.backpack:', window.backpack);
+    console.log('window.coinbaseWalletExtension:', window.coinbaseWalletExtension);
+    console.log('window.rainbow:', window.rainbow);
+    console.log('window.trustwallet:', window.trustwallet);
+
+    // Check for MetaMask
+    if (window.ethereum?.isMetaMask) {
+      console.log('✅ MetaMask detected');
+      wallets.push({
+        name: 'MetaMask',
+        id: 'metamask',
+        provider: window.ethereum
+      });
+      detectedProviders.add(window.ethereum);
+    } else {
+      console.log('❌ MetaMask not detected');
+    }
+
+    // Check for Phantom
+    if (window.phantom?.ethereum) {
+      console.log('✅ Phantom detected');
+      wallets.push({
+        name: 'Phantom',
+        id: 'phantom',
+        provider: window.phantom.ethereum
+      });
+      detectedProviders.add(window.phantom.ethereum);
+    } else {
+      console.log('❌ Phantom not detected');
+    }
+
+    // Check for Backpack
+    if (window.backpack) {
+      console.log('✅ Backpack detected');
+      wallets.push({
+        name: 'Backpack',
+        id: 'backpack',
+        provider: window.backpack
+      });
+      detectedProviders.add(window.backpack);
+    } else {
+      console.log('❌ Backpack not detected');
+    }
+
+    // Check for Coinbase Wallet
+    if (window.coinbaseWalletExtension) {
+      console.log('✅ Coinbase Wallet detected');
+      wallets.push({
+        name: 'Coinbase Wallet',
+        id: 'coinbase',
+        provider: window.coinbaseWalletExtension
+      });
+      detectedProviders.add(window.coinbaseWalletExtension);
+    } else {
+      console.log('❌ Coinbase Wallet not detected');
+    }
+
+    // Check for Rainbow
+    if (window.rainbow) {
+      console.log('✅ Rainbow detected');
+      wallets.push({
+        name: 'Rainbow',
+        id: 'rainbow',
+        provider: window.rainbow
+      });
+      detectedProviders.add(window.rainbow);
+    } else {
+      console.log('❌ Rainbow not detected');
+    }
+
+    // Check for Trust Wallet
+    if (window.trustwallet) {
+      console.log('✅ Trust Wallet detected');
+      wallets.push({
+        name: 'Trust Wallet',
+        id: 'trustwallet',
+        provider: window.trustwallet
+      });
+      detectedProviders.add(window.trustwallet);
+    } else {
+      console.log('❌ Trust Wallet not detected');
+    }
+
+    // Check for other wallets that might be in window.ethereum
+    if (window.ethereum && !detectedProviders.has(window.ethereum)) {
+      // Try to identify the wallet by checking various properties
+      let walletName = 'Unknown Wallet';
+      if (window.ethereum.isBraveWallet) {
+        walletName = 'Brave Wallet';
+      } else if (window.ethereum.isRabby) {
+        walletName = 'Rabby';
+      } else if (window.ethereum.isTokenPocket) {
+        walletName = 'TokenPocket';
+      } else if (window.ethereum.isOkxWallet) {
+        walletName = 'OKX Wallet';
+      } else if (window.ethereum.isBitKeep) {
+        walletName = 'BitKeep';
+      }
+
+      wallets.push({
+        name: walletName,
+        id: 'other',
+        provider: window.ethereum
+      });
+    }
+
+    console.log(`=== WALLET DETECTION COMPLETE ===`);
+    console.log(`Total wallets detected: ${wallets.length}`);
+    console.log('Detected wallets:', wallets.map(w => w.name));
+    console.log('================================');
+
+    return wallets;
+  };
+
+  const showWalletSelectionDialog = (wallets) => {
+    return new Promise((resolve) => {
+      // Only run on client side
+      if (typeof window === 'undefined' || typeof document === 'undefined') {
+        resolve(null);
+        return;
+      }
+
+      // Create modal overlay
+      const overlay = document.createElement('div');
+      overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+      `;
+
+      // Create modal content
+      const modal = document.createElement('div');
+      modal.style.cssText = `
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 400px;
+        width: 90%;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      `;
+
+      modal.innerHTML = `
+        <h3 style="margin: 0 0 15px 0; color: #333;">Select Wallet</h3>
+        <p style="margin: 0 0 15px 0; color: #666;">Multiple wallets detected. Please choose one:</p>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          ${wallets.map((wallet, index) => `
+            <button
+              style="
+                padding: 12px;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                background: white;
+                cursor: pointer;
+                font-size: 14px;
+                transition: background-color 0.2s;
+              "
+              onmouseover="this.style.backgroundColor='#f5f5f5'"
+              onmouseout="this.style.backgroundColor='white'"
+              data-wallet-index='${index}'
+            >
+              ${wallet.name}
+            </button>
+          `).join('')}
+        </div>
+        <button
+          style="
+            margin-top: 15px;
+            padding: 8px 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: #f5f5f5;
+            cursor: pointer;
+            font-size: 14px;
+          "
+          onclick="this.closest('[style*=\"position: fixed\"]').remove()"
+        >
+          Cancel
+        </button>
+      `;
+
+      // Add click handlers
+      modal.addEventListener('click', (e) => {
+        if (e.target.dataset.walletIndex) {
+          const walletIndex = parseInt(e.target.dataset.walletIndex);
+          const wallet = wallets[walletIndex];
+          overlay.remove();
+          resolve(wallet);
+        }
+      });
+
+      overlay.appendChild(modal);
+      document.body.appendChild(overlay);
+    });
+  };
+
+  // Enhanced account selection dialog with high z-index and prominent styling
+  const showAccountSelectionDialog = (accounts) => {
+    return new Promise((resolve) => {
+      // Only run on client side
+      if (typeof window === 'undefined' || typeof document === 'undefined') {
+        resolve(null);
+        return;
+      }
+
+      console.log('🎯 Creating ENHANCED account selection dialog with accounts:', accounts);
+
+      // Create modal overlay with very high z-index
+      const overlay = document.createElement('div');
+      overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999999;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      `;
+
+      // Create modal content with prominent styling
+      const modal = document.createElement('div');
+      modal.style.cssText = `
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        max-width: 600px;
+        width: 90%;
+        max-height: 80vh;
+        overflow-y: auto;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        border: 3px solid #007bff;
+        animation: slideIn 0.3s ease-out;
+      `;
+
+      // Add CSS animation
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes slideIn {
+          from { opacity: 0; transform: translateY(-30px) scale(0.95); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+      `;
+      document.head.appendChild(style);
+
+      modal.innerHTML = `
+        <h2 style="margin: 0 0 20px 0; color: #333; text-align: center; font-size: 24px;">
+          🔐 Select Your MetaMask Account
+        </h2>
+        <p style="margin: 0 0 20px 0; color: #666; font-size: 16px; text-align: center; line-height: 1.5;">
+          We detected multiple accounts in your MetaMask wallet. Please select which account you want to connect:
+        </p>
+        <div id="account-list" style="margin-bottom: 20px;"></div>
+        <div style="text-align: center;">
+          <button id="cancel-btn" style="
+            padding: 12px 24px;
+            border: 2px solid #dc3545;
+            border-radius: 6px;
+            background: white;
+            color: #dc3545;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.2s;
+          ">Cancel Connection</button>
+        </div>
+      `;
+
+      const accountList = modal.querySelector('#account-list');
+      const cancelBtn = modal.querySelector('#cancel-btn');
+
+      accounts.forEach((account, index) => {
+        const accountDiv = document.createElement('div');
+        const isSelected = account.isSelected;
+        accountDiv.style.cssText = `
+          padding: 15px;
+          border: 2px solid ${isSelected ? '#28a745' : '#ddd'};
+          border-radius: 8px;
+          margin-bottom: 12px;
+          cursor: pointer;
+          transition: all 0.2s;
+          background-color: ${isSelected ? '#d4edda' : 'white'};
+          position: relative;
+        `;
+
+        accountDiv.innerHTML = `
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-weight: bold; font-size: 16px; color: #333;">
+                ${account.display}${isSelected ? ' ⭐ (Currently Selected in MetaMask)' : ''}
+              </div>
+              <div style="font-size: 12px; color: #666; margin-top: 4px;">${account.address}</div>
+            </div>
+            ${isSelected ? '<div style="color: #28a745; font-size: 20px;">✓</div>' : ''}
+          </div>
+        `;
+
+        accountDiv.addEventListener('click', () => {
+          console.log(`✅ User selected account: ${account.address}`);
+          document.body.removeChild(overlay);
+          document.head.removeChild(style);
+          resolve(account.address);
+        });
+
+        accountDiv.addEventListener('mouseenter', () => {
+          accountDiv.style.backgroundColor = isSelected ? '#c3e6cb' : '#f8f9fa';
+          accountDiv.style.borderColor = isSelected ? '#28a745' : '#007bff';
+          accountDiv.style.transform = 'translateY(-2px)';
+        });
+
+        accountDiv.addEventListener('mouseleave', () => {
+          accountDiv.style.backgroundColor = isSelected ? '#d4edda' : 'white';
+          accountDiv.style.borderColor = isSelected ? '#28a745' : '#ddd';
+          accountDiv.style.transform = 'translateY(0)';
+        });
+
+        accountList.appendChild(accountDiv);
+      });
+
+      cancelBtn.addEventListener('click', () => {
+        console.log('❌ User cancelled account selection');
+        document.body.removeChild(overlay);
+        document.head.removeChild(style);
+        resolve(null);
+      });
+
+      cancelBtn.addEventListener('mouseenter', () => {
+        cancelBtn.style.backgroundColor = '#dc3545';
+        cancelBtn.style.color = 'white';
+      });
+
+      cancelBtn.addEventListener('mouseleave', () => {
+        cancelBtn.style.backgroundColor = 'white';
+        cancelBtn.style.color = '#dc3545';
+      });
+
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          console.log('❌ User clicked outside dialog');
+          document.body.removeChild(overlay);
+          document.head.removeChild(style);
+          resolve(null);
+        }
+      });
+
+      overlay.appendChild(modal);
+      document.body.appendChild(overlay);
+      console.log('🎯 ENHANCED account selection dialog created and added to DOM with z-index 999999');
+    });
   }
 
   const getNFTData = async () => {

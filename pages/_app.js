@@ -8,8 +8,6 @@ import '../styles/fonts.css';
 import { StateContext } from '../context/StateContext';
 import { Toaster } from 'react-hot-toast';
 
-
-
 function MyApp({ Component, pageProps }) {
   return (
     <StateContext>
@@ -18,7 +16,6 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </Layout>
     </StateContext>
-
   )
 }
 

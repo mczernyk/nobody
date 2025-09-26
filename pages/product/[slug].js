@@ -13,7 +13,7 @@ const ProductDetails = ({ product, products }) => {
   const { image, name, details, details2, price, size, color, custom, collection } = product;
   const [index, setIndex] = useState(0);
 
-  const { decQty, incQty, qty, onAdd, setShowCart, miladys, mililys, milads, miladyStations, mifairys, pixeladys, auras, cdbs, derivs, allstarz, radbros, dadbros, remilios, banners, customChoice, setCustomChoice, connectWallet, walletAddress, sizeChoice, setSizeChoice, checked, setChecked, customText, setCustomText, colorChoice, setColorChoice, resetDefaults, preview, setPreview } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart, customChoice, setCustomChoice, sizeChoice, setSizeChoice, checked, setChecked, customText, setCustomText, colorChoice, setColorChoice, resetDefaults, preview, setPreview, walletAddress, connectWallet, miladys, mililys, milads, miladyStations, mifairys, pixeladys, auras, cdbs, derivs, allstarz, radbros, dadbros, remilios, banners } = useStateContext();
 
   useEffect(() => {
     resetDefaults(product)
@@ -1525,19 +1525,9 @@ const ProductDetails = ({ product, products }) => {
             <div>
             <h3>connect your wallet and choose an NFT below:</h3>
 
-            {walletAddress==='no wallet connected :('
-            ?
-
-            <button type="button" onClick={() => connectWallet()}
-            className="connect-wallet">
-              Connect Wallet
+            <button type="button" className="btn" onClick={connectWallet}>
+              {walletAddress === 'no wallet connected :(' ? 'Connect Wallet' : `Connected: ${walletAddress.slice(0,5)}...${walletAddress.slice(-4)}`}
             </button>
-            :
-            <button type="button" disabled={true} onClick={() => connectWallet()}
-            className="connect-wallet">
-              Wallet Connected
-            </button>
-            }
 
               {collection === 'milady' &&
                 <div>
