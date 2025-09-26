@@ -36,6 +36,8 @@ export const StateContext = ({ children }) => {
   const [radbros, setRadbros] = useState([])
   const [dadbros, setDadbros] = useState([])
   const [mifairys, setMifairys] = useState([])
+  const [bonklers, setBonklers] = useState([])
+
 
 
 
@@ -628,6 +630,7 @@ export const StateContext = ({ children }) => {
       setRemilios(collectionNFTs.remilios);
       setRadbros(collectionNFTs.radbros);
       setDadbros(collectionNFTs.dadbros);
+      setBonklers(collectionNFTs.bonklers);
       setMililys(collectionNFTs.mililys);
       setMilads(collectionNFTs.milads);
       setMifairys(collectionNFTs.mifairys);
@@ -842,6 +845,7 @@ export const StateContext = ({ children }) => {
         remilios,
         radbros,
         dadbros,
+        bonklers,
         banners,
         mifairys,
         miladyStations,

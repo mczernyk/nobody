@@ -292,10 +292,10 @@ const Home = ({ products, bannerData }) => (
         {products?.sort(function (a, b) {
           const nameA = a.name.toUpperCase()
           const nameB = b.name.toUpperCase()
-          if (nameA > nameB){
+          if (nameA < nameB){
             return -1
           }
-          if (nameA < nameB){
+          if (nameA > nameB){
             return 1
           }
           return 0
@@ -321,6 +321,27 @@ const Home = ({ products, bannerData }) => (
           }
           return 0
         }).map((product) => product.collection === 'remilio' && <Product key={product._id} product={product} />)}
+      </div>
+
+
+    </div>
+
+    <div className='products-collection-container' id="bonkler">
+
+      <h2>bonkler</h2>
+
+      <div className="products-container">
+        {products?.sort(function (a, b) {
+          const nameA = a.name.toUpperCase()
+          const nameB = b.name.toUpperCase()
+          if (nameA < nameB){
+            return -1
+          }
+          if (nameA > nameB){
+            return 1
+          }
+          return 0
+        }).map((product) => product.collection === 'bonkler' && <Product key={product._id} product={product} />)}
       </div>
 
 

@@ -13,7 +13,7 @@ const ProductDetails = ({ product, products }) => {
   const { image, name, details, details2, price, size, color, custom, collection } = product;
   const [index, setIndex] = useState(0);
 
-  const { decQty, incQty, qty, onAdd, setShowCart, customChoice, setCustomChoice, sizeChoice, setSizeChoice, checked, setChecked, customText, setCustomText, colorChoice, setColorChoice, resetDefaults, preview, setPreview, walletAddress, connectWallet, miladys, mililys, milads, miladyStations, mifairys, pixeladys, auras, cdbs, derivs, allstarz, radbros, dadbros, remilios, banners } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart, customChoice, setCustomChoice, sizeChoice, setSizeChoice, checked, setChecked, customText, setCustomText, colorChoice, setColorChoice, resetDefaults, preview, setPreview, walletAddress, connectWallet, miladys, mililys, milads, miladyStations, mifairys, pixeladys, auras, cdbs, derivs, allstarz, radbros, dadbros, remilios, banners, bonklers } = useStateContext();
 
   useEffect(() => {
     resetDefaults(product)
@@ -1750,6 +1750,27 @@ const ProductDetails = ({ product, products }) => {
                           {customChoice && <p>{customChoice} selected.</p>}
                         </div>
                         <NFTContainer nfts={remilios} product={product}/>
+                      </div>
+                      ):(
+                      <div>
+                        <p>no NFTs detected, try connecting your wallet again please</p>
+                      </div>
+                    )
+                  }
+
+                </div>
+              }
+
+              {collection === 'bonkler' &&
+                <div>
+                  {bonklers.length ?
+                    (
+                      <div>
+                        <div className='quantity'>
+                          <p>{bonklers.length} NFTs found.</p>
+                          {customChoice && <p>{customChoice} selected.</p>}
+                        </div>
+                        <NFTContainer nfts={bonklers} product={product}/>
                       </div>
                       ):(
                       <div>

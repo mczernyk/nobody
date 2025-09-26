@@ -44,7 +44,7 @@ const PRODUCT_WEIGHTS = {
 const TEE_COLLECTIONS = [
   'banners', 'cdb', 'remilio', 'dadbro', 'radbro',
   'miladystation', 'milad', 'mifairy', 'milily',
-  'pixelady', 'aura', 'miaura', 'milaidy', 'deriv'
+  'pixelady', 'aura', 'miaura', 'milaidy', 'deriv', 'bonkler'
 ];
 
 // Collections that are all t-shirts except custom stickers
