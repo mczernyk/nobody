@@ -102,11 +102,11 @@ const ProductDetails = ({ product, products }) => {
       }
 
       if (name === "embroidered dad hat") {
-        if (event.target.value === 'sky') {
+        if (event.target.value === 'sky [SOLD OUT]') {
           setIndex(0)
           setPreview(0)
         }
-        if (event.target.value === 'cotton candy') {
+        if (event.target.value === 'cotton candy [SOLD OUT]') {
           setIndex(1)
           setPreview(1)
 
@@ -189,11 +189,11 @@ const ProductDetails = ({ product, products }) => {
       }
 
       if (name === "embroidered dad hat smile") {
-        if (event.target.value === 'cotton candy') {
+        if (event.target.value === 'cotton candy [SOLD OUT]') {
           setIndex(0)
           setPreview(0)
         }
-        if (event.target.value === 'sky') {
+        if (event.target.value === 'sky [SOLD OUT]') {
           setIndex(1)
           setPreview(1)
         }
