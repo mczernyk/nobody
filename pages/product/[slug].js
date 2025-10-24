@@ -42,7 +42,7 @@ const ProductDetails = ({ product, products }) => {
   const handleChangeColor = (event) => {
     if (collection === 'originals' || collection === 'originals-outers'|| collection === 'misc' || collection === 'egirl') {
       if (name === "company tee") {
-        if (event.target.value === 'pink') {
+        if (event.target.value === 'orchid') {
           setIndex(0)
           setPreview(0)
         }
@@ -121,7 +121,7 @@ const ProductDetails = ({ product, products }) => {
           setIndex(16)
           setPreview(16)
         }
-        if (event.target.value === 'pink') {
+        if (event.target.value === 'orchid') {
           setIndex(18)
           setPreview(18)
         }
