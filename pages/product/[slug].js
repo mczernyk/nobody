@@ -243,6 +243,7 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+
       if (name === "embroidered dad hat flower") {
         if (event.target.value === 'black cotton') {
           setIndex(0)
