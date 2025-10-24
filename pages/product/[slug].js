@@ -175,6 +175,74 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "embroidered dad hat tri") {
+        if (event.target.value === 'black cotton') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'stone cotton') {
+          setIndex(1)
+          setPreview(1)
+
+        }
+        if (event.target.value === 'white cotton') {
+          setIndex(2)
+          setPreview(2)
+
+        }
+        if (event.target.value === 'camo cotton') {
+          setIndex(3)
+          setPreview(3)
+
+        }
+        if (event.target.value === 'navy cotton') {
+          setIndex(4)
+          setPreview(4)
+
+        }
+        if (event.target.value === 'red cotton') {
+          setIndex(5)
+          setPreview(5)
+
+        }
+        if (event.target.value === 'khaki cotton') {
+          setIndex(6)
+          setPreview(6)
+
+        }
+
+        if (event.target.value === 'light blue cotton') {
+          setIndex(7)
+          setPreview(7)
+
+        }
+        if (event.target.value === 'pink cotton') {
+          setIndex(8)
+          setPreview(8)
+
+        }
+        if (event.target.value === 'spruce cotton') {
+          setIndex(9)
+          setPreview(9)
+
+        }
+        if (event.target.value === 'black denim') {
+          setIndex(10)
+          setPreview(10)
+
+        }
+        if (event.target.value === 'blue denim') {
+          setIndex(11)
+          setPreview(11)
+
+        }
+        if (event.target.value === 'light blue denim') {
+          setIndex(12)
+          setPreview(12)
+
+        }
+      }
+
       if (name === "embroidered dad hat flower") {
         if (event.target.value === 'black cotton') {
           setIndex(0)
