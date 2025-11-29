@@ -208,7 +208,8 @@ export default async function handler(req, res) {
         submit_type: 'pay',
         mode: 'payment',
         allow_promotion_codes: true,
-        payment_method_types: ['card'],
+        // payment_method_types not specified - Stripe will automatically show all enabled payment methods
+        // including cards and stablecoin payments (crypto) when enabled in the dashboard
         shipping_address_collection: {
           allowed_countries: ['US']
         },
