@@ -1016,6 +1016,45 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "embroidered neg hoodie") {
+        if (event.target.value === 'tan') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'back') {
+          setIndex(1)
+          setPreview(1)
+        }
+        if (event.target.value === 'grey') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'pink') {
+          setIndex(3)
+          setPreview(3)
+        }
+        if (event.target.value === 'light blue') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'peach') {
+          setIndex(5)
+          setPreview(5)
+        }
+        if (event.target.value === 'navy') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'oatmeal') {
+          setIndex(7)
+          setPreview(7)
+        }
+        if (event.target.value === 'white') {
+          setIndex(8)
+          setPreview(8)
+        }
+      }
+
       if (name === "embroidered smile hoodie ") {
         if (event.target.value === 'navy') {
           setIndex(0)
