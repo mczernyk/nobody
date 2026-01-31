@@ -1021,7 +1021,7 @@ const ProductDetails = ({ product, products }) => {
           setIndex(0)
           setPreview(0)
         }
-        if (event.target.value === 'back') {
+        if (event.target.value === 'black') {
           setIndex(1)
           setPreview(1)
         }
