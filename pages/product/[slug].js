@@ -84,6 +84,49 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "s&d tee") {
+        if (event.target.value === 'ice') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'black') {
+          setIndex(2)
+          setPreview(2)
+        }
+        if (event.target.value === 'white') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'berry') {
+          setIndex(6)
+          setPreview(6)
+        }
+        if (event.target.value === 'orchid') {
+          setIndex(8)
+          setPreview(8)
+        }
+        if (event.target.value === 'navy') {
+          setIndex(10)
+          setPreview(10)
+        }
+        if (event.target.value === 'purple') {
+          setIndex(12)
+          setPreview(12)
+        }
+        if (event.target.value === 'chambray') {
+          setIndex(14)
+          setPreview(14)
+        }
+        if (event.target.value === 'butter') {
+          setIndex(16)
+          setPreview(16)
+        }
+        if (event.target.value === 'ivory') {
+          setIndex(18)
+          setPreview(18)
+        }
+      }
+
       if (name === "kaspar tee") {
         if (event.target.value === 'ice') {
           setIndex(0)
@@ -470,6 +513,40 @@ const ProductDetails = ({ product, products }) => {
         if (event.target.value === 'gold beanie') {
           setIndex(8)
           setPreview(8)
+        }
+      }
+
+      if (name === "embroidered fisherman beanie") {
+        if (event.target.value === 'eggshell beanie') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'navy beanie') {
+          setIndex(1)
+          setPreview(1)
+
+        }
+        if (event.target.value === 'olive beanie') {
+          setIndex(2)
+          setPreview(2)
+
+        }
+        if (event.target.value === 'black beanie') {
+          setIndex(3)
+          setPreview(3)
+
+        }
+        if (event.target.value === 'gray beanie') {
+          setIndex(4)
+          setPreview(4)
+        }
+        if (event.target.value === 'brown beanie') {
+          setIndex(5)
+          setPreview(5)
+        }
+        if (event.target.value === 'red beanie') {
+          setIndex(6)
+          setPreview(6)
         }
       }
 
