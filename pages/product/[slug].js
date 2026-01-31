@@ -309,6 +309,23 @@ const ProductDetails = ({ product, products }) => {
         }
       }
 
+      if (name === "embroidered dad hat neg") {
+        if (event.target.value === 'light denim') {
+          setIndex(0)
+          setPreview(0)
+        }
+        if (event.target.value === 'blue denim') {
+          setIndex(1)
+          setPreview(1)
+
+        }
+        if (event.target.value === 'black denim') {
+          setIndex(2)
+          setPreview(2)
+
+        }
+      }
+
       if (name === "embroidered dad hat read") {
         if (event.target.value === 'camo') {
           setIndex(0)
