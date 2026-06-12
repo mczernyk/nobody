@@ -22,23 +22,23 @@ const Header = () => {
         <p>nobody loves you</p>
       <div className='header-items'>
         <div className='header-collections' >
-          <p onClick={() => handleVisible(menuVisible)}>collections</p>
+          <p className="sound-click1" onClick={() => handleVisible(menuVisible)}>collections</p>
           {menuVisible && <div className='header-menu-items'>
-            <p onClick={(e) => handleClickScroll(e, 'nobody')}>nobody</p>
-            <p onClick={(e) => handleClickScroll(e, 'egirl')}>$egirl</p>
-            <p onClick={(e) => handleClickScroll(e, 'milady')}>milady</p>
-            <p onClick={(e) => handleClickScroll(e, 'pixelady')}>derivs</p>
-            <p onClick={(e) => handleClickScroll(e, 'radbro')}>radbro</p>
-            <p onClick={(e) => handleClickScroll(e, 'dadbro')}>dadbro</p>
-            <p onClick={(e) => handleClickScroll(e, 'remilio')}>remilio</p>
-            <p onClick={(e) => handleClickScroll(e, 'bonkler')}>bonkler</p>
-            <p onClick={(e) => handleClickScroll(e, 'cdb')}>cdb</p>
-            <p onClick={(e) => handleClickScroll(e, 'banners')}>banners</p>
+            <p className="sound-click1" onClick={(e) => handleClickScroll(e, 'nobody')}>nobody</p>
+            <p className="sound-click1" onClick={(e) => handleClickScroll(e, 'egirl')}>$egirl</p>
+            <p className="sound-click1" onClick={(e) => handleClickScroll(e, 'milady')}>milady</p>
+            <p className="sound-click1" onClick={(e) => handleClickScroll(e, 'pixelady')}>derivs</p>
+            <p className="sound-click1" onClick={(e) => handleClickScroll(e, 'radbro')}>radbro</p>
+            <p className="sound-click1" onClick={(e) => handleClickScroll(e, 'dadbro')}>dadbro</p>
+            <p className="sound-click1" onClick={(e) => handleClickScroll(e, 'remilio')}>remilio</p>
+            <p className="sound-click1" onClick={(e) => handleClickScroll(e, 'bonkler')}>bonkler</p>
+            <p className="sound-click1" onClick={(e) => handleClickScroll(e, 'cdb')}>cdb</p>
+            <p className="sound-click1" onClick={(e) => handleClickScroll(e, 'banners')}>banners</p>
           </div>}
         </div>
         <div className='header-about'>
           <Link href="/about">
-            <p>about</p>
+            <a className="sound-click1">about</a>
           </Link>
         </div>
       </div>

@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { AiOutlineShopping } from 'react-icons/ai'
 
 import { Cart } from './';
+import LoopToggle from './LoopToggle';
+import SoundToggle from './SoundToggle';
 import { useStateContext } from '../context/StateContext';
 
 const Navbar = () => {
@@ -26,7 +28,9 @@ const Navbar = () => {
           Connect Wallet
       </button>*/}
 
-        <button type="button" className="cart-icon" onClick={() => setShowCart(true)}>
+        <LoopToggle />
+        <SoundToggle />
+        <button type="button" className="cart-icon" data-sound="click3" onClick={() => setShowCart(true)}>
           <AiOutlineShopping />
           <span className="cart-item-qty">{totalQuantities}</span>
         </button>

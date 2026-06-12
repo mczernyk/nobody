@@ -39,6 +39,7 @@ const Cart = () => {
         <button
         type="button"
         className="cart-heading"
+        data-sound="click1"
         onClick={() => setShowCart(false)}>
           <AiOutlineLeft />
           <span className="heading">your cart</span>
@@ -80,11 +81,11 @@ const Cart = () => {
                 <div className="flex bottom">
                   <div>
                   <p className="quantity-desc">
-                    <span className="minus" onClick={() => toggleCartItemQuanitity(item.key, 'dec') }>
+                    <span className="minus" data-sound="remove" onClick={() => toggleCartItemQuanitity(item.key, 'dec') }>
                     <AiOutlineMinus />
                     </span>
-                    <span className="num" onClick="">{item.quantity}</span>
-                    <span className="plus" onClick={() => toggleCartItemQuanitity(item.key, 'inc') }><AiOutlinePlus /></span>
+                    <span className="num">{item.quantity}</span>
+                    <span className="plus" data-sound="add" onClick={() => toggleCartItemQuanitity(item.key, 'inc') }><AiOutlinePlus /></span>
                   </p>
                   </div>
                   <button
@@ -106,7 +107,7 @@ const Cart = () => {
               <h3 className='cart-price'>${totalPrice.toFixed(2)}</h3>
             </div>
             <div className="btn-container">
-              <button type="button" className="btn" onClick={handleCheckout}>
+              <button type="button" className="btn" data-sound="click3" onClick={handleCheckout}>
                 Pay with Stripe
               </button>
             </div>

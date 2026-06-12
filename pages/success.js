@@ -29,7 +29,7 @@ const Success = () => {
         </p>
           <div className="success-button">
           <h3>
-            <Link href="/">
+            <Link href="/" data-sound="click3">
                 go home
             </Link>
           </h3>

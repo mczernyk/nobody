@@ -2143,9 +2143,9 @@ const ProductDetails = ({ product, products }) => {
           <div className="quantity">
             <h3>quantity:</h3>
             <p className="quantity-desc">
-              <span className="minus" onClick={decQty}><AiOutlineMinus /></span>
+              <span className="minus" data-sound="remove" onClick={decQty}><AiOutlineMinus /></span>
               <span className="num">{qty}</span>
-              <span className="plus" onClick={incQty}><AiOutlinePlus /></span>
+              <span className="plus" data-sound="add" onClick={incQty}><AiOutlinePlus /></span>
             </p>
           </div>
 
@@ -2154,8 +2154,8 @@ const ProductDetails = ({ product, products }) => {
 
 
          <div className="buttons">
-            <button disabled={customChoice === '' && custom } type="button" className="add-to-cart" onClick={() => onAdd(product, qty, sizeChoice, colorChoice, customChoice, preview, checked)}>Add to Cart</button>
-            <button disabled={customChoice === '' && custom } type="button" className="buy-now" onClick={handleBuyNow}>Buy Now</button>
+            <button disabled={customChoice === '' && custom } type="button" className="add-to-cart" data-sound="click2" onClick={() => onAdd(product, qty, sizeChoice, colorChoice, customChoice, preview, checked)}>Add to Cart</button>
+            <button disabled={customChoice === '' && custom } type="button" className="buy-now" data-sound="click2" onClick={handleBuyNow}>Buy Now</button>
           </div>
 
 
@@ -2165,7 +2165,7 @@ const ProductDetails = ({ product, products }) => {
 
       <div className="home-button">
         <h2>
-          <Link href="/" onClick={resetDefaults}>
+          <Link href="/" data-sound="click3" onClick={resetDefaults}>
           go home
           </Link>
 
